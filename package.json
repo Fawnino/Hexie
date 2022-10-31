@@ -1,0 +1,47 @@
+{
+	"name": "celestine",
+	"version": "1.5.0",
+	"main": "./dist/index.js",
+	"author": {
+		"name": "EvolutionX-10",
+		"url": "https://github.com/EvolutionX-10"
+	},
+	"license": "MIT",
+	"packageManager": "yarn@3.2.3",
+	"type": "module",
+	"imports": {
+		"#lib/*": "./dist/lib/*/index.js",
+		"#core": "./dist/core/index.js",
+		"#root/*": "./dist/*.js"
+	},
+	"scripts": {
+		"dev": "yarn build && node --no-warnings .",
+		"start": "node .",
+		"build": "tsup",
+		"typecheck": "tsc -b src",
+		"watch": "tsup --watch --onSuccess=\"node .\""
+	},
+	"dependencies": {
+		"canvas": "^2.10.1",
+		"colorette": "2.0.19",
+		"discord-api-types": "^0.37.12",
+		"discord.js": "^14.6.0",
+		"dotenv": "^16.0.3",
+		"genshin-db": "^4.3.1",
+		"humanize-duration": "^3.27.3",
+		"mal-scraper": "^2.11.4",
+		"moment": "^2.29.4",
+		"nekos.life": "^3.0.0",
+		"node-fetch": "^3.2.10",
+		"reddit-fetcher.js": "^1.0.5",
+		"reddit-image-fetcher": "^2.0.11",
+		"request": "^2.88.2"
+	},
+	"devDependencies": {
+		"@types/humanize-duration": "^3.27.1",
+		"@types/node": "18.7.8",
+		"prettier": "2.7.1",
+		"tsup": "^6.2.3",
+		"typescript": "4.8.3"
+	}
+}
