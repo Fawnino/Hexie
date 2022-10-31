@@ -17,7 +17,7 @@ interface ConfirmOptions {
 	onDecline: (Interaction: ButtonInteraction) => void;
 }
 
-export class Confirm {
+export class Confirmation {
 	private row: ActionRowBuilder;
 	private context: Message | CommandInteraction;
 	private onConfirm: (interaction: ButtonInteraction) => void;
