@@ -42,7 +42,7 @@ export default new Command({
 		}
 
 		if (
-			!(interaction.member as unknown as GuildMember).permissions.has([
+			!(interaction.member as GuildMember).permissions.has([
 				PermissionsBitField.Flags.BanMembers,
 			])
 		)

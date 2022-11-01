@@ -32,7 +32,7 @@ export default new Command({
 			interaction.options.getString("reason") || "No reason provided.";
 
 		if (
-			!(interaction.member as unknown as GuildMember).permissions.has([
+			!(interaction.member as GuildMember).permissions.has([
 				PermissionsBitField.Flags.KickMembers,
 			])
 		)
