@@ -10,7 +10,7 @@ import {
 
 export default new Command({
 	type: CommandType.ChatInput,
-	description: "Configure roles.",
+	description: "Configure roles!",
 	category: "Moderation",
 	options: [
 		{

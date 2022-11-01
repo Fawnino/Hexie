@@ -17,7 +17,7 @@ import canvas from "canvas";
 export default new Command({
 	category: "Utilities",
 	type: CommandType.ChatInput,
-	description: "Get information about a server/user",
+	description: "Information commands!",
 	options: [
 		{
 			name: "user",

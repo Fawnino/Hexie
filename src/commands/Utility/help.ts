@@ -22,11 +22,11 @@ export default new Command({
 		Object.keys(sortedCommands).forEach((category) => {
 			const embed = new EmbedBuilder({ title: `${category} Commands!` });
 			sortedCommands[category].forEach((command) => {
-				embed.setDescription(
-					`${embed.data.description ? "" : embed.data.description}**/${
-						command.name
-					}**\n${command.description}\n\n`,
-				);
+				embed.addFields({
+					name: `/${command.name}`,
+					value: `\n${command.description}\n\n`,
+					inline: true,
+				});
 				embed.setColor("LuminousVividPink");
 			});
 			pages.push(embed);
