@@ -153,9 +153,22 @@ export default new Command({
 				int.reply({
 					embeds: [
 						new EmbedBuilder({
-							title: `Cancelled kicking user: ${target?.user.tag}`,
+							title: `Kicking user ${target?.user.tag} cancelled.`,
+							author: {
+								name: `${interaction.user.tag}`,
+								iconURL: `${interaction.user.displayAvatarURL({
+									forceStatic: true,
+								})}`,
+							},
+							description: "No one has been kicked, Yay",
+							color: 0xe91e63,
+							footer: {
+								text: `${interaction.guild?.name}`,
+								iconURL: `${interaction.guild?.iconURL({ forceStatic: true })}`,
+							},
 						}),
 					],
+					ephemeral: true,
 				});
 			},
 		}).reply({ embeds: [confirmationEmbed], ephemeral: true });

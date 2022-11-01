@@ -176,14 +176,17 @@ export default new Command({
 									forceStatic: true,
 								})}`,
 							},
+							description: "No one has been banned, Yay",
+							color: 0xe91e63,
 							footer: {
 								text: `${interaction.guild?.name}`,
 								iconURL: `${interaction.guild?.iconURL({ forceStatic: true })}`,
 							},
 						}),
 					],
+					ephemeral: true,
 				});
 			},
-		}).reply({ embeds: [confirmationEmbed] });
+		}).reply({ embeds: [confirmationEmbed], ephemeral: true });
 	},
 });
