@@ -11,6 +11,7 @@ interface TextData {
 	vaporwaved: string;
 }
 export default new Command({
+	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Make your text different~!",
 	options: [

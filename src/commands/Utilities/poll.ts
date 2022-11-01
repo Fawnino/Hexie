@@ -9,6 +9,7 @@ import {
 export default new Command({
 	type: CommandType.ChatInput,
 	description: "Create a new poll!",
+	category: "Utilities",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,

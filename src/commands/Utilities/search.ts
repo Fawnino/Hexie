@@ -65,6 +65,7 @@ interface DefinitionData {
 export default new Command({
 	type: CommandType.ChatInput,
 	description: "Look around the internet!",
+	category: "Utilities",
 	options: [
 		{
 			name: "urban",

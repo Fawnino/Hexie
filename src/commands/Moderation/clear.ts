@@ -3,14 +3,15 @@ import { CommandType } from "#lib/enums";
 import {
 	ApplicationCommandOptionType,
 	EmbedBuilder,
-	PermissionFlagsBits,
+	GuildMember,
+	PermissionsBitField,
 	TextChannel,
 } from "discord.js";
 
 export default new Command({
 	type: CommandType.ChatInput,
 	description: "Delete an amount of messages.",
-	defaultMemberPermissions: PermissionFlagsBits.ManageMessages,
+	category: "Moderation",
 	options: [
 		{
 			name: "amount",
@@ -23,6 +24,17 @@ export default new Command({
 	],
 	async commandRun(interaction) {
 		const count = interaction.options.getInteger("amount", true);
+
+		if (
+			!(interaction.user as unknown as GuildMember).permissions.has([
+				PermissionsBitField.Flags.ManageMessages,
+			])
+		)
+			return interaction.reply({
+				content:
+					"You do not have the sufficient permission `ManageMessages` to use this command!",
+				ephemeral: true,
+			});
 
 		if (!interaction.channel) return;
 

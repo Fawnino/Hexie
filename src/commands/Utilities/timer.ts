@@ -5,6 +5,7 @@ import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
 export default new Command({
 	type: CommandType.ChatInput,
 	description: "Set a timer.",
+	category: "Utilities",
 	options: [
 		{
 			name: "seconds",

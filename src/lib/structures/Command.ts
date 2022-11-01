@@ -16,6 +16,7 @@ import {
 export class Command<T extends CommandType = CommandType> {
 	private data: CommandOptions<T>;
 	public description?: string;
+	public category: string;
 	public type: CommandType;
 	public guildIds: string[] = [];
 	public options?: ApplicationCommandOptionData[] = [];
@@ -34,6 +35,7 @@ export class Command<T extends CommandType = CommandType> {
 
 	public constructor(data: CommandOptions<T>) {
 		this.data = data;
+		this.category = data.category;
 		this.type = data.type;
 		this.aliases = data.aliases ?? [];
 		this.commandRun = data.commandRun as
@@ -81,6 +83,7 @@ export class Command<T extends CommandType = CommandType> {
 }
 
 interface BaseCommandOptions<T extends CommandType> {
+	category: string;
 	type: T;
 	name?: string;
 	aliases?: string[];

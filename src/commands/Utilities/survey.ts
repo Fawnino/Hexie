@@ -14,6 +14,7 @@ export default new Command({
 	type: CommandType.ChatInput,
 	description: "Survey time!",
 	aliases: ["s"],
+	category: "Utilities",
 	async commandRun(interaction) {
 		const message = await interaction.reply({
 			content: "Starting the survey...",

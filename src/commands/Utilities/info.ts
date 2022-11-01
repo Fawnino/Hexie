@@ -3,7 +3,7 @@ import { CommandType } from "#lib/enums";
 import {
 	EmbedBuilder,
 	ApplicationCommandOptionType,
-	GuildExplicitContentFilter,
+	GuildExplicitContentFilter, //Oh also can you add `category: '<parent-folder-name>'` to each command
 	GuildVerificationLevel,
 	ChannelType,
 	ButtonStyle,
@@ -15,6 +15,7 @@ import os from "node:os";
 import canvas from "canvas";
 
 export default new Command({
+	category: "Utilities",
 	type: CommandType.ChatInput,
 	description: "Get information about a server/user",
 	options: [
@@ -174,8 +175,10 @@ export default new Command({
 						}),
 					)
 					.setFooter({
-						text: `Requested by ${user.tag}`,
-						iconURL: `${user.displayAvatarURL({ forceStatic: true })}`,
+						text: `Requested by ${interaction.user.tag}`,
+						iconURL: `${interaction.user.displayAvatarURL({
+							forceStatic: true,
+						})}`,
 					})
 					.setTimestamp();
 
@@ -390,10 +393,6 @@ export default new Command({
 				const minutes = Math.floor(interaction.client.uptime / 60000) % 60;
 				const seconds = Math.floor(interaction.client.uptime / 1000) % 60;
 
-				const globalCommands = interaction.client.commands.filter(
-					(c) => Boolean(c.commandRun) && !c.guildIds.length,
-				);
-
 				const botInfoEmbed = new EmbedBuilder()
 					.setTitle(`Client Information`)
 					.addFields(
@@ -431,11 +430,6 @@ export default new Command({
 						.setStyle(ButtonStyle.Primary)
 						.setDisabled(true)
 						.setLabel(`${interaction.client.guilds.cache.size} Server(s)`),
-					new ButtonBuilder()
-						.setCustomId("commands")
-						.setStyle(ButtonStyle.Primary)
-						.setDisabled(true)
-						.setLabel(`${globalCommands.size} Command(s)`),
 				);
 
 				return interaction.followUp({

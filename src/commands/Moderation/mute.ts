@@ -6,12 +6,13 @@ import {
 	GuildMember,
 	DateResolvable,
 	PermissionFlagsBits,
+	PermissionsBitField,
 } from "discord.js";
 
 export default new Command({
 	type: CommandType.ChatInput,
 	description: "Disable a users communication.",
-	defaultMemberPermissions: PermissionFlagsBits.ManageMessages,
+	category: "Moderation",
 	options: [
 		{
 			name: "target",
@@ -84,6 +85,17 @@ export default new Command({
 			return interaction.reply({
 				content:
 					"The user that you are trying to mute is higher than you are in the role hierarchy.",
+				ephemeral: true,
+			});
+
+		if (
+			!(targetMember as GuildMember).permissions.has([
+				PermissionsBitField.Flags.ManageMessages,
+			])
+		)
+			return interaction.reply({
+				content:
+					"You do not have the sufficient permission `ManageMessages` to use this command!",
 				ephemeral: true,
 			});
 

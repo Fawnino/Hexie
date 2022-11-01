@@ -18,6 +18,10 @@
 - Simple and Fun Commands
 - Setup the Bot Without needing to Code Much
 
+> This handler was made with the template of [EvolutionX-10](https://github.com/EvolutionX-10) click **[me](https://github.com/EvolutionX-10/discordbot)** to get redirected to the template!
+
+> This project was supported by Fawnino#9428 and ♡ Lux╸#7131!
+
 ## Setup
 
 Now you can proceed to install dependencies. <br />
@@ -91,35 +95,13 @@ export default new Listener({
 #### Tutorial
 
 1. Rename `.env.example` to `.env`
-2. Add your token to the `.env` file in this format
+2. Add the missing parameters to the `.env` file in this format
 
 ```
 DISCORD_TOKEN=<your-token-without-braces>
+GUILD_ID=<your-main-guild-id-without-braces>
+CHANNEL_ID=<your-startup-channel-id-without-braces>
 ```
-
-</details>
-
-<details> 
-<summary>Fix Some Issues</summary>
-
-#### Switching Guild IDS
-
-1. Go to `src/commands/core/eval.ts`
-2. Change `guildIds: ["Your-Guild-Id-Here"]`
-3. Boom Bug Fixed when you try to turn on your bot.
-
-#### Switch Guild Channel
-
-1. Go to `src/listeners/events/onReady.ts`
-2. Go to Line 64 and Change The Channel ID In there to:
-
-```js
-const channel = client.channels.cache.find(
-	(ch) => ch.id === "Your-Startup-Channel-ID-Here",
-);
-```
-
-3. Thats it!
 
 </details>
 

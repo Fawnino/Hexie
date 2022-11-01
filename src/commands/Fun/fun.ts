@@ -47,6 +47,7 @@ interface InsultData {
 }
 
 export default new Command({
+	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Fun Commands!",
 	options: [

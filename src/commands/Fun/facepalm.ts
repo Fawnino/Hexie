@@ -7,6 +7,7 @@ interface Actions {
 	link: string;
 }
 export default new Command({
+	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Face palm 🤦",
 	async commandRun(interaction) {

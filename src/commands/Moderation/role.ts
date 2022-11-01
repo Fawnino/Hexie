@@ -1,7 +1,7 @@
 import { Command } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
-	PermissionFlagsBits,
+	PermissionsBitField,
 	EmbedBuilder,
 	ApplicationCommandOptionType,
 	GuildMember,
@@ -11,7 +11,7 @@ import {
 export default new Command({
 	type: CommandType.ChatInput,
 	description: "Configure roles.",
-	defaultMemberPermissions: PermissionFlagsBits.ManageRoles,
+	category: "Moderation",
 	options: [
 		{
 			name: "add",
@@ -64,6 +64,15 @@ export default new Command({
 				ephemeral: true,
 			});
 
+		if (
+			!(member as GuildMember).permissions.has([
+				PermissionsBitField.Flags.ManageRoles,
+			])
+		)
+			return interaction.reply({
+				content:
+					"You do not have the sufficient permission `ManageRoles` to use this command!",
+			});
 		switch (Types) {
 			case "add": {
 				if (member.roles.cache.some((role) => role.id === role2.id))

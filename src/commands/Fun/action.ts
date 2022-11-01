@@ -9,6 +9,7 @@ interface Actions {
 	url: string;
 }
 export default new Command({
+	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Do an action to a user!",
 	options: [

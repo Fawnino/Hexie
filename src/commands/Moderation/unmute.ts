@@ -4,13 +4,13 @@ import {
 	EmbedBuilder,
 	ApplicationCommandOptionType,
 	GuildMember,
-	PermissionFlagsBits,
+	PermissionsBitField,
 } from "discord.js";
 
 export default new Command({
 	type: CommandType.ChatInput,
 	description: "Unmute a muted user.",
-	defaultMemberPermissions: PermissionFlagsBits.ManageMessages,
+	category: "Moderation",
 	options: [
 		{
 			name: "user",
@@ -32,6 +32,17 @@ export default new Command({
 		const targetMember = interaction.guild?.members.cache.get(
 			targetUser.id,
 		) as GuildMember;
+
+		if (
+			!(targetMember as GuildMember).permissions.has([
+				PermissionsBitField.Flags.ManageMessages,
+			])
+		)
+			return interaction.reply({
+				content:
+					"You do not have the sufficient permission `ManageMessages` to use this command!",
+				ephemeral: true,
+			});
 
 		if (!targetMember)
 			return interaction.reply({

@@ -15,6 +15,7 @@ interface NSFW {
 export default new Command({
 	type: CommandType.ChatInput,
 	description: "Get a certain nsfw image.",
+	category: "NSFW",
 	options: [
 		{
 			name: "type",

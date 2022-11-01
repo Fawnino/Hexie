@@ -2,12 +2,14 @@ import { CommandType } from "#lib/enums";
 import { Command } from "#lib/structures";
 import { ApplicationCommandOptionType } from "discord.js";
 import { inspect } from "node:util";
+import "dotenv/config";
 
 export default new Command({
+	category: "Core",
 	type: CommandType.ChatInput,
 	description: "Eval Some Code",
 	ownerOnly: true,
-	guildIds: ["1011104283237830758"], // Insert your Testing Guild ID Here
+	guildIds: [`1011104283237830758`],
 	options: [
 		{
 			name: "code",

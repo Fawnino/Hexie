@@ -1,5 +1,6 @@
 import { Listener } from "#lib/structures";
 import { ActivityType, EmbedBuilder, TextChannel } from "discord.js";
+import "dotenv/config";
 
 export default new Listener({
 	event: "ready",
@@ -61,12 +62,14 @@ export default new Listener({
 
 		// Finding the Channel to send the Embed:
 		const channel = client.channels.cache.find(
-			(ch) => ch.id === "1023023236579082310",
+			(ch) => ch.id === process.env.CHANNEL_ID,
 		);
-
-		// Sending the Embed:
+		if (!channel)
+			client.logger.error("Invalid `CHANNEL_ID` specified in `.env`");
 
 		if (channel!.isTextBased()) {
+			// Sending the Embed:
+
 			(<TextChannel>channel).send({ embeds: [startUpEmbed] });
 		}
 

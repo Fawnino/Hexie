@@ -3,6 +3,7 @@ import { Command } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 
 export default new Command({
+	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Mimic a user.",
 	options: [

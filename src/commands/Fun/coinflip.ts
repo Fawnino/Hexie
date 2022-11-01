@@ -11,6 +11,7 @@ import {
 } from "discord.js";
 
 export default new Command({
+	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Flip a coin!",
 	async commandRun(interaction) {

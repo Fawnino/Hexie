@@ -4,6 +4,7 @@ import { CommandType } from "#lib/enums";
 import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
 
 export default new Command({
+	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Manipulate images!",
 	options: [

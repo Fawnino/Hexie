@@ -7,6 +7,7 @@ interface Data {
 	question: string;
 }
 export default new Command({
+	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Start a new truth in truth or dare!",
 	options: [

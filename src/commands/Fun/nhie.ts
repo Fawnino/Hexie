@@ -16,6 +16,7 @@ interface NhieData {
 }
 
 export default new Command({
+	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Play never have I ever!",
 	async commandRun(interaction) {

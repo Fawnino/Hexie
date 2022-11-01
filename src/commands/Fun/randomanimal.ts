@@ -10,6 +10,7 @@ interface Images {
 	url: string;
 }
 export default new Command({
+	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Get a random picture of an animal!",
 	options: [

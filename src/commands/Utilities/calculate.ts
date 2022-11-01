@@ -3,6 +3,7 @@ import { CommandType } from "#lib/enums";
 import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
 
 export default new Command({
+	category: "Utilities",
 	type: CommandType.ChatInput,
 	description: "Calculate some math.",
 	options: [
