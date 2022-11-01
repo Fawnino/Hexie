@@ -10,26 +10,10 @@ export default new Listener({
 			0,
 		);
 
-		client.user!.setActivity("his sweet voice<3", {
+		client.user!.setActivity(`d4vd`, {
 			type: ActivityType.Listening,
 		});
-		setInterval(() => {
-			let activities = [
-				"Ash's adorable voice",
-				`${client.guilds.cache.size} server(s)`,
-				`${totalUsers} user(s)`,
-				"Ash's deceiving voice<3",
-			];
-			// Sets The Activity:
 
-			const randomIndex = Math.floor(
-				Math.random() * (activities.length - 1) + 1,
-			);
-
-			client.user!.setActivity(activities[randomIndex], {
-				type: ActivityType.Listening,
-			});
-		}, 600000);
 		// Sends a Startup Embed to a Channel:
 		const globalCommands = client.commands.filter(
 			(c) => Boolean(c.commandRun) && !c.guildIds.length,
