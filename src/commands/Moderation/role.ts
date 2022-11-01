@@ -57,13 +57,6 @@ export default new Command({
 		const role2 = interaction.options.getRole("role", true) as Role;
 		const member = interaction.options.getMember("target") as GuildMember;
 
-		if (!member.manageable || !member.moderatable)
-			return interaction.reply({
-				content:
-					"The user that you are trying to configure a role to is higher than I am in the role hierarchy, meaning that I cannot moderate them.",
-				ephemeral: true,
-			});
-
 		if (
 			!(member as GuildMember).permissions.has([
 				PermissionsBitField.Flags.ManageRoles,
@@ -73,6 +66,14 @@ export default new Command({
 				content:
 					"You do not have the sufficient permission `ManageRoles` to use this command!",
 			});
+
+		if (!member.manageable || !member.moderatable)
+			return interaction.reply({
+				content:
+					"The user that you are trying to configure a role to is higher than I am in the role hierarchy, meaning that I cannot moderate them.",
+				ephemeral: true,
+			});
+
 		switch (Types) {
 			case "add": {
 				if (member.roles.cache.some((role) => role.id === role2.id))

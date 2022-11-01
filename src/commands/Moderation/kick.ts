@@ -94,7 +94,7 @@ export default new Command({
 			});
 
 		const userKicked = new EmbedBuilder()
-			.setTitle("A user has been kicked! 🔨")
+			.setTitle("A user has been kicked! 🦵")
 			.setColor("Red")
 			.setDescription(
 				`${target?.user.tag} has been kicked from ${interaction.guild?.name}!`,

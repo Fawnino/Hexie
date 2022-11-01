@@ -368,8 +368,6 @@ export default new Command({
 					content: `${roastUser}, ${data.insult}`,
 				});
 			}
-			case "anime-trivia": {
-			}
 		}
 	},
 });

@@ -28,7 +28,7 @@ export default new Command({
 		)
 			return interaction.reply({
 				content:
-					"You don't have permission to use this command because you are missing permission `Embed Links`",
+					"You do not have the sufficient permission `EmbedLinks` to use this command!",
 				ephemeral: true,
 			});
 
