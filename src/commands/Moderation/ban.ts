@@ -41,6 +41,17 @@ export default new Command({
 				});
 		}
 
+		if (
+			!(interaction.member as unknown as GuildMember).permissions.has([
+				PermissionsBitField.Flags.BanMembers,
+			])
+		)
+			return interaction.reply({
+				content:
+					"You do not have the sufficient permission `BanMembers` to use this command!",
+				ephemeral: true,
+			});
+
 		if (interaction.user.id === target.id)
 			return interaction.reply({
 				content: "You can't ban yourself dumb dumb!",
@@ -61,10 +72,10 @@ export default new Command({
 				ephemeral: true,
 			});
 
-		const targetPosition = ServerMember?.roles.highest.position;
+		const targetPosition = target?.roles.highest.position;
 		const authorPosition = (interaction.member as GuildMember).roles.highest
 			.position;
-		const botPosition = (interaction.client as unknown as GuildMember).roles
+		const botPosition = (interaction.guild?.members.me as GuildMember).roles
 			.highest.position;
 
 		if (authorPosition <= targetPosition!)
@@ -79,15 +90,19 @@ export default new Command({
 				ephemeral: true,
 			});
 
-		if (
-			!(interaction.member as unknown as GuildMember).permissions.has([
-				PermissionsBitField.Flags.BanMembers,
-			])
-		)
-			return interaction.reply({
-				content:
-					"You do not have the sufficient permission `BanMembers` to use this command!",
-				ephemeral: true,
+		const confirmationEmbed = new EmbedBuilder()
+			.setTitle("Are you sure?")
+			.setColor("Red")
+			.setDescription("Do you really want to ban this user?")
+			.setFooter({
+				text: "Confirmation...",
+				iconURL: `${interaction.client.user.displayAvatarURL({
+					forceStatic: true,
+				})}`,
+			})
+			.setAuthor({
+				iconURL: interaction.user.displayAvatarURL({ forceStatic: true }),
+				name: `${interaction.user.username}#${interaction.user.tag}`,
 			});
 
 		const userBanned = new EmbedBuilder()
@@ -169,6 +184,6 @@ export default new Command({
 					],
 				});
 			},
-		});
+		}).reply({ embeds: [confirmationEmbed] });
 	},
 });

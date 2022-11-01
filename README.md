@@ -46,6 +46,23 @@ yarn start
 Note: You need to have node version `16.9` or higher!
 
 <details>
+
+<summary>Fix Some Issues</summary>
+
+#### Switching Guild IDS
+
+1. Go to `src/commands/core/eval.ts`
+2. Change `guildIds: ["Your-Guild-Id-Here"]`
+3. Boom Bug Fixed when you try to turn on your bot.
+
+#### Change Owner ID
+
+1. Go to src/lib/structures/Client.ts
+2. Change line 29: `this.ownerIds = ["Your-Owner-Id-Here"];`
+
+</details>
+
+<details>
 <summary>Commands</summary>
 
 #### Example

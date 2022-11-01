@@ -31,6 +31,17 @@ export default new Command({
 		const kickReason =
 			interaction.options.getString("reason") || "No reason provided.";
 
+		if (
+			!(interaction.member as unknown as GuildMember).permissions.has([
+				PermissionsBitField.Flags.KickMembers,
+			])
+		)
+			return interaction.reply({
+				content:
+					"You do not have the sufficient permission `KickMembers` to use this command!",
+				ephemeral: true,
+			});
+
 		if (interaction.user.id === target?.id)
 			return interaction.reply({
 				content: "You can't kick yourself dumb dumb!",
@@ -49,21 +60,10 @@ export default new Command({
 				ephemeral: true,
 			});
 
-		if (
-			!(interaction.member as unknown as GuildMember).permissions.has([
-				PermissionsBitField.Flags.KickMembers,
-			])
-		)
-			return interaction.reply({
-				content:
-					"You do not have the sufficient permission `KickMembers` to use this command!",
-				ephemeral: true,
-			});
-
 		const targetPosition = target?.roles.highest.position;
 		const authorPosition = (interaction.member as GuildMember).roles.highest
 			.position;
-		const botPosition = (interaction.client as unknown as GuildMember).roles
+		const botPosition = (interaction.guild?.members.me as GuildMember).roles
 			.highest.position;
 
 		if (authorPosition <= targetPosition!)
@@ -76,6 +76,21 @@ export default new Command({
 			return interaction.reply({
 				content: `I can't kick ${target?.user.username}! This user's position is higher or equal to mine.`,
 				ephemeral: true,
+			});
+
+		const confirmationEmbed = new EmbedBuilder()
+			.setTitle("Are you sure?")
+			.setColor("Red")
+			.setDescription("Do you really want to kick this user?")
+			.setFooter({
+				text: "Confirmation...",
+				iconURL: `${interaction.client.user.displayAvatarURL({
+					forceStatic: true,
+				})}`,
+			})
+			.setAuthor({
+				iconURL: interaction.user.displayAvatarURL({ forceStatic: true }),
+				name: `${interaction.user.username}#${interaction.user.tag}`,
 			});
 
 		const userKicked = new EmbedBuilder()
@@ -131,8 +146,8 @@ export default new Command({
 			redBtnText: "No",
 			greenBtnText: "Yes",
 			onConfirm: async (int) => {
-				await target?.kick(kickReason);
 				int.reply({ embeds: [userKicked] });
+				return target?.kick(kickReason);
 			},
 			onDecline: (int) => {
 				int.reply({
@@ -143,6 +158,6 @@ export default new Command({
 					],
 				});
 			},
-		});
+		}).reply({ embeds: [confirmationEmbed], ephemeral: true });
 	},
 });

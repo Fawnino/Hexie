@@ -26,7 +26,7 @@ export class Client<Ready extends boolean = boolean> extends DJSClient<Ready> {
 
 		this.logger.setLevel(LogLevel.Debug);
 		this.prefixes = ["!"];
-		this.ownerIds = ["851270917732171817"]; // Insert your Discord ID Here
+		this.ownerIds = ["851270917732171817", "987799034611761222"]; // Insert your Discord ID Here
 	}
 
 	public prefixes: string[] = [];
