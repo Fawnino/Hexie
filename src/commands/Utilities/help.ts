@@ -27,6 +27,7 @@ export default new Command({
 						command.name
 					}**\n${command.description}\n\n`,
 				);
+				embed.setColor("LuminousVividPink");
 			});
 			pages.push(embed);
 		});

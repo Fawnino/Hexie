@@ -3,9 +3,9 @@ import { Command } from "#lib/structures";
 import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
 
 export default new Command({
+	category: "Utilities",
 	type: CommandType.ChatInput,
 	description: "Set a timer.",
-	category: "Utilities",
 	options: [
 		{
 			name: "seconds",

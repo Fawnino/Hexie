@@ -7,9 +7,9 @@ import {
 	PermissionsBitField,
 } from "discord.js";
 export default new Command({
+	category: "Utilities",
 	type: CommandType.ChatInput,
 	description: "Create a new poll!",
-	category: "Utilities",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,

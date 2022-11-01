@@ -11,10 +11,10 @@ const questions = [
 ];
 
 export default new Command({
+	category: "Utilities",
 	type: CommandType.ChatInput,
 	description: "Survey time!",
 	aliases: ["s"],
-	category: "Utilities",
 	async commandRun(interaction) {
 		const message = await interaction.reply({
 			content: "Starting the survey...",
