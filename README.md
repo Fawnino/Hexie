@@ -18,9 +18,7 @@
 - Simple and Fun Commands
 - Setup the Bot Without needing to Code Much
 
-> This handler was made with the template of [EvolutionX-10](https://github.com/EvolutionX-10) click **[me](https://github.com/EvolutionX-10/discordbot)** to get redirected to the template!
-
-> This project was supported by Fawnino#9428 and ♡ Lux╸#7131!
+> This handler was made with the template of [EvolutionX-10](https://github.com/EvolutionX-10) click **[me](https://github.com/EvolutionX-10/discordbot)** to get redirected to the template! </br>This project was supported by Fawnino#9428 and ♡ Lux╸#7131!
 
 ## Setup
 
