@@ -63,7 +63,7 @@ interface DefinitionData {
 }
 
 export default new Command({
-	category: "Utilities",
+	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Look around the internet!",
 	options: [

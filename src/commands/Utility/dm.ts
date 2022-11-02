@@ -3,7 +3,7 @@ import { CommandType } from "#lib/enums";
 import { ApplicationCommandOptionType } from "discord.js";
 
 export default new Command({
-	category: "Utilities",
+	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "DM a user.",
 	options: [

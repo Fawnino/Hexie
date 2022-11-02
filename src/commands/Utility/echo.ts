@@ -3,7 +3,7 @@ import { Command } from "#lib/structures";
 import { ApplicationCommandOptionType } from "discord.js";
 
 export default new Command({
-	category: "Utilities",
+	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Echoes what you say.",
 	options: [

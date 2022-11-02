@@ -11,7 +11,7 @@ const questions = [
 ];
 
 export default new Command({
-	category: "Utilities",
+	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Survey time!",
 	aliases: ["s"],

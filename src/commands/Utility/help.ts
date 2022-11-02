@@ -3,10 +3,9 @@ import { CommandType } from "#lib/enums";
 import { EmbedBuilder } from "discord.js";
 
 export default new Command({
-	category: "Utilites",
+	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Get the bots help menu",
-	guildIds: ["1011104283237830758"],
 	async commandRun(interaction) {
 		const { client } = interaction;
 		const paginator = new Paginator({ ephemeral: true, time: 30_000 });
@@ -20,8 +19,25 @@ export default new Command({
 
 		const pages: EmbedBuilder[] = [];
 		Object.keys(sortedCommands).forEach((category) => {
-			const embed = new EmbedBuilder({ title: `${category} Commands!` });
+			const embed = new EmbedBuilder({
+				footer: {
+					text: `${category} Commands!`,
+					iconURL: `${interaction.client.user.displayAvatarURL({
+						forceStatic: true,
+					})}`,
+				},
+			});
 			sortedCommands[category].forEach((command) => {
+				embed.setAuthor({
+					name: `${interaction.user.tag}`,
+					iconURL: `${interaction.user.displayAvatarURL({
+						forceStatic: true,
+					})}`,
+				});
+				embed.setTitle("📃 | Help Menu");
+				embed.setThumbnail(
+					`${interaction.client.user.displayAvatarURL({ forceStatic: true })}`,
+				);
 				embed.addFields({
 					name: `/${command.name}`,
 					value: `\n${command.description}\n\n`,

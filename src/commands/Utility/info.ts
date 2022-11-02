@@ -16,7 +16,7 @@ import canvas from "canvas";
 import { QuickDB } from "quick.db";
 
 export default new Command({
-	category: "Utilities",
+	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Information commands!",
 	options: [
@@ -63,11 +63,6 @@ export default new Command({
 		{
 			name: "yeardata",
 			description: "Displays the year so far!",
-			type: ApplicationCommandOptionType.Subcommand,
-		},
-		{
-			name: "invite",
-			description: "Get the Invite link for the bot!",
 			type: ApplicationCommandOptionType.Subcommand,
 		},
 		{
@@ -631,55 +626,6 @@ export default new Command({
 						2,
 					)}%** complete.`,
 					files: [{ attachment: cv.toBuffer(), name: "yearprogress.jpg" }],
-				});
-			}
-			case "invite": {
-				const inviteEmbed = new EmbedBuilder()
-					.setTitle("✉️ | Inviting me?")
-					.setAuthor({
-						name: `${interaction.user.tag}`,
-						iconURL: `${interaction.user.displayAvatarURL({
-							forceStatic: true,
-						})}`,
-					})
-					.setDescription(
-						"I'm a cool Discord Bot, aren't I? Use the buttons below to invite me to your server, join our support server or support my developer on ko-fi!",
-					)
-					.setFooter({
-						text: `Stay Safe! 👋`,
-						iconURL: `${interaction.client.user.displayAvatarURL({
-							forceStatic: true,
-						})}`,
-					})
-					.setThumbnail(
-						`${interaction.client.user?.displayAvatarURL({
-							forceStatic: true,
-						})}`,
-					)
-					.setColor(0x5865f2);
-
-				const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
-					new ButtonBuilder()
-						.setURL(
-							"https://discord.com/api/oauth2/authorize?client_id=1021374807683637249&permissions=8&scope=applications.commands%20bot",
-						)
-						.setLabel("Invite Me")
-						.setEmoji("📨")
-						.setStyle(ButtonStyle.Link),
-					new ButtonBuilder()
-						.setURL("https://discord.gg/DctSx3aTgT")
-						.setLabel("Support Server")
-						.setEmoji("🌙")
-						.setStyle(ButtonStyle.Link),
-					new ButtonBuilder()
-						.setURL("https://ko-fi.com/fawnino")
-						.setLabel("Ko-Fi")
-						.setEmoji({ name: ":KoFi", id: "1024829502234296430" })
-						.setStyle(ButtonStyle.Link),
-				);
-				return interaction.followUp({
-					embeds: [inviteEmbed],
-					components: [row],
 				});
 			}
 			case "links": {
