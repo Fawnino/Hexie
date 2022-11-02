@@ -22,6 +22,7 @@
 		"watch": "tsup --watch --onSuccess=\"node .\""
 	},
 	"dependencies": {
+		"better-sqlite3": "^7.6.2",
 		"canvas": "^2.10.1",
 		"colorette": "2.0.19",
 		"discord-api-types": "^0.37.12",
@@ -33,6 +34,7 @@
 		"moment": "^2.29.4",
 		"nekos.life": "^3.0.0",
 		"node-fetch": "^3.2.10",
+		"quick.db": "^9.0.6",
 		"reddit-fetcher.js": "^1.0.5",
 		"reddit-image-fetcher": "^2.0.11",
 		"request": "^2.88.2"

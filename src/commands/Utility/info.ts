@@ -13,6 +13,7 @@ import {
 import moment from "moment";
 import os from "node:os";
 import canvas from "canvas";
+import { QuickDB } from "quick.db";
 
 export default new Command({
 	category: "Utilities",
@@ -46,6 +47,18 @@ export default new Command({
 			name: "worldclock",
 			description: "Get information about all timezones!",
 			type: ApplicationCommandOptionType.Subcommand,
+		},
+		{
+			name: "levels",
+			description: "Get a user's level.",
+			type: ApplicationCommandOptionType.Subcommand,
+			options: [
+				{
+					name: "user",
+					description: "The user you want to get the level of.",
+					type: ApplicationCommandOptionType.User,
+				},
+			],
 		},
 		{
 			name: "yeardata",
@@ -92,10 +105,16 @@ export default new Command({
 			(await interaction.options.getUser("target")?.fetch(true)) ||
 			(await interaction.user.fetch(true));
 
+		const userlvl =
+			(await interaction.options.getUser("user")?.fetch(true)) ||
+			(await interaction.user.fetch(true));
+
 		const totalUsers = interaction.client.guilds.cache.reduce(
 			(acc, guild) => acc + guild.memberCount,
 			0,
 		);
+
+		const db = new QuickDB();
 
 		switch (Options) {
 			case "user": {
@@ -894,6 +913,32 @@ export default new Command({
 				);
 
 				return interaction.followUp({ embeds: [tos], components: [buttons] });
+			}
+			case "levels": {
+				let messagefetch = await db.get(
+					`messages_${interaction.guild?.id}_${interaction.user.id}`,
+				);
+				let levelfetch = await db.get(
+					`level_${interaction.guild?.id}_${interaction.user.id}`,
+				);
+
+				if (messagefetch == null) messagefetch = "0";
+				if (levelfetch == null) levelfetch = "0";
+
+				const embed = new EmbedBuilder()
+					.setTitle(`${userlvl.tag}'s Rank!`)
+					.setDescription(
+						`Level: \`${levelfetch}\`\nMessages Sent: \`${messagefetch}\` Messages`,
+					)
+					.setColor(user.hexAccentColor ?? "#5865f2")
+					.setFooter({
+						text: `Requested by ${interaction.user.tag}`,
+						iconURL: `${interaction.user.displayAvatarURL({
+							forceStatic: true,
+						})}`,
+					});
+
+				return interaction.followUp({ embeds: [embed] });
 			}
 		}
 	},

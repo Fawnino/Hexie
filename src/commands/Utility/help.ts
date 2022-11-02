@@ -9,7 +9,7 @@ export default new Command({
 	guildIds: ["1011104283237830758"],
 	async commandRun(interaction) {
 		const { client } = interaction;
-		const paginator = new Paginator({ ephemeral: true });
+		const paginator = new Paginator({ ephemeral: true, time: 30_000 });
 
 		const sortedCommands: { [x: string]: Command[] } = {};
 		client.commands.forEach((command) => {
