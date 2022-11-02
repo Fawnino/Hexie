@@ -32,7 +32,6 @@ export default new Listener({
 				`level_${message.guild?.id}_${message.author.id}`,
 			)) as unknown as Promise<number>;
 
-			console.log(levelfetch);
 			message.channel.send({
 				content: `🎉 GG! ${message.author} Levelled up to level **${
 					(await levelfetch) + 1
