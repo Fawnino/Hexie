@@ -549,7 +549,7 @@ __metadata:
     discord-api-types: ^0.37.12
     discord.js: ^14.6.0
     dotenv: ^16.0.3
-    genshin-db: ^4.3.1
+    genshin-db: ^4.3.2
     humanize-duration: ^3.27.3
     mal-scraper: ^2.11.4
     moment: ^2.29.4
@@ -1383,13 +1383,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"genshin-db@npm:^4.3.1":
-  version: 4.3.1
-  resolution: "genshin-db@npm:4.3.1"
+"genshin-db@npm:^4.3.2":
+  version: 4.3.2
+  resolution: "genshin-db@npm:4.3.2"
   dependencies:
     fuzzysort: ^1.1.4
     pako: ^2.0.4
-  checksum: 67a1614cf078b258b89eb3b00eead01fe021d0baaf355d28f12d20499c5d24b35bd54154c7c05defd9db6177bf112110a78916e1459978943b304ae80a4b0644
+  checksum: 557ed1c347041c344c05f1efdd2566a326beff1dc18b94afe55f41e81292b5105f6e074a29de74a9a8089c3912bd40412b466dee60cea0e9aea7e8bb02f55695
   languageName: node
   linkType: hard
 
