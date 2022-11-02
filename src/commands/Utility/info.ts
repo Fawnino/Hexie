@@ -930,7 +930,7 @@ export default new Command({
 					.setDescription(
 						`Level: \`${levelfetch}\`\nMessages Sent: \`${messagefetch}\` Messages`,
 					)
-					.setColor(user.hexAccentColor ?? "#5865f2")
+					.setColor(user.hexAccentColor ?? 0x5865f2)
 					.setFooter({
 						text: `Requested by ${interaction.user.tag}`,
 						iconURL: `${interaction.user.displayAvatarURL({
