@@ -22,7 +22,7 @@ export default new Command({
 		const question = interaction.options.getString("question");
 
 		if (
-			!(interaction.member! as unknown as GuildMember).permissions.has([
+			!(interaction.member! as GuildMember).permissions.has([
 				PermissionsBitField.Flags.EmbedLinks,
 			])
 		)
@@ -38,6 +38,10 @@ export default new Command({
 			.setThumbnail(
 				`https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/185/bar-chart_1f4ca.png`,
 			)
+			.setFooter({
+				text: `Requested by: ${interaction.user.tag}`,
+				iconURL: `${interaction.user.displayAvatarURL({ forceStatic: true })}`,
+			})
 			.setDescription(question);
 
 		const sent = await interaction.reply({

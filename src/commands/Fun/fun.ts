@@ -364,8 +364,14 @@ export default new Command({
 							"You can't roast yourself you masochist! Roast another person.",
 					});
 
+				if (roastUser!.id === interaction.client.user.id)
+					return interaction.followUp({
+						content: `😈 ${interaction.user}, ${data.insult} `,
+					});
+
 				return interaction.followUp({
 					content: `${roastUser}, ${data.insult}`,
+					allowedMentions: { repliedUser: false },
 				});
 			}
 		}

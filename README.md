@@ -55,7 +55,7 @@ Note: You need to have node version `16.9` or higher!
 
 #### Change Owner ID
 
-1. Go to src/lib/structures/Client.ts
+1. Go to `src/lib/structures/Client.ts`
 2. Change line 29: `this.ownerIds = ["Your-Owner-Id-Here"];`
 
 </details>
@@ -114,7 +114,6 @@ export default new Listener({
 
 ```
 DISCORD_TOKEN=<your-token-without-braces>
-GUILD_ID=<your-main-guild-id-without-braces>
 CHANNEL_ID=<your-startup-channel-id-without-braces>
 ```
 

@@ -5,7 +5,6 @@ import {
 	ApplicationCommandOptionType,
 	GuildMember,
 	DateResolvable,
-	PermissionFlagsBits,
 	PermissionsBitField,
 } from "discord.js";
 
