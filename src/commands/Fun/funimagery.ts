@@ -148,6 +148,12 @@ export default new Command({
 					type: ApplicationCommandOptionType.User,
 					required: false,
 				},
+				{
+					name: "image",
+					description: "Image to shit on.",
+					type: ApplicationCommandOptionType.Attachment,
+					required: false,
+				},
 			],
 		},
 	],
@@ -161,6 +167,7 @@ export default new Command({
 		const panik = interaction.options.getString("panik");
 		const kalm = interaction.options.getString("kalm");
 		const panik2 = interaction.options.getString("panik2");
+		const attachment = interaction.options.getAttachment("image");
 
 		switch (Types) {
 			case "drake": {
@@ -264,12 +271,41 @@ export default new Command({
 				return interaction.followUp({ files: [finalImage] });
 			}
 			case "shit": {
-				let image = "";
+				let image;
+
+				if (attachment) image = attachment;
+				else if (!attachment)
+					image = user.displayAvatarURL({
+						extension: "png",
+						size: 2048,
+					});
+
+				if (image === attachment) {
+					if (!attachment.contentType?.includes("image"))
+						return interaction.followUp({
+							content:
+								"The file provided is not a correct image file with the correct extension\nSupported extensions: `png` and `jpg`",
+							ephemeral: true,
+						});
+
+					if (
+						!attachment.contentType.includes("png") &&
+						!attachment.contentType.includes("jpg") &&
+						!attachment.contentType.includes("jpeg") &&
+						!attachment.url.includes("jpg") &&
+						!attachment.url.includes("png")
+					)
+						return interaction.reply({
+							content:
+								"The file provided is not a correct image file with the correct extension\nSupported extensions: `png` and `jpg`",
+							ephemeral: true,
+						});
+
+					image = attachment.url;
+				}
 
 				image = await fetch(
-					`https://luminabot.xyz/api/image/steppedinshit?image=${user.displayAvatarURL(
-						{ forceStatic: true, extension: "png" },
-					)}`,
+					`https://luminabot.xyz/api/image/steppedinshit?image=${image}`,
 				).then((response) => (image = response.url));
 
 				const finalImage = new AttachmentBuilder(image, {
