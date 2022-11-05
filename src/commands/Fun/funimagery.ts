@@ -137,6 +137,19 @@ export default new Command({
 				},
 			],
 		},
+		{
+			name: "shit",
+			description: "Ew I stepped on a shit.",
+			type: ApplicationCommandOptionType.Subcommand,
+			options: [
+				{
+					name: "user",
+					description: "User to shit on.",
+					type: ApplicationCommandOptionType.User,
+					required: false,
+				},
+			],
+		},
 	],
 	async commandRun(interaction) {
 		await interaction.deferReply();
@@ -246,6 +259,21 @@ export default new Command({
 
 				const finalImage = new AttachmentBuilder(image, {
 					name: "eddyfact.png",
+				});
+
+				return interaction.followUp({ files: [finalImage] });
+			}
+			case "shit": {
+				let image = "";
+
+				image = await fetch(
+					`https://luminabot.xyz/api/image/steppedinshit?image=${user.displayAvatarURL(
+						{ forceStatic: true, extension: "png" },
+					)}`,
+				).then((response) => (image = response.url));
+
+				const finalImage = new AttachmentBuilder(image, {
+					name: "shit.png",
 				});
 
 				return interaction.followUp({ files: [finalImage] });
