@@ -1,8 +1,11 @@
 import { Command } from "#lib/structures";
 import fetch from "node-fetch";
 import { CommandType } from "#lib/enums";
-import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
-import applicationCommandRun from "#root/listeners/core/applicationCommandRun";
+import {
+	EmbedBuilder,
+	ApplicationCommandOptionType,
+	AttachmentBuilder,
+} from "discord.js";
 
 export default new Command({
 	category: "Fun",
@@ -156,11 +159,9 @@ export default new Command({
 					)}&no=${encodeURIComponent(drakeNo!)}`,
 				).then((response) => (image = response.url));
 
-				const drakeEmbed = new EmbedBuilder()
-					.setImage(`${image}`)
-					.setColor(0x5865f2);
+				const finalImage = new AttachmentBuilder(image, { name: "drake.png" });
 
-				return interaction.followUp({ embeds: [drakeEmbed] });
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "panik-kalm-panik": {
 				let image = "";
@@ -173,9 +174,11 @@ export default new Command({
 					)}`,
 				).then((response) => (image = response.url));
 
-				const pkp = new EmbedBuilder().setImage(`${image}`).setColor(0x5865f2);
+				const finalImage = new AttachmentBuilder(image, {
+					name: "panik-kalm-panik.png",
+				});
 
-				return interaction.followUp({ embeds: [pkp] });
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "gay": {
 				let image = "";
@@ -187,11 +190,9 @@ export default new Command({
 					})}`,
 				).then((response) => (image = response.url));
 
-				const gayEmbed = new EmbedBuilder()
-					.setImage(`${image}`)
-					.setColor(0x5865f2);
+				const finalImage = new AttachmentBuilder(image, { name: "gay.png" });
 
-				return interaction.followUp({ embeds: [gayEmbed] });
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "burn": {
 				let image = "";
@@ -202,11 +203,9 @@ export default new Command({
 					)}`,
 				).then((response) => (image = response.url));
 
-				const burnEmbed = new EmbedBuilder()
-					.setImage(`${image}`)
-					.setColor(0x5865f2);
+				const finalImage = new AttachmentBuilder(image, { name: "burn.png" });
 
-				return interaction.followUp({ embeds: [burnEmbed] });
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "caution": {
 				let image = "";
@@ -217,10 +216,11 @@ export default new Command({
 					)}`,
 				).then((response) => (image = response.url));
 
-				const cautionEmbed = new EmbedBuilder()
-					.setImage(`${image}`)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [cautionEmbed] });
+				const finalImage = new AttachmentBuilder(image, {
+					name: "caution.png",
+				});
+
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "pixelate": {
 				let image = "";
@@ -231,10 +231,11 @@ export default new Command({
 					)}`,
 				).then((response) => (image = response.url));
 
-				const pixelateEmbed = new EmbedBuilder()
-					.setImage(`${image}`)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [pixelateEmbed] });
+				const finalImage = new AttachmentBuilder(image, {
+					name: "pixelated.png",
+				});
+
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "eddyfact": {
 				let image = "";
@@ -243,10 +244,11 @@ export default new Command({
 					`https://luminabot.xyz/api/image/edd-fact?text=${text}`,
 				).then((response) => (image = response.url));
 
-				const eddyFactEmbed = new EmbedBuilder()
-					.setImage(`${image}`)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [eddyFactEmbed] });
+				const finalImage = new AttachmentBuilder(image, {
+					name: "eddyfact.png",
+				});
+
+				return interaction.followUp({ files: [finalImage] });
 			}
 		}
 	},
