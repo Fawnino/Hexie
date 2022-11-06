@@ -1,5 +1,5 @@
 import { Listener } from "#lib/structures";
-import { ChannelType, EmbedBuilder } from "discord.js";
+import { ChannelType } from "discord.js";
 import { QuickDB } from "quick.db";
 
 export default new Listener({
@@ -14,8 +14,11 @@ export default new Listener({
 			`messages_${message.guild?.id}_${message.author.id}`,
 		);
 
+		const toggle = await db.get(`serverlevels_${message.guild?.id}`);
+
 		let messages;
-		if (messagefetch == 25) messages = 25; //Level 1
+		if (messagefetch == 5) messages = 5; // null
+		if (messagefetch == 25) messages = 25; // Level 1
 		else if (messagefetch == 65) messages = 65; // Level 2
 		else if (messagefetch == 115) messages = 115; // Level 3
 		else if (messagefetch == 200) messages = 200; // Level 4
@@ -36,11 +39,21 @@ export default new Listener({
 		else if (messagefetch === 4500) messages = 4500; // Level 19
 		else if (messagefetch === 5000) messages = 5000; // Level 20
 
-		if (!isNaN(messages as number)) {
-			db.add(`level_${message.guild?.id}_${message.author.id}`, 1);
-			let levelfetch = (await db.get(
-				`level_${message.guild?.id}_${message.author.id}`,
-			)) as unknown as Promise<number>;
+		if (toggle === "off") return;
+
+		if (toggle === "on") {
+			if (!isNaN(messages as number)) {
+				db.add(`level_${message.guild?.id}_${message.author.id}`, 1);
+				let levelfetch = (await db.get(
+					`level_${message.guild?.id}_${message.author.id}`,
+				)) as unknown as Promise<number>;
+
+				message.reply({
+					content: `GG! 🎉 ${message.author} levelled up to level **${
+						(await levelfetch) + 1
+					}**`,
+				});
+			}
 		}
 	},
 });
