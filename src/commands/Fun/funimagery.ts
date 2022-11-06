@@ -77,6 +77,12 @@ export default new Command({
 					type: ApplicationCommandOptionType.User,
 					required: false,
 				},
+				{
+					name: "image",
+					description: "Image to turn gay.",
+					type: ApplicationCommandOptionType.Attachment,
+					required: false,
+				},
 			],
 		},
 		{
@@ -88,6 +94,12 @@ export default new Command({
 					name: "user",
 					description: "User to pixelate their avatar.",
 					type: ApplicationCommandOptionType.User,
+					required: false,
+				},
+				{
+					name: "image",
+					description: "Image to pixelate.",
+					type: ApplicationCommandOptionType.Attachment,
 					required: false,
 				},
 			],
@@ -201,16 +213,46 @@ export default new Command({
 				return interaction.followUp({ files: [finalImage] });
 			}
 			case "gay": {
-				let image = "";
+				let image;
+
+				if (attachment) image = attachment;
+				else if (!attachment)
+					image = user.displayAvatarURL({
+						extension: "png",
+						size: 2048,
+					});
+
+				if (image === attachment) {
+					if (!attachment.contentType?.includes("image"))
+						return interaction.followUp({
+							content:
+								"The file provided is not a correct image file with the correct extension\nSupported extensions: `png` and `jpg`",
+							ephemeral: true,
+						});
+
+					if (
+						!attachment.contentType.includes("png") &&
+						!attachment.contentType.includes("jpg") &&
+						!attachment.contentType.includes("jpeg") &&
+						!attachment.url.includes("jpg") &&
+						!attachment.url.includes("png")
+					)
+						return interaction.reply({
+							content:
+								"The file provided is not a correct image file with the correct extension\nSupported extensions: `png` and `jpg`",
+							ephemeral: true,
+						});
+
+					image = attachment.url;
+				}
 
 				image = await fetch(
-					`https://luminabot.xyz/api/image/gay?image=${user?.displayAvatarURL({
-						forceStatic: true,
-						extension: "png",
-					})}`,
+					`https://luminabot.xyz/api/image/gay?image=${image}`,
 				).then((response) => (image = response.url));
 
-				const finalImage = new AttachmentBuilder(image, { name: "gay.png" });
+				const finalImage = new AttachmentBuilder(image, {
+					name: "gay.png",
+				});
 
 				return interaction.followUp({ files: [finalImage] });
 			}
@@ -243,12 +285,41 @@ export default new Command({
 				return interaction.followUp({ files: [finalImage] });
 			}
 			case "pixelate": {
-				let image = "";
+				let image;
+
+				if (attachment) image = attachment;
+				else if (!attachment)
+					image = user.displayAvatarURL({
+						extension: "png",
+						size: 2048,
+					});
+
+				if (image === attachment) {
+					if (!attachment.contentType?.includes("image"))
+						return interaction.followUp({
+							content:
+								"The file provided is not a correct image file with the correct extension\nSupported extensions: `png` and `jpg`",
+							ephemeral: true,
+						});
+
+					if (
+						!attachment.contentType.includes("png") &&
+						!attachment.contentType.includes("jpg") &&
+						!attachment.contentType.includes("jpeg") &&
+						!attachment.url.includes("jpg") &&
+						!attachment.url.includes("png")
+					)
+						return interaction.reply({
+							content:
+								"The file provided is not a correct image file with the correct extension\nSupported extensions: `png` and `jpg`",
+							ephemeral: true,
+						});
+
+					image = attachment.url;
+				}
 
 				image = await fetch(
-					`https://some-random-api.ml/canvas/misc/pixelate?avatar=${user.displayAvatarURL(
-						{ forceStatic: true, extension: "png" },
-					)}`,
+					`https://some-random-api.ml/canvas/misc/pixelate?avatar=${image}`,
 				).then((response) => (image = response.url));
 
 				const finalImage = new AttachmentBuilder(image, {
