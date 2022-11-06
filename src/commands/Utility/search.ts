@@ -396,7 +396,7 @@ export default new Command({
 						)
 						.setTimestamp()
 						.setFooter({
-							text: `Requested ${interaction.user.username}`,
+							text: `Requested by: ${interaction.user.tag}`,
 							iconURL: interaction.user.displayAvatarURL({ forceStatic: true }),
 						});
 
