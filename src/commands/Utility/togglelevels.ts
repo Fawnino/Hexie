@@ -16,7 +16,7 @@ export default new Command({
 	options: [
 		{
 			name: "toggle",
-			description: "Turn on or turn off levels?",
+			description: "Turn on or turn off levels? (Default: Turn On)",
 			type: ApplicationCommandOptionType.String,
 			required: true,
 			choices: [
@@ -58,7 +58,7 @@ export default new Command({
 				db.set(`serverlevels_$${interaction.guild?.id}`, "off");
 				return interaction.reply({
 					content:
-						"Successfully turned off levels! A user will no longer get a message everytime a user levels up!",
+						"Successfully turned off levels! A user will no longer get a message or levels everytime a user sends a message!",
 					ephemeral: true,
 				});
 			}

@@ -116,3 +116,4 @@ dist
 # Databases
 
 json.sqlite
+json-sqlite.journal
