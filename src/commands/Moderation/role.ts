@@ -65,6 +65,7 @@ export default new Command({
 			return interaction.reply({
 				content:
 					"You do not have the sufficient permission `ManageRoles` to use this command!",
+				ephemeral: true,
 			});
 
 		if (!member.manageable || !member.moderatable)

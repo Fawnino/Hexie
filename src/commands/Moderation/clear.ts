@@ -26,7 +26,7 @@ export default new Command({
 		const count = interaction.options.getInteger("amount", true);
 
 		if (
-			!(interaction.user as unknown as GuildMember).permissions.has([
+			!(interaction.member as GuildMember).permissions.has([
 				PermissionsBitField.Flags.ManageMessages,
 			])
 		)
