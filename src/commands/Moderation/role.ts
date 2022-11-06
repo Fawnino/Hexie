@@ -112,7 +112,7 @@ export default new Command({
 					.setColor("Green")
 					.setTimestamp()
 					.setFooter({
-						text: `Requested By: ${interaction.guild!.name}`,
+						text: `Requested by: ${interaction.guild!.name}`,
 						iconURL: interaction.user.displayAvatarURL(),
 					});
 
@@ -158,7 +158,7 @@ export default new Command({
 					.setTimestamp()
 					.setColor("Green")
 					.setFooter({
-						text: `Requested By: ${interaction.guild!.name}`,
+						text: `Requested by: ${interaction.guild!.name}`,
 						iconURL: interaction.user.displayAvatarURL(),
 					});
 
