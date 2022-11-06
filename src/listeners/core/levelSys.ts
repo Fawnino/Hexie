@@ -25,6 +25,16 @@ export default new Listener({
 		else if (messagefetch === 750) messages = 750; // Level 8
 		else if (messagefetch === 900) messages = 900; // Level 9
 		else if (messagefetch === 1200) messages = 1200; // Level 10
+		else if (messagefetch === 1500) messages = 1500; // Level 11
+		else if (messagefetch === 1750) messages = 1750; // Level 12
+		else if (messagefetch === 2000) messages = 2000; // Level 13
+		else if (messagefetch === 2250) messages = 2250; // Level 14
+		else if (messagefetch === 2750) messages = 2750; // Level 15
+		else if (messagefetch === 3250) messages = 3250; // Level 16
+		else if (messagefetch === 3750) messages = 3750; // Level 17
+		else if (messagefetch === 4250) messages = 4250; // Level 18
+		else if (messagefetch === 4500) messages = 4500; // Level 19
+		else if (messagefetch === 5000) messages = 5000; // Level 20
 
 		if (!isNaN(messages as number)) {
 			db.add(`level_${message.guild?.id}_${message.author.id}`, 1);
