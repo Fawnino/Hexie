@@ -70,6 +70,7 @@ import { CommandType } from "#lib/enums";
 import { Command } from "#lib/structures";
 
 export default new Command({
+	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Ping Pong!!",
 	async commandRun(interaction) {

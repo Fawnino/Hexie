@@ -397,6 +397,19 @@ export default new Command({
 					});
 				}
 
+				if (interaction.guild!.features.length > 0) {
+					let guildFeatures = ``;
+					for (let i = 0; i < interaction.guild!.features.length; i++) {
+						guildFeatures =
+							guildFeatures + `${interaction.guild!.features[i]}, `;
+					}
+					ServerInformationEmbed.addFields({
+						name: "Server Features",
+						value: `${capitalize(guildFeatures)}`,
+						inline: false,
+					});
+				}
+
 				return interaction.followUp({
 					embeds: [ServerInformationEmbed],
 				});
@@ -889,3 +902,10 @@ export default new Command({
 		}
 	},
 });
+
+function capitalize(string: string) {
+	return string
+		.replace(/_/g, " ")
+		.toLowerCase()
+		.replace(/\b(\w)/g, (char) => char.toUpperCase());
+}
