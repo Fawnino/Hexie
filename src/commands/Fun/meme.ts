@@ -6,7 +6,7 @@ import { ApplicationCommandOptionType, AttachmentBuilder } from "discord.js";
 export default new Command({
 	category: "Fun",
 	type: CommandType.ChatInput,
-	description: "Manipulate images!",
+	description: "Manipulate meme images!",
 	options: [
 		{
 			name: "drake",
