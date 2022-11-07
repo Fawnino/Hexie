@@ -70,6 +70,14 @@ export default new Command({
 				ephemeral: true,
 			});
 
+		if (
+			targetMember?.permissions.has([PermissionsBitField.Flags.Administrator])
+		)
+			return interaction.reply({
+				content: "I can't mute an administrator!",
+				ephemeral: true,
+			});
+
 		if (!targetMember.manageable || !targetMember.moderatable)
 			return interaction.reply({
 				content:
