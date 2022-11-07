@@ -17,7 +17,6 @@ export default new Listener({
 		const toggle = await db.get(`serverlevels_${message.guild?.id}`);
 
 		let messages;
-		if (messagefetch == 5) messages = 5; // null
 		if (messagefetch == 25) messages = 25; // Level 1
 		else if (messagefetch == 65) messages = 65; // Level 2
 		else if (messagefetch == 115) messages = 115; // Level 3

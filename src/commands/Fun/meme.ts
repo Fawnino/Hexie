@@ -1,11 +1,7 @@
 import { Command } from "#lib/structures";
 import fetch from "node-fetch";
 import { CommandType } from "#lib/enums";
-import {
-	EmbedBuilder,
-	ApplicationCommandOptionType,
-	AttachmentBuilder,
-} from "discord.js";
+import { ApplicationCommandOptionType, AttachmentBuilder } from "discord.js";
 
 export default new Command({
 	category: "Fun",
