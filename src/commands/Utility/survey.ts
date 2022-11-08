@@ -1,6 +1,6 @@
 import { CommandType } from "#lib/enums";
 import { Command, Prompt } from "#lib/structures";
-import { Message } from "discord.js";
+import { InteractionCollector, Message } from "discord.js";
 import { magentaBright, gray } from "colorette";
 
 const questions = [
@@ -15,9 +15,14 @@ export default new Command({
 	type: CommandType.ChatInput,
 	description: "Survey time!",
 	aliases: ["s"],
+	async messageRun(message, args) {
+		const messageStart = await message.reply({ content: "Starting Survey..." });
+
+		return prompt(messageStart);
+	},
 	async commandRun(interaction) {
 		const message = await interaction.reply({
-			content: "Starting the survey...",
+			content: "Starting Survey...",
 			fetchReply: true,
 		});
 

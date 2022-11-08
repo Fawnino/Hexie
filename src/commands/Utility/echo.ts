@@ -1,10 +1,11 @@
 import { CommandType } from "#lib/enums";
 import { Command } from "#lib/structures";
-import { ApplicationCommandOptionType } from "discord.js";
+import { ApplicationCommandOptionType, InteractionCollector } from "discord.js";
 
 export default new Command({
 	category: "Utility",
 	type: CommandType.ChatInput,
+	aliases: ["say"],
 	description: "Echoes what you say.",
 	options: [
 		{
@@ -14,6 +15,15 @@ export default new Command({
 			required: true,
 		},
 	],
+	async messageRun(message, args) {
+		if (!args.join(" "))
+			return message.reply({ content: "Input something for me to say!" });
+
+		await message.reply({
+			content: `${message.author} said: ${args.join(" ")}`,
+			allowedMentions: { repliedUser: false },
+		});
+	},
 	async commandRun(interaction) {
 		const text = interaction.options.getString("message");
 		await interaction.reply({

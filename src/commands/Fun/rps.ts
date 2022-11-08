@@ -22,6 +22,115 @@ export default new Command({
 			required: false,
 		},
 	],
+	async messageRun(message, args) {
+		const opponent = message.mentions.users.first() ?? message.client.user;
+
+		if (opponent.id === message.author.id)
+			return message.reply(`Can't play with yourself dumb dumb`);
+
+		const buttons = ["🪨|Rock", "📄|Paper", "✂|Scissors"].map((s) => {
+			const [emoji, label] = s.split("|");
+			return new ButtonBuilder()
+				.setCustomId(label.toLowerCase())
+				.setEmoji(emoji)
+				.setLabel(label)
+				.setStyle(ButtonStyle.Primary);
+		});
+
+		const row = new ActionRowBuilder<ButtonBuilder>();
+
+		let content = `${message.author} vs ${opponent}`;
+
+		if (!opponent.bot) {
+			content += `\n\n> Waiting for **${message.author.username}**\n> Waiting for **${opponent.username}**`;
+		}
+
+		const sent = await message.reply({
+			content,
+			components: [row.setComponents(buttons)],
+		});
+
+		const collector = sent.createMessageComponentCollector({
+			componentType: ComponentType.Button,
+			filter: (m) => [message.author.id, opponent.id].includes(m.user.id),
+			time: 60_000,
+		});
+
+		collector.on("ignore", async (i) => {
+			await i.reply({
+				content: `Couldn't ignore you less 🙄.`,
+				ephemeral: true,
+			});
+		});
+
+		let opponentChoice: Choice;
+		let userChoice: Choice;
+
+		const getResponses = (i: ButtonInteraction) => {
+			opponentChoice ??= (
+				opponent.bot
+					? ["rock", "paper", "scissors"][(3 * Math.random()) | 0]
+					: i.user.id === opponent.id
+					? i.customId
+					: undefined
+			) as Choice;
+
+			userChoice ??= (
+				i.user.id === message.author.id ? i.customId : undefined
+			) as Choice;
+			return [userChoice, opponentChoice];
+		};
+
+		const computeResults = () => {
+			content =
+				content.split("\n")[0] +
+				`\n\n> **${message.author.username}** chose **${emoji[userChoice]}!**` +
+				`\n> **${opponent.username}** chose **${emoji[opponentChoice]}!**\n\n**Results:** `;
+
+			const win = (user: User) => (content += `**${user} wins!** Good Game 🥳`);
+
+			switch (`${userChoice}-${opponentChoice}` as Possibilities) {
+				case "paper-rock":
+				case "rock-scissors":
+				case "scissors-paper":
+					return win(message.author);
+				case "paper-scissors":
+				case "scissors-rock":
+				case "rock-paper":
+					return win(opponent);
+				default:
+					return (content += `**Woops!** There was a **tie!**`);
+			}
+		};
+
+		buttons.forEach((b) => b.setDisabled());
+
+		collector.on("collect", async (i) => {
+			collector.resetTimer();
+			const choices = getResponses(i).filter(Boolean);
+
+			if (!opponent.bot && choices.length !== 2) {
+				content = content.replace(
+					`> Waiting for **${i.user.username}**`,
+					`> **${i.user.username}** has chosen!`,
+				);
+				return void i.update(content);
+			}
+			collector.stop("finished");
+			await i.update({
+				content: computeResults(),
+				components: [row.setComponents(buttons)],
+			});
+		});
+
+		collector.on("end", async (_, r) => {
+			if (r === "finished") return;
+			await sent.edit({
+				content: "Time up!",
+				components: [row.setComponents(buttons)],
+			});
+		});
+	},
 	async commandRun(interaction) {
 		const opponent =
 			interaction.options.getUser("user") ?? interaction.client.user!;
