@@ -632,7 +632,7 @@ export default new Command({
 					`Command Yeardata used: ${cy} is ${round(
 						getProgress(date),
 						13,
-					).toFixed(2)}`,
+					).toFixed(2)}% complete.`,
 				);
 				return interaction.followUp({
 					content: `**${cy}** is **${round(getProgress(date), 13).toFixed(
