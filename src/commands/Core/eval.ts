@@ -16,6 +16,28 @@ export default new Command({
 			type: ApplicationCommandOptionType.String,
 		},
 	],
+	async messageRun(message, args) {
+		if (!args.join(" "))
+			return message.reply({
+				content: "You need to input some code in order to use this command!",
+			});
+
+		const { client, channel, author, member, guild } = message;
+
+		let result = await eval(args.join(" "));
+
+		if (typeof result !== "string") {
+			result = inspect(result);
+		}
+
+		return message.reply({
+			embeds: [
+				{
+					description: `\`\`\`js\n${result}\n\`\`\``,
+				},
+			],
+		});
+	},
 	async commandRun(interaction) {
 		const code = interaction.options.getString("code", true);
 		const { client, channel, user, member, guild } = interaction;
