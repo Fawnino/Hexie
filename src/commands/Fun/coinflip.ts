@@ -24,7 +24,7 @@ export default new Command({
 			new ButtonBuilder()
 				.setCustomId(b.toLowerCase())
 				.setLabel(b)
-				.setStyle(ButtonStyle.Primary),
+				.setStyle(ButtonStyle.Secondary),
 		);
 
 		const cfStart = new EmbedBuilder()
@@ -145,7 +145,7 @@ export default new Command({
 			new ButtonBuilder()
 				.setCustomId(b.toLowerCase())
 				.setLabel(b)
-				.setStyle(ButtonStyle.Primary),
+				.setStyle(ButtonStyle.Secondary),
 		);
 
 		const cfStart = new EmbedBuilder()

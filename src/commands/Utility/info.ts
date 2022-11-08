@@ -449,12 +449,12 @@ export default new Command({
 				const buttons = new ActionRowBuilder<ButtonBuilder>().addComponents(
 					new ButtonBuilder()
 						.setCustomId("users")
-						.setStyle(ButtonStyle.Primary)
+						.setStyle(ButtonStyle.Secondary)
 						.setLabel(`${totalUsers} User(s)`)
 						.setDisabled(true),
 					new ButtonBuilder()
 						.setCustomId("servers")
-						.setStyle(ButtonStyle.Primary)
+						.setStyle(ButtonStyle.Secondary)
 						.setDisabled(true)
 						.setLabel(`${interaction.client.guilds.cache.size} Server(s)`),
 				);

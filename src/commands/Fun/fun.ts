@@ -229,7 +229,7 @@ export default new Command({
 
 				const buttonUps = new ButtonBuilder()
 					.setLabel(`${meme.ups} 👍`)
-					.setStyle(ButtonStyle.Primary)
+					.setStyle(ButtonStyle.Secondary)
 					.setDisabled(true)
 					.setCustomId("meme");
 

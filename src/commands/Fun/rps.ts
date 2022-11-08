@@ -34,7 +34,7 @@ export default new Command({
 				.setCustomId(label.toLowerCase())
 				.setEmoji(emoji)
 				.setLabel(label)
-				.setStyle(ButtonStyle.Primary);
+				.setStyle(ButtonStyle.Secondary);
 		});
 
 		const row = new ActionRowBuilder<ButtonBuilder>();
@@ -144,7 +144,7 @@ export default new Command({
 				.setCustomId(label.toLowerCase())
 				.setEmoji(emoji)
 				.setLabel(label)
-				.setStyle(ButtonStyle.Primary);
+				.setStyle(ButtonStyle.Secondary);
 		});
 
 		const row = new ActionRowBuilder<ButtonBuilder>();
@@ -236,7 +236,7 @@ export default new Command({
 		collector.on("end", async (_, r) => {
 			if (r === "finished") return;
 			await interaction.editReply({
-				content: "Time up!",
+				content: "Times up! An user couldn't respond on time!",
 				components: [row.setComponents(buttons)],
 			});
 		});

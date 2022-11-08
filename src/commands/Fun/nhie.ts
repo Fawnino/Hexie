@@ -26,7 +26,7 @@ export default new Command({
 				.setCustomId(label.toLowerCase())
 				.setLabel(label)
 				.setEmoji(emoji)
-				.setStyle(ButtonStyle.Primary);
+				.setStyle(ButtonStyle.Secondary);
 		});
 		const response = await fetch("https://api.truthordarebot.xyz/api/nhie");
 
@@ -103,7 +103,7 @@ export default new Command({
 				.setCustomId(label.toLowerCase())
 				.setLabel(label)
 				.setEmoji(emoji)
-				.setStyle(ButtonStyle.Primary);
+				.setStyle(ButtonStyle.Secondary);
 		});
 		const response = await fetch("https://api.truthordarebot.xyz/api/nhie");
 

@@ -27,7 +27,7 @@ export default new Command({
 				.setCustomId(label.toLowerCase())
 				.setLabel(label)
 				.setEmoji(emoji)
-				.setStyle(ButtonStyle.Primary);
+				.setStyle(ButtonStyle.Secondary);
 		});
 
 		const hlStart = new EmbedBuilder()
@@ -152,7 +152,7 @@ export default new Command({
 				.setCustomId(label.toLowerCase())
 				.setLabel(label)
 				.setEmoji(emoji)
-				.setStyle(ButtonStyle.Primary);
+				.setStyle(ButtonStyle.Secondary);
 		});
 
 		const hlStart = new EmbedBuilder()
