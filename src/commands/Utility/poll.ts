@@ -21,6 +21,8 @@ export default new CelestineCommand({
 	async messageRun(message, args) {
 		const question = args.join(" ");
 
+		message.delete();
+
 		if (
 			!(message.member! as GuildMember).permissions.has([
 				PermissionsBitField.Flags.EmbedLinks,
@@ -43,7 +45,7 @@ export default new CelestineCommand({
 			})
 			.setDescription(question);
 
-		const sent = await message.reply({
+		const sent = await message.channel.send({
 			embeds: [questionEmbed],
 		});
 		await sent.react("👍");
