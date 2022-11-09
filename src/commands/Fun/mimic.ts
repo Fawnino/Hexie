@@ -1,8 +1,8 @@
 import { TextChannel, ApplicationCommandOptionType } from "discord.js";
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Mimic a user.",

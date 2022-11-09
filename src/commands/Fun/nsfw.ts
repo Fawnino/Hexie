@@ -1,5 +1,5 @@
 import { CommandType } from "#lib/enums";
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import {
 	EmbedBuilder,
 	ApplicationCommandOptionType,
@@ -12,7 +12,7 @@ interface NSFW {
 	url: string;
 	image: string;
 }
-export default new Command({
+export default new CelestineCommand({
 	category: "NSFW",
 	type: CommandType.ChatInput,
 	description: "Get a certain nsfw image.",

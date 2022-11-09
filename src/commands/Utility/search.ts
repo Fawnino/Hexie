@@ -1,5 +1,5 @@
 import { CommandType } from "#lib/enums";
-import { Command, Paginator } from "#lib/structures";
+import { CelestineCommand, Paginator } from "#lib/structures";
 import {
 	EmbedBuilder,
 	ApplicationCommandOptionType,
@@ -62,7 +62,7 @@ interface DefinitionData {
 	thumbs_down: number;
 }
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Look around the internet!",

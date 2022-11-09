@@ -1,8 +1,8 @@
-import { Command, Paginator } from "#lib/structures";
+import { CelestineCommand, Paginator } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import { EmbedBuilder } from "discord.js";
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Get the bots help menu",
@@ -10,7 +10,7 @@ export default new Command({
 		const { client } = message;
 		const paginator = new Paginator({ ephemeral: true, time: 30_000 });
 
-		const sortedCommands: { [x: string]: Command[] } = {};
+		const sortedCommands: { [x: string]: CelestineCommand[] } = {};
 		client.commands.forEach((command) => {
 			if (!sortedCommands[command.category])
 				sortedCommands[command.category] = [];
@@ -57,7 +57,7 @@ export default new Command({
 		const { client } = interaction;
 		const paginator = new Paginator({ ephemeral: true, time: 30_000 });
 
-		const sortedCommands: { [x: string]: Command[] } = {};
+		const sortedCommands: { [x: string]: CelestineCommand[] } = {};
 		client.commands.forEach((command) => {
 			if (!sortedCommands[command.category])
 				sortedCommands[command.category] = [];

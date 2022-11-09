@@ -1,8 +1,8 @@
 import { CommandType } from "#lib/enums";
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Set a timer.",

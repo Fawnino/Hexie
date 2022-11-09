@@ -1,5 +1,5 @@
 import { CommandType } from "#lib/enums";
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import {
 	EmbedBuilder,
 	ApplicationCommandOptionType,
@@ -46,7 +46,7 @@ interface InsultData {
 	insult: string;
 }
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Fun Commands!",

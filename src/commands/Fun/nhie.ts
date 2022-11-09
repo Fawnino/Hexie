@@ -1,4 +1,4 @@
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import fetch from "node-fetch";
 import {
@@ -15,7 +15,7 @@ interface NhieData {
 	question: string;
 }
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Play never have I ever!",

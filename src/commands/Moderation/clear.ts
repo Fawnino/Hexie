@@ -1,4 +1,4 @@
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
 	ApplicationCommandOptionType,
@@ -8,7 +8,7 @@ import {
 	TextChannel,
 } from "discord.js";
 
-export default new Command({
+export default new CelestineCommand({
 	type: CommandType.ChatInput,
 	description: "Delete an amount of messages.",
 	category: "Moderation",
@@ -22,6 +22,48 @@ export default new Command({
 			required: true,
 		},
 	],
+	async messageRun(message, args) {
+		const count = parseInt(args[0]);
+
+		if (
+			!(message.member as GuildMember).permissions.has([
+				PermissionsBitField.Flags.ManageMessages,
+			])
+		)
+			return message.reply({
+				content:
+					"You do not have the sufficient permission `ManageMessages` to use this command!",
+			});
+
+		if (!message.channel) return;
+
+		const messages = await message.channel!.messages.fetch({
+			limit: count,
+		});
+
+		await (message.channel! as TextChannel).bulkDelete(messages, true);
+
+		const successEmbed = new EmbedBuilder()
+			.setTitle(`Success!`)
+			.setColor("Green")
+			.setAuthor({
+				name: `${message.author.tag}`,
+				iconURL: `${message.author.displayAvatarURL({ forceStatic: true })}`,
+			})
+			.setDescription(`Successfully deleted **${count}** messages!`)
+			.setFooter({
+				text: `This message auto-deletes in 5 seconds`,
+				iconURL: message.client.user.displayAvatarURL(),
+			});
+
+		return await message
+			.reply({
+				embeds: [successEmbed],
+			})
+			.then((msg) => {
+				setTimeout(() => msg.delete(), 5000);
+			});
+	},
 	async commandRun(interaction) {
 		const count = interaction.options.getInteger("amount", true);
 

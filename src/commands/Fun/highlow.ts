@@ -1,5 +1,5 @@
 import { CommandType } from "#lib/enums";
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import {
 	ActionRowBuilder,
 	APIButtonComponentWithCustomId,
@@ -10,7 +10,7 @@ import {
 	EmbedBuilder,
 } from "discord.js";
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	aliases: ["hl"],
@@ -98,7 +98,7 @@ export default new Command({
 				.setColor(0x5865f2)
 				.setFooter({
 					text: contentFooter(winConditions),
-					iconURL: `${message.client.user.displayAvatarURL({
+					iconURL: `${message.author.displayAvatarURL({
 						forceStatic: true,
 					})}`,
 				});

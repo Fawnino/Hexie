@@ -1,5 +1,5 @@
 import { CommandType } from "#lib/enums";
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import {
 	ActionRowBuilder,
 	ApplicationCommandOptionType,
@@ -10,7 +10,7 @@ import {
 	User,
 } from "discord.js";
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Play some RPS Games!",

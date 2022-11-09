@@ -1,8 +1,8 @@
 import { CommandType } from "#lib/enums";
-import { Command } from "#lib/structures";
-import { ApplicationCommandOptionType, InteractionCollector } from "discord.js";
+import { CelestineCommand } from "#lib/structures";
+import { ApplicationCommandOptionType } from "discord.js";
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Utility",
 	type: CommandType.ChatInput,
 	aliases: ["say"],

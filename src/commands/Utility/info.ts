@@ -1,4 +1,4 @@
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
 	EmbedBuilder,
@@ -15,7 +15,7 @@ import os from "node:os";
 import canvas from "canvas";
 import { QuickDB } from "quick.db";
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Information commands!",

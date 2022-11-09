@@ -1,5 +1,5 @@
 import { CommandType } from "#lib/enums";
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
 import fetch from "node-fetch";
 import client from "nekos.life";
@@ -8,7 +8,7 @@ const sfw = new client();
 interface Actions {
 	url: string;
 }
-export default new Command({
+export default new CelestineCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Do an action to a user!",

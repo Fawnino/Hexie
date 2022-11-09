@@ -1,4 +1,4 @@
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
 	PermissionsBitField,
@@ -8,7 +8,7 @@ import {
 	Role,
 } from "discord.js";
 
-export default new Command({
+export default new CelestineCommand({
 	type: CommandType.ChatInput,
 	description: "Configure roles!",
 	category: "Moderation",

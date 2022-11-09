@@ -1,4 +1,4 @@
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
 	EmbedBuilder,
@@ -7,7 +7,7 @@ import {
 	PermissionsBitField,
 } from "discord.js";
 
-export default new Command({
+export default new CelestineCommand({
 	type: CommandType.ChatInput,
 	description: "Unmute a muted user.",
 	category: "Moderation",

@@ -13,7 +13,7 @@ import {
 	ApplicationCommandType,
 } from "discord.js";
 
-export class Command<T extends CommandType = CommandType> {
+export class CelestineCommand<T extends CommandType = CommandType> {
 	private data: CommandOptions<T>;
 	public description?: string;
 	public category: string;

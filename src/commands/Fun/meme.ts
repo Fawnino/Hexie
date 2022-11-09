@@ -1,9 +1,9 @@
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import fetch from "node-fetch";
 import { CommandType } from "#lib/enums";
 import { ApplicationCommandOptionType, AttachmentBuilder } from "discord.js";
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Manipulate meme images!",

@@ -1,4 +1,4 @@
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import { QuickDB } from "quick.db";
 import {
@@ -9,7 +9,7 @@ import {
 
 const db = new QuickDB();
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Utility",
 	description: "Toggle levels for the current discord server.",
 	type: CommandType.ChatInput,

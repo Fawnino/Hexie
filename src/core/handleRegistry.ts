@@ -1,5 +1,5 @@
 import { CommandType } from "#lib/enums";
-import { Client, Command } from "#lib/structures";
+import { Client, CelestineCommand } from "#lib/structures";
 import {
 	ApplicationCommandData,
 	ApplicationCommandType,
@@ -35,7 +35,9 @@ export async function handleRegistry(client: Client) {
 
 		for (const file of commandsFiles) {
 			const path = `../commands/${folder}/${file}`;
-			const { default: command } = (await import(path)) as { default: Command };
+			const { default: command } = (await import(path)) as {
+				default: CelestineCommand;
+			};
 
 			if (!command)
 				throw new Error(
@@ -108,7 +110,7 @@ function registerCommands(client: Client) {
 	}
 }
 
-async function checkFromClient(client: Client, command: Command) {
+async function checkFromClient(client: Client, command: CelestineCommand) {
 	const { logger } = client;
 	// Guild Command Check
 

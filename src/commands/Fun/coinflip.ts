@@ -1,4 +1,4 @@
-import { Command } from "#lib/structures";
+import { CelestineCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
 	ActionRowBuilder,
@@ -12,7 +12,7 @@ import {
 
 const sides = ["Heads", "Tails"];
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	aliases: ["cf"],

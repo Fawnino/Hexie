@@ -1,6 +1,6 @@
 import { CommandType } from "#lib/enums";
-import { Command, Prompt } from "#lib/structures";
-import { InteractionCollector, Message } from "discord.js";
+import { CelestineCommand, Prompt } from "#lib/structures";
+import { Message } from "discord.js";
 import { magentaBright, gray } from "colorette";
 
 const questions = [
@@ -10,7 +10,7 @@ const questions = [
 	"Final question, rate this class on a scale of 0-10",
 ];
 
-export default new Command({
+export default new CelestineCommand({
 	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Survey time!",
