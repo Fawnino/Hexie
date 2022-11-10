@@ -68,6 +68,12 @@ export default new CelestineCommand({
 				ephemeral: true,
 			});
 
+		if (member.id === interaction.client.user.id)
+			return interaction.reply({
+				content: "I can't configure a role to myself!",
+				ephemeral: true,
+			});
+
 		if (!member.manageable || !member.moderatable)
 			return interaction.reply({
 				content:
