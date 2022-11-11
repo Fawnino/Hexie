@@ -146,6 +146,7 @@ export default new CelestineCommand({
 				try {
 					const embed = new EmbedBuilder()
 						.setTitle(`**${char!.name}**`)
+						.setDescription(`${char?.description}`)
 						.setThumbnail(char!.images.icon)
 						.setColor("LuminousVividPink")
 						.addFields(
@@ -169,7 +170,6 @@ export default new CelestineCommand({
 							},
 							{ name: "Substat:", value: char!.substat, inline: true },
 							{ name: "Affiliation:", value: char!.affiliation, inline: true },
-							{ name: "Description:", value: char!.description, inline: true },
 						)
 						.setTimestamp();
 					return interaction.followUp({ embeds: [embed] });
