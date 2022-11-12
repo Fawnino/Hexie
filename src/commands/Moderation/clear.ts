@@ -22,50 +22,10 @@ export default new CelestineCommand({
 			required: true,
 		},
 	],
-	async messageRun(message, args) {
-		const count = parseInt(args[0]);
-
-		if (
-			!(message.member as GuildMember).permissions.has([
-				PermissionsBitField.Flags.ManageMessages,
-			])
-		)
-			return message.reply({
-				content:
-					"You do not have the sufficient permission `ManageMessages` to use this command!",
-			});
-
-		if (!message.channel) return;
-
-		const messages = await message.channel!.messages.fetch({
-			limit: count,
-		});
-
-		await (message.channel! as TextChannel).bulkDelete(messages, true);
-
-		const successEmbed = new EmbedBuilder()
-			.setTitle(`Success!`)
-			.setColor("Green")
-			.setAuthor({
-				name: `${message.author.tag}`,
-				iconURL: `${message.author.displayAvatarURL({ forceStatic: true })}`,
-			})
-			.setDescription(`Successfully deleted **${count}** messages!`)
-			.setFooter({
-				text: `This message auto-deletes in 5 seconds`,
-				iconURL: message.client.user.displayAvatarURL(),
-			});
-
-		return await message
-			.reply({
-				embeds: [successEmbed],
-			})
-			.then((msg) => {
-				setTimeout(() => msg.delete(), 5000);
-			});
-	},
 	async commandRun(interaction) {
-		const count = interaction.options.getInteger("amount", true);
+		const count = interaction.options.getInteger("amount", true)!;
+
+		const currentChannel = interaction.channel! as TextChannel;
 
 		if (
 			!(interaction.member as GuildMember).permissions.has([
@@ -84,8 +44,6 @@ export default new CelestineCommand({
 			limit: count,
 		});
 
-		await (interaction.channel! as TextChannel).bulkDelete(messages, true);
-
 		const successEmbed = new EmbedBuilder()
 			.setTitle(`Success!`)
 			.setColor("Green")
@@ -99,10 +57,14 @@ export default new CelestineCommand({
 				iconURL: interaction.client.user.displayAvatarURL(),
 			});
 
-		setTimeout(() => interaction.deleteReply(), 5000);
-
-		return await interaction.reply({
+		await interaction.reply({
 			embeds: [successEmbed],
 		});
+
+		await currentChannel.bulkDelete(messages, true);
+
+		setTimeout(() => {
+			return interaction.deleteReply();
+		}, 5000);
 	},
 });
