@@ -40,7 +40,7 @@ export default new CelestineCommand({
 
 		if (!interaction.channel) return;
 
-		const messages = await interaction.channel!.messages.fetch({
+		const fetchMessages = await interaction.channel!.messages.fetch({
 			limit: count,
 		});
 
@@ -61,7 +61,7 @@ export default new CelestineCommand({
 			embeds: [successEmbed],
 		});
 
-		await currentChannel.bulkDelete(messages, true);
+		await currentChannel.bulkDelete(fetchMessages, true);
 
 		setTimeout(() => {
 			return interaction.deleteReply();
