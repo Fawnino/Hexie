@@ -5,6 +5,7 @@ import {
 	ApplicationCommandOptionType,
 	ChannelType,
 	TextChannel,
+	AttachmentBuilder,
 } from "discord.js";
 import fetch from "node-fetch";
 
@@ -81,82 +82,82 @@ export default new CelestineCommand({
 			case "4k": {
 				const res = await fetch(`http://api.nekos.fun:8080/api/4k`);
 				const img = (await res.json()) as NSFW;
-				const fourkEmbed = new EmbedBuilder()
-					.setImage(img.image)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [fourkEmbed] });
+				const finalImage = new AttachmentBuilder(img.image, {
+					name: "4k.png",
+				});
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "spank": {
 				const res = await fetch(`http://api.nekos.fun:8080/api/spank`);
 				const img = (await res.json()) as NSFW;
-				const spankEmbed = new EmbedBuilder()
-					.setImage(img.image)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [spankEmbed] });
+				const finalImage = new AttachmentBuilder(img.image, {
+					name: "drake.png",
+				});
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "hentai": {
 				const res = await fetch(`https://api.waifu.pics/nsfw/waifu`);
 				const img = (await res.json()) as NSFW;
-				const hentaiEmbed = new EmbedBuilder()
-					.setImage(img.url)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [hentaiEmbed] });
+				const finalImage = new AttachmentBuilder(img.url, {
+					name: "hentai.png",
+				});
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "neko": {
 				const res = await fetch(`https://api.waifu.pics/nsfw/neko`);
 				const img2 = (await res.json()) as NSFW;
-				const nekoEmbed = new EmbedBuilder()
-					.setImage(img2.url)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [nekoEmbed] });
+				const finalImage = new AttachmentBuilder(img2.url, {
+					name: "neko.png",
+				});
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "blowjob": {
 				const res = await fetch(`https://api.waifu.pics/nsfw/blowjob`);
 				const img3 = (await res.json()) as NSFW;
-				const blowjobEmbed = new EmbedBuilder()
-					.setImage(img3.url)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [blowjobEmbed] });
+				const finalImage = new AttachmentBuilder(img3.url, {
+					name: "blowjob.png",
+				});
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "trap": {
 				const res = await fetch(`https://api.waifu.pics/nsfw/trap`);
 				const img4 = (await res.json()) as NSFW;
-				const trapEmbed = new EmbedBuilder()
-					.setImage(img4.url)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [trapEmbed] });
+				const finalImage = new AttachmentBuilder(img4.url, {
+					name: "trap.png",
+				});
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "feet": {
 				const res = await fetch(`http://api.nekos.fun:8080/api/feet`);
 				const img5 = (await res.json()) as NSFW;
-				const feetEmbed = new EmbedBuilder()
-					.setImage(img5.image)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [feetEmbed] });
+				const finalImage = new AttachmentBuilder(img5.image, {
+					name: "feet.png",
+				});
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "gasm": {
 				const res = await fetch(`http://api.nekos.fun:8080/api/gasm`);
 				const img6 = (await res.json()) as NSFW;
-				const pussyEmbed = new EmbedBuilder()
-					.setImage(img6.image)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [pussyEmbed] });
+				const finalImage = new AttachmentBuilder(img6.image, {
+					name: "gasm.png",
+				});
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "boobs": {
 				const res = await fetch(`http://api.nekos.fun:8080/api/boobs`);
 				const img7 = (await res.json()) as NSFW;
-				const boobsEmbed = new EmbedBuilder()
-					.setImage(img7.image)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [boobsEmbed] });
+				const finalImage = new AttachmentBuilder(img7.image, {
+					name: "boobs.png",
+				});
+				return interaction.followUp({ files: [finalImage] });
 			}
 			case "lesbian": {
 				const res = await fetch(`http://api.nekos.fun:8080/api/lesbian`);
 				const img9 = (await res.json()) as NSFW;
-				const lesbianEmbed = new EmbedBuilder()
-					.setImage(img9.image)
-					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [lesbianEmbed] });
+				const finalImage = new AttachmentBuilder(img9.image, {
+					name: "lesbian.png",
+				});
+				return interaction.followUp({ files: [finalImage] });
 			}
 		}
 	},

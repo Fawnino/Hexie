@@ -171,8 +171,8 @@ export default new CelestineCommand({
 					"in one universe out of 9876567... yes",
 					"in one universe out of 9876567... no",
 					"yes.",
-					"is that a question? yes!!",
-					"is that a question? no.",
+					"is that even a question? yes!!",
+					"is that even a question? no.",
 					"talk to me later once i'm done with your mom",
 					"talk to me later once i'm done with your dad",
 				];
