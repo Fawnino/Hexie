@@ -1,4 +1,9 @@
-import { TextChannel, ApplicationCommandOptionType } from "discord.js";
+import {
+	TextChannel,
+	ApplicationCommandOptionType,
+	GuildMember,
+	PermissionsBitField,
+} from "discord.js";
 import { CelestineCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 
@@ -27,6 +32,17 @@ export default new CelestineCommand({
 		const GuildMember = interaction.guild!.members.cache.get(user.id);
 
 		let userDisplayName;
+
+		if (
+			!(interaction.member as GuildMember).permissions.has([
+				PermissionsBitField.Flags.ManageWebhooks,
+			])
+		)
+			return interaction.reply({
+				content:
+					"You do not have the sufficient permission `ManageWebhooks` to use this command!",
+				ephemeral: true,
+			});
 
 		if (!GuildMember) userDisplayName = user.username;
 		else userDisplayName = GuildMember.nickname || user.username;
