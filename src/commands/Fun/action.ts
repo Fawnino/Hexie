@@ -727,7 +727,7 @@ export default new CelestineCommand({
 				const breedEmbed = new EmbedBuilder()
 					.setTitle("💞 | Breeding!")
 					.setDescription(
-						`🔻 | ${mentionedUser} \n🔺| and ${usertwo} breed with each other!`,
+						`🔻 | ${mentionedUser} \n🔺| and ${usertwo} bred with each other!`,
 					)
 					.setColor("#ff007f")
 					.addFields({
