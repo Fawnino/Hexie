@@ -94,7 +94,7 @@ export default new CelestineCommand({
 					)}`,
 				);
 				const fancyText = (await response.json()) as TextData;
-				return interaction.followUp({ content: `${fancyText.fancy}` });
+				return interaction.editReply({ content: `${fancyText.fancy}` });
 			}
 			case "emojify": {
 				const response = await fetch(
@@ -103,7 +103,7 @@ export default new CelestineCommand({
 					)}`,
 				);
 				const Text = (await response.json()) as TextData;
-				return interaction.followUp({ content: `${Text.emojifyed}` });
+				return interaction.editReply({ content: `${Text.emojifyed}` });
 			}
 			case "upsidedown": {
 				const response = await fetch(
@@ -112,7 +112,7 @@ export default new CelestineCommand({
 					)}`,
 				);
 				const Text = (await response.json()) as TextData;
-				return interaction.followUp({ content: `${Text.tiny}` });
+				return interaction.editReply({ content: `${Text.tiny}` });
 			}
 			case "reverse": {
 				const response = await fetch(
@@ -121,7 +121,7 @@ export default new CelestineCommand({
 					)}`,
 				);
 				const Text = (await response.json()) as TextData;
-				return interaction.followUp({ content: `${Text.reversed}` });
+				return interaction.editReply({ content: `${Text.reversed}` });
 			}
 			case "aesthetics": {
 				const response = await fetch(
@@ -130,7 +130,7 @@ export default new CelestineCommand({
 					)}`,
 				);
 				const Text = (await response.json()) as TextData;
-				return interaction.followUp({ content: `${Text.vaporwaved}` });
+				return interaction.editReply({ content: `${Text.vaporwaved}` });
 			}
 		}
 	},

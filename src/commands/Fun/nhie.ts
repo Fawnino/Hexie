@@ -119,7 +119,7 @@ export default new CelestineCommand({
 				})}`,
 			});
 
-		const sent = await interaction.followUp({
+		const sent = await interaction.editReply({
 			embeds: [questionsEmbed],
 			components: [
 				new ActionRowBuilder<ButtonBuilder>().addComponents(buttons),

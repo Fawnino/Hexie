@@ -189,7 +189,7 @@ export default new CelestineCommand({
 
 				const finalImage = new AttachmentBuilder(image, { name: "drake.png" });
 
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "panik-kalm-panik": {
 				let image = "";
@@ -206,7 +206,7 @@ export default new CelestineCommand({
 					name: "panik-kalm-panik.png",
 				});
 
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "gay": {
 				let image;
@@ -220,10 +220,9 @@ export default new CelestineCommand({
 
 				if (image === attachment) {
 					if (!attachment.contentType?.includes("image"))
-						return interaction.followUp({
+						return interaction.editReply({
 							content:
 								"The file provided is not a correct image file with the correct extension\nSupported extensions: `png` and `jpg`",
-							ephemeral: true,
 						});
 
 					if (
@@ -250,7 +249,7 @@ export default new CelestineCommand({
 					name: "gay.png",
 				});
 
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "burn": {
 				let image = "";
@@ -263,7 +262,7 @@ export default new CelestineCommand({
 
 				const finalImage = new AttachmentBuilder(image, { name: "burn.png" });
 
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "caution": {
 				let image = "";
@@ -278,7 +277,7 @@ export default new CelestineCommand({
 					name: "caution.png",
 				});
 
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "pixelate": {
 				let image;
@@ -292,10 +291,9 @@ export default new CelestineCommand({
 
 				if (image === attachment) {
 					if (!attachment.contentType?.includes("image"))
-						return interaction.followUp({
+						return interaction.editReply({
 							content:
 								"The file provided is not a correct image file with the correct extension\nSupported extensions: `png` and `jpg`",
-							ephemeral: true,
 						});
 
 					if (
@@ -322,7 +320,7 @@ export default new CelestineCommand({
 					name: "pixelated.png",
 				});
 
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "eddyfact": {
 				let image = "";
@@ -335,7 +333,7 @@ export default new CelestineCommand({
 					name: "eddyfact.png",
 				});
 
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "shit": {
 				let image;
@@ -349,10 +347,9 @@ export default new CelestineCommand({
 
 				if (image === attachment) {
 					if (!attachment.contentType?.includes("image"))
-						return interaction.followUp({
+						return interaction.editReply({
 							content:
 								"The file provided is not a correct image file with the correct extension\nSupported extensions: `png` and `jpg`",
-							ephemeral: true,
 						});
 
 					if (
@@ -379,7 +376,7 @@ export default new CelestineCommand({
 					name: "shit.png",
 				});
 
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 		}
 	},

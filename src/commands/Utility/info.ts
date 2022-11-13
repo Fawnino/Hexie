@@ -1101,7 +1101,7 @@ export default new CelestineCommand({
 					avatarUserButton,
 					avatarMemberButton,
 				]);
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [embed],
 					components: [buttonRows],
 				});
@@ -1273,7 +1273,7 @@ export default new CelestineCommand({
 					});
 				}
 
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [ServerInformationEmbed],
 				});
 			}
@@ -1322,7 +1322,7 @@ export default new CelestineCommand({
 						.setLabel(`${interaction.client.guilds.cache.size} Server(s)`),
 				);
 
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [botInfoEmbed],
 					components: [buttons],
 				});
@@ -1438,7 +1438,7 @@ export default new CelestineCommand({
 						iconURL: interaction.user.displayAvatarURL(),
 					});
 
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [worldClock],
 				});
 			}
@@ -1497,7 +1497,7 @@ export default new CelestineCommand({
 						13,
 					).toFixed(2)}% complete.`,
 				);
-				return interaction.followUp({
+				return interaction.editReply({
 					content: `**${cy}** is **${round(getProgress(date), 13).toFixed(
 						2,
 					)}%** complete.`,
@@ -1555,7 +1555,7 @@ export default new CelestineCommand({
 						.setEmoji({ name: ":KoFi", id: "1024829502234296430" })
 						.setStyle(ButtonStyle.Link),
 				);
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [linksEmbed],
 					components: [row],
 				});
@@ -1612,7 +1612,7 @@ export default new CelestineCommand({
 					)
 					.setTimestamp();
 
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [Embed],
 				});
 			}
@@ -1692,7 +1692,7 @@ export default new CelestineCommand({
 					avatarMemberButton,
 				]);
 
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [embed],
 					components: [buttonRows],
 				});
@@ -1734,7 +1734,7 @@ export default new CelestineCommand({
 						.setLabel("Discord Guidelines"),
 				);
 
-				return interaction.followUp({ embeds: [tos], components: [buttons] });
+				return interaction.editReply({ embeds: [tos], components: [buttons] });
 			}
 			case "levels": {
 				let messagefetch = await db.get(
@@ -1760,7 +1760,7 @@ export default new CelestineCommand({
 						})}`,
 					});
 
-				return interaction.followUp({ embeds: [embed] });
+				return interaction.editReply({ embeds: [embed] });
 			}
 		}
 	},

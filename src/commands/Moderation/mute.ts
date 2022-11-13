@@ -169,7 +169,7 @@ export default new CelestineCommand({
 
 		await targetMember.disableCommunicationUntil(dateMuteDuration, muteReason);
 
-		return interaction.followUp({
+		return interaction.editReply({
 			embeds: [targetMuted],
 		});
 	},

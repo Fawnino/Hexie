@@ -72,7 +72,7 @@ export default new CelestineCommand({
 					.setImage(img.image)
 					.setDescription(`Random Dog Fact: ${img.fact}`)
 					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [dogEmbed] });
+				return interaction.editReply({ embeds: [dogEmbed] });
 			}
 			case "cat": {
 				const res = await fetch("https://some-random-api.ml/animal/cat");
@@ -82,7 +82,7 @@ export default new CelestineCommand({
 					.setImage(img.image)
 					.setDescription(`Random Cat Fact: ${img.fact}`)
 					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [catEmbed] });
+				return interaction.editReply({ embeds: [catEmbed] });
 			}
 			case "panda": {
 				const res = await fetch("https://some-random-api.ml/animal/panda");
@@ -92,7 +92,7 @@ export default new CelestineCommand({
 					.setImage(img.image)
 					.setDescription(`Random Panda Fact: ${img.fact}`)
 					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [pandaEmbed] });
+				return interaction.editReply({ embeds: [pandaEmbed] });
 			}
 			case "fox": {
 				const res = await fetch("https://some-random-api.ml/animal/fox");
@@ -102,7 +102,7 @@ export default new CelestineCommand({
 					.setImage(img.image)
 					.setDescription(`Random Fox Fact: ${img.fact}`)
 					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [foxEmbed] });
+				return interaction.editReply({ embeds: [foxEmbed] });
 			}
 			case "koala": {
 				const res = await fetch("https://some-random-api.ml/animal/koala");
@@ -112,7 +112,7 @@ export default new CelestineCommand({
 					.setImage(img.image)
 					.setDescription(`Random Koala Fact: ${img.fact}`)
 					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [koalaEmbed] });
+				return interaction.editReply({ embeds: [koalaEmbed] });
 			}
 			case "bird": {
 				const res = await fetch("https://some-random-api.ml/animal/bird");
@@ -122,7 +122,7 @@ export default new CelestineCommand({
 					.setImage(img.image)
 					.setDescription(`Random Bird Fact: ${img.fact}`)
 					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [birdEmbed] });
+				return interaction.editReply({ embeds: [birdEmbed] });
 			}
 			case "racoon": {
 				const res = await fetch("https://some-random-api.ml/animal/raccoon");
@@ -132,7 +132,7 @@ export default new CelestineCommand({
 					.setImage(img.image)
 					.setDescription(`Random Raccoon Fact: ${img.fact}`)
 					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [raccoonEmbed] });
+				return interaction.editReply({ embeds: [raccoonEmbed] });
 			}
 			case "kangaroo": {
 				const res = await fetch("https://some-random-api.ml/animal/kangaroo");
@@ -142,7 +142,7 @@ export default new CelestineCommand({
 					.setImage(img.image)
 					.setDescription(`Random Kangaroo Fact: ${img.fact}`)
 					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [kangarooEmbed] });
+				return interaction.editReply({ embeds: [kangarooEmbed] });
 			}
 			case "duck": {
 				const res = await fetch("https://random-d.uk/api/v2/random");
@@ -152,7 +152,7 @@ export default new CelestineCommand({
 					.setImage(img.url)
 					.setFooter({ text: `${img.message}` })
 					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [duckEmbed] });
+				return interaction.editReply({ embeds: [duckEmbed] });
 			}
 		}
 	},

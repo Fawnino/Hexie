@@ -188,18 +188,18 @@ export default new CelestineCommand({
 						iconURL: interaction.user.displayAvatarURL(),
 					});
 				if (interaction.user.id === mentionedUser.id) {
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "You can't bully yourself masochist!",
 					});
 				}
 
 				if (mentionedUser.id === "1021374807683637249") {
-					return interaction.followUp({
+					return interaction.editReply({
 						embeds: [bullybot],
 					});
 				}
 
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [bullyEmbed],
 				});
 			}
@@ -233,18 +233,18 @@ export default new CelestineCommand({
 						iconURL: interaction.user.displayAvatarURL(),
 					});
 				if (interaction.user.id === mentionedUser.id) {
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "You can't cuddle with yourself lonely person!",
 					});
 				}
 
 				if (mentionedUser.id === "1021374807683637249") {
-					return interaction.followUp({
+					return interaction.editReply({
 						embeds: [cuddlebot],
 					});
 				}
 
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [cuddleEmbed],
 				});
 			}
@@ -276,18 +276,18 @@ export default new CelestineCommand({
 						iconURL: interaction.user.displayAvatarURL(),
 					});
 				if (interaction.user.id === mentionedUser.id) {
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "You can't hug yourself lonely person!",
 					});
 				}
 
 				if (mentionedUser.id === "1021374807683637249") {
-					return interaction.followUp({
+					return interaction.editReply({
 						embeds: [hugbot],
 					});
 				}
 
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [hugEmbed],
 				});
 			}
@@ -528,18 +528,16 @@ export default new CelestineCommand({
 				];
 
 				if (target.id === interaction.user.id) {
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "Do you need help?",
-						ephemeral: true,
 					});
 				}
 				if (target.id === "1021374807683637249") {
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "What are you trying to do, screw off.",
-						ephemeral: true,
 					});
 				}
-				return interaction.followUp({
+				return interaction.editReply({
 					content: `${kills[Math.floor(Math.random() * kills.length)]}`,
 					allowedMentions: { repliedUser: false },
 				});
@@ -572,18 +570,18 @@ export default new CelestineCommand({
 						iconURL: interaction.user.displayAvatarURL(),
 					});
 				if (interaction.user.id === mentionedUser.id) {
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "You can't kiss yourself lonely person!",
 					});
 				}
 
 				if (mentionedUser.id === "1021374807683637249") {
-					return interaction.followUp({
+					return interaction.editReply({
 						embeds: [kissbot],
 					});
 				}
 
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [kissEmbed],
 				});
 			}
@@ -613,18 +611,18 @@ export default new CelestineCommand({
 						iconURL: interaction.user.displayAvatarURL(),
 					});
 				if (interaction.user.id === mentionedUser.id) {
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "You can't pat yourself lonely person!",
 					});
 				}
 
 				if (mentionedUser.id === "1021374807683637249") {
-					return interaction.followUp({
+					return interaction.editReply({
 						embeds: [patbot],
 					});
 				}
 
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [patEmbed],
 				});
 			}
@@ -655,18 +653,18 @@ export default new CelestineCommand({
 						iconURL: interaction.user.displayAvatarURL(),
 					});
 				if (interaction.user.id === mentionedUser.id) {
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "You can't slap yourself you masochist!",
 					});
 				}
 
 				if (mentionedUser.id === "1021374807683637249") {
-					return interaction.followUp({
+					return interaction.editReply({
 						embeds: [slapbot],
 					});
 				}
 
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [slapEmbed],
 				});
 			}
@@ -700,18 +698,18 @@ export default new CelestineCommand({
 						iconURL: interaction.user.displayAvatarURL(),
 					});
 				if (interaction.user.id === mentionedUser.id) {
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "You can't tickle yourself you masochist!",
 					});
 				}
 
 				if (mentionedUser.id === "1021374807683637249") {
-					return interaction.followUp({
+					return interaction.editReply({
 						embeds: [tickleBot],
 					});
 				}
 
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [tickleEmbed],
 				});
 			}
@@ -719,9 +717,8 @@ export default new CelestineCommand({
 				const baby = interaction.guild!.members.cache.random();
 
 				if (mentionedUser.id === interaction.user.id)
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "You can't breed with yourself you dumb fuck.",
-						ephemeral: true,
 					});
 
 				const breedEmbed = new EmbedBuilder()
@@ -738,7 +735,7 @@ export default new CelestineCommand({
 						text: `Requested by: ${interaction.user.tag}`,
 						iconURL: interaction.user.displayAvatarURL(),
 					});
-				return interaction.followUp({ embeds: [breedEmbed] });
+				return interaction.editReply({ embeds: [breedEmbed] });
 			}
 			case "feed": {
 				let datas = await sfw.feed();
@@ -770,15 +767,15 @@ export default new CelestineCommand({
 					});
 
 				if (interaction.user.id === "1021374807683637249") {
-					return interaction.followUp({ embeds: [feedBot] });
+					return interaction.editReply({ embeds: [feedBot] });
 				}
 				if (interaction.user.id === mentionedUser.id) {
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "You can't feed yourself you lonely person!",
 					});
 				}
 
-				return interaction.followUp({ embeds: [feedEmbed] });
+				return interaction.editReply({ embeds: [feedEmbed] });
 			}
 		}
 	},

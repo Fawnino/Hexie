@@ -51,7 +51,7 @@ export default new CelestineCommand({
 					})
 					.setTitle(`Q: ${questions.question}`)
 					.setColor(0x5865f2);
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [questionPGEmbed],
 				});
 			}
@@ -70,7 +70,7 @@ export default new CelestineCommand({
 					})
 					.setTitle(`Q: ${questions.question}`)
 					.setColor(0x5865f2);
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [questionPG13Embed],
 				});
 			}
@@ -89,7 +89,7 @@ export default new CelestineCommand({
 					})
 					.setTitle(`Q: ${questions.question}`)
 					.setColor(0x5865f2);
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [questionREmbed],
 				});
 			}
@@ -107,7 +107,7 @@ export default new CelestineCommand({
 			})
 			.setTitle(`Q: ${questions.question}`)
 			.setColor(0x5865f2);
-		return interaction.followUp({
+		return interaction.editReply({
 			embeds: [questionEmbed],
 		});
 	},

@@ -162,7 +162,7 @@ export default new CelestineCommand({
 
 		await targetMember.disableCommunicationUntil(null, unmuteReason);
 
-		return interaction.followUp({
+		return interaction.editReply({
 			embeds: [successUnmute],
 		});
 	},

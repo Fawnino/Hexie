@@ -73,9 +73,8 @@ export default new CelestineCommand({
 		if (interaction.channel!.type !== ChannelType.GuildText) return;
 
 		if (!(interaction.channel! as TextChannel).nsfw)
-			return interaction.followUp({
+			return interaction.editReply({
 				content: "Please execute this in an nsfw channel!",
-				ephemeral: true,
 			});
 
 		switch (Types) {
@@ -85,7 +84,7 @@ export default new CelestineCommand({
 				const finalImage = new AttachmentBuilder(img.image, {
 					name: "4k.png",
 				});
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "spank": {
 				const res = await fetch(`http://api.nekos.fun:8080/api/spank`);
@@ -93,7 +92,7 @@ export default new CelestineCommand({
 				const finalImage = new AttachmentBuilder(img.image, {
 					name: "drake.png",
 				});
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "hentai": {
 				const res = await fetch(`https://api.waifu.pics/nsfw/waifu`);
@@ -101,7 +100,7 @@ export default new CelestineCommand({
 				const finalImage = new AttachmentBuilder(img.url, {
 					name: "hentai.png",
 				});
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "neko": {
 				const res = await fetch(`https://api.waifu.pics/nsfw/neko`);
@@ -109,7 +108,7 @@ export default new CelestineCommand({
 				const finalImage = new AttachmentBuilder(img2.url, {
 					name: "neko.png",
 				});
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "blowjob": {
 				const res = await fetch(`https://api.waifu.pics/nsfw/blowjob`);
@@ -117,7 +116,7 @@ export default new CelestineCommand({
 				const finalImage = new AttachmentBuilder(img3.url, {
 					name: "blowjob.png",
 				});
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "trap": {
 				const res = await fetch(`https://api.waifu.pics/nsfw/trap`);
@@ -125,7 +124,7 @@ export default new CelestineCommand({
 				const finalImage = new AttachmentBuilder(img4.url, {
 					name: "trap.png",
 				});
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "feet": {
 				const res = await fetch(`http://api.nekos.fun:8080/api/feet`);
@@ -133,7 +132,7 @@ export default new CelestineCommand({
 				const finalImage = new AttachmentBuilder(img5.image, {
 					name: "feet.png",
 				});
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "gasm": {
 				const res = await fetch(`http://api.nekos.fun:8080/api/gasm`);
@@ -141,7 +140,7 @@ export default new CelestineCommand({
 				const finalImage = new AttachmentBuilder(img6.image, {
 					name: "gasm.png",
 				});
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "boobs": {
 				const res = await fetch(`http://api.nekos.fun:8080/api/boobs`);
@@ -149,7 +148,7 @@ export default new CelestineCommand({
 				const finalImage = new AttachmentBuilder(img7.image, {
 					name: "boobs.png",
 				});
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "lesbian": {
 				const res = await fetch(`http://api.nekos.fun:8080/api/lesbian`);
@@ -157,7 +156,7 @@ export default new CelestineCommand({
 				const finalImage = new AttachmentBuilder(img9.image, {
 					name: "lesbian.png",
 				});
-				return interaction.followUp({ files: [finalImage] });
+				return interaction.editReply({ files: [finalImage] });
 			}
 		}
 	},

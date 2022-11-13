@@ -172,12 +172,11 @@ export default new CelestineCommand({
 							{ name: "Affiliation:", value: char!.affiliation, inline: true },
 						)
 						.setTimestamp();
-					return interaction.followUp({ embeds: [embed] });
+					return interaction.editReply({ embeds: [embed] });
 				} catch (err) {
 					interaction.client.logger.error(`Genshin Character Error: ${err}`);
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "Could not find that character!",
-						ephemeral: true,
 					});
 				}
 			}
@@ -222,9 +221,8 @@ export default new CelestineCommand({
 					return pagination.run(interaction);
 				} catch (err) {
 					interaction.client.logger.error(`Urban Command Error: ${err}`);
-					return interaction.followUp({
+					return interaction.editReply({
 						content: `Could not find word ${query}, please try again with a valid word!`,
-						ephemeral: true,
 					});
 				}
 			}
@@ -305,12 +303,11 @@ export default new CelestineCommand({
 								inline: true,
 							},
 						);
-					return interaction.followUp({ embeds: [pokemonEmbed] });
+					return interaction.editReply({ embeds: [pokemonEmbed] });
 				} catch (err) {
 					interaction.client.logger.error(`Pokemon Command Error: ${err}`);
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "Could not find that pokemon!",
-						ephemeral: true,
 					});
 				}
 			}
@@ -407,13 +404,13 @@ export default new CelestineCommand({
 							.setStyle(ButtonStyle.Link),
 					);
 					return interaction
-						.followUp({
+						.editReply({
 							embeds: [malEmbed],
 							components: [row],
 						})
 						.catch((err) => {
 							interaction.client.logger.info(`Anime Command Error: ${err}`);
-							return interaction.followUp({
+							return interaction.editReply({
 								content: `Cannot find results for ${query}, try to use it's real name if it's an abbreviation.`,
 							});
 						});
@@ -441,7 +438,7 @@ export default new CelestineCommand({
 						})}`,
 					})
 					.setColor("White");
-				return interaction.followUp({ embeds: [trollGoogleLink] });
+				return interaction.editReply({ embeds: [trollGoogleLink] });
 			}
 		}
 	},

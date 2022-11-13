@@ -188,7 +188,7 @@ export default new CelestineCommand({
 							forceStatic: true,
 						})}`,
 					});
-				return interaction.followUp({ embeds: [Embed] });
+				return interaction.editReply({ embeds: [Embed] });
 			}
 			case "dadjokes": {
 				let response = await fetch(`https://icanhazdadjoke.com/slack`);
@@ -204,7 +204,7 @@ export default new CelestineCommand({
 						})}`,
 					})
 					.setDescription(text.attachments[0].text);
-				return interaction.followUp({ embeds: [embed] });
+				return interaction.editReply({ embeds: [embed] });
 			}
 			case "jokes": {
 				const res = await fetch("https://some-random-api.ml/joke");
@@ -221,7 +221,7 @@ export default new CelestineCommand({
 					})
 					.setColor(0x36393f);
 
-				return interaction.followUp({ embeds: [jokeembed] });
+				return interaction.editReply({ embeds: [jokeembed] });
 			}
 			case "meme": {
 				const res = await fetch("https://meme-api.herokuapp.com/gimme");
@@ -245,7 +245,7 @@ export default new CelestineCommand({
 							forceStatic: true,
 						})}`,
 					});
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [memeEmbed],
 					components: [
 						new ActionRowBuilder<ButtonBuilder>().addComponents(buttonUps),
@@ -258,7 +258,7 @@ export default new CelestineCommand({
 					interaction.options.getString("user-two") || interaction.user;
 
 				if (shipTarget1?.includes("<@1021374807683637249>"))
-					return interaction.followUp({
+					return interaction.editReply({
 						content: "Sorry I'm not interested in dating, Try someone else!",
 					});
 
@@ -276,7 +276,7 @@ export default new CelestineCommand({
 						text: `They call me cupid 💘`,
 						iconURL: interaction.user.displayAvatarURL(),
 					});
-				return interaction.followUp({ embeds: [shipEmbed] });
+				return interaction.editReply({ embeds: [shipEmbed] });
 			}
 			case "waifu": {
 				const res = await fetch(`https://api.waifu.pics/sfw/waifu`);
@@ -284,7 +284,7 @@ export default new CelestineCommand({
 				const waifuEmbed = new EmbedBuilder()
 					.setImage(img.url)
 					.setColor(0x5865f2);
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [waifuEmbed],
 				});
 			}
@@ -295,12 +295,12 @@ export default new CelestineCommand({
 				let joke = (await res.json()) as Joke;
 
 				if (member.id === interaction.client.user.id) {
-					return interaction.followUp({
+					return interaction.editReply({
 						content: `<@${interaction.user.id}>, ${joke.joke} 😈`,
 						allowedMentions: { repliedUser: false },
 					});
 				} else {
-					return interaction.followUp({
+					return interaction.editReply({
 						content: `<@${member.id}>, ${joke.joke}`,
 						allowedMentions: { repliedUser: false },
 					});
@@ -315,7 +315,7 @@ export default new CelestineCommand({
 				const furryEmbed = new EmbedBuilder()
 					.setImage(`${data[0].image}`)
 					.setColor(0x5865f2);
-				return interaction.followUp({
+				return interaction.editReply({
 					embeds: [furryEmbed],
 				});
 			}
@@ -326,7 +326,7 @@ export default new CelestineCommand({
 				const adviceEmbed = new EmbedBuilder()
 					.setDescription(`*${adviceTxt.slip.advice}*`)
 					.setColor(0x5865f2);
-				return interaction.followUp({ embeds: [adviceEmbed] });
+				return interaction.editReply({ embeds: [adviceEmbed] });
 			}
 			case "aniquote": {
 				const response = await fetch(`https://some-random-api.ml/animu/quote`);
@@ -347,7 +347,7 @@ export default new CelestineCommand({
 							inline: true,
 						},
 					);
-				return interaction.followUp({ embeds: [animeQuotes] });
+				return interaction.editReply({ embeds: [animeQuotes] });
 			}
 			case "roast": {
 				const roastUser = interaction.options.getUser("user");
@@ -359,17 +359,17 @@ export default new CelestineCommand({
 				const data = (await response.json()) as InsultData;
 
 				if (roastUser!.id === interaction.user.id)
-					return interaction.followUp({
+					return interaction.editReply({
 						content:
 							"You can't roast yourself you masochist! Roast another person.",
 					});
 
 				if (roastUser!.id === interaction.client.user.id)
-					return interaction.followUp({
+					return interaction.editReply({
 						content: `😈 ${interaction.user}, ${data.insult} `,
 					});
 
-				return interaction.followUp({
+				return interaction.editReply({
 					content: `${roastUser}, ${data.insult}`,
 					allowedMentions: { repliedUser: false },
 				});
