@@ -115,7 +115,7 @@ export default new CelestineCommand({
 				},
 			)
 			.setTimestamp()
-			.setColor("Default");
+			.setColor(0xe91e63);
 
 		const row = new ActionRowBuilder<ButtonBuilder>().setComponents(
 			new ButtonBuilder()
