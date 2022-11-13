@@ -240,8 +240,26 @@ export default new CelestineCommand({
 				components: [row],
 			});
 
+			const embedWin = new EmbedBuilder({
+				title: "Winners!",
+				description: `Congrats to the winners: ${winners.join(
+					", ",
+				)}. They won **\`${prize}\``,
+				footer: {
+					text: `Giveaway commands managed by ${interaction.client.user}!`,
+					icon_url: interaction.client.user.displayAvatarURL({
+						forceStatic: true,
+					}),
+				},
+				color: 0xe91e63,
+				author: {
+					name: `${interaction.user}`,
+					iconURL: interaction.user.displayAvatarURL({ forceStatic: true }),
+				},
+			});
+
 			if (winners.length)
-				msg.reply(`Gongrats ${winners.join(", ")}! You won **\`${prize}\`**!`);
+				msg.reply({ content: `${winners.join(" ")}`, embeds: [embedWin] });
 			else msg.reply("No one participated :(");
 		});
 	},
