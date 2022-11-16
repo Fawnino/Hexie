@@ -116,4 +116,4 @@ dist
 # Databases
 
 json.sqlite
-json-sqlite.journal
+json.sqlite-journal
