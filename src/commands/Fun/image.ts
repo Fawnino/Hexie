@@ -5,8 +5,6 @@ import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
 
 interface Images {
 	image: string;
-	fact: string;
-	message: string;
 	url: string;
 }
 export default new CelestineCommand({
@@ -70,7 +68,7 @@ export default new CelestineCommand({
 
 				const dogEmbed = new EmbedBuilder()
 					.setImage(img.image)
-					.setDescription(`Random Dog Fact: ${img.fact}`)
+					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
 					.setColor(0x5865f2);
 				return interaction.editReply({ embeds: [dogEmbed] });
 			}
@@ -80,7 +78,7 @@ export default new CelestineCommand({
 
 				const catEmbed = new EmbedBuilder()
 					.setImage(img.image)
-					.setDescription(`Random Cat Fact: ${img.fact}`)
+					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
 					.setColor(0x5865f2);
 				return interaction.editReply({ embeds: [catEmbed] });
 			}
@@ -90,7 +88,7 @@ export default new CelestineCommand({
 
 				const pandaEmbed = new EmbedBuilder()
 					.setImage(img.image)
-					.setDescription(`Random Panda Fact: ${img.fact}`)
+					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
 					.setColor(0x5865f2);
 				return interaction.editReply({ embeds: [pandaEmbed] });
 			}
@@ -100,7 +98,7 @@ export default new CelestineCommand({
 
 				const foxEmbed = new EmbedBuilder()
 					.setImage(img.image)
-					.setDescription(`Random Fox Fact: ${img.fact}`)
+					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
 					.setColor(0x5865f2);
 				return interaction.editReply({ embeds: [foxEmbed] });
 			}
@@ -110,7 +108,7 @@ export default new CelestineCommand({
 
 				const koalaEmbed = new EmbedBuilder()
 					.setImage(img.image)
-					.setDescription(`Random Koala Fact: ${img.fact}`)
+					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
 					.setColor(0x5865f2);
 				return interaction.editReply({ embeds: [koalaEmbed] });
 			}
@@ -120,7 +118,7 @@ export default new CelestineCommand({
 
 				const birdEmbed = new EmbedBuilder()
 					.setImage(img.image)
-					.setDescription(`Random Bird Fact: ${img.fact}`)
+					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
 					.setColor(0x5865f2);
 				return interaction.editReply({ embeds: [birdEmbed] });
 			}
@@ -130,7 +128,7 @@ export default new CelestineCommand({
 
 				const raccoonEmbed = new EmbedBuilder()
 					.setImage(img.image)
-					.setDescription(`Random Raccoon Fact: ${img.fact}`)
+					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
 					.setColor(0x5865f2);
 				return interaction.editReply({ embeds: [raccoonEmbed] });
 			}
@@ -140,7 +138,7 @@ export default new CelestineCommand({
 
 				const kangarooEmbed = new EmbedBuilder()
 					.setImage(img.image)
-					.setDescription(`Random Kangaroo Fact: ${img.fact}`)
+					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
 					.setColor(0x5865f2);
 				return interaction.editReply({ embeds: [kangarooEmbed] });
 			}
@@ -150,7 +148,7 @@ export default new CelestineCommand({
 
 				const duckEmbed = new EmbedBuilder()
 					.setImage(img.url)
-					.setFooter({ text: `${img.message}` })
+					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
 					.setColor(0x5865f2);
 				return interaction.editReply({ embeds: [duckEmbed] });
 			}
