@@ -13,11 +13,18 @@ export default new CelestineCommand({
 			description: "Message you want to echo.",
 			type: ApplicationCommandOptionType.String,
 			required: true,
+			minLength: 1,
+			max_length: 1024,
 		},
 	],
 	async messageRun(message, args) {
 		if (!args.join(" "))
 			return message.reply({ content: "Input something for me to say!" });
+
+		if (args.length > 1024)
+			return message.reply({
+				content: `Your message is too long, I can only send up to 1024 characters\n\nYour message: ${args.length} characters`,
+			});
 
 		await message.reply({
 			content: `${message.author} said: ${args.join(" ")}`,
