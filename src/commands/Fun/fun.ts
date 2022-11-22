@@ -248,7 +248,7 @@ export default new CelestineCommand({
 						"https://cdn.discordapp.com/attachments/791309678092353536/822294803504562206/speech_ballon.gif",
 					);
 
-				return interaction.reply({
+				return interaction.editReply({
 					embeds: [topicEmbed],
 				});
 			}

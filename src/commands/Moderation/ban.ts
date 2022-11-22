@@ -147,13 +147,13 @@ export default new CelestineCommand({
 			context: message,
 			redBtnText: "No",
 			greenBtnText: "Yes",
-			onConfirm: (int) => {
-				int.reply({ embeds: [userBanned] });
+			onConfirm: (msg) => {
+				msg.reply({ embeds: [userBanned] });
 
 				return member?.ban({ reason: `${banReason}` });
 			},
-			onDecline: (int) => {
-				int.reply({
+			onDecline: (msg) => {
+				msg.reply({
 					embeds: [
 						new EmbedBuilder({
 							title: `Banning user ${member.user.tag} cancelled.`,
