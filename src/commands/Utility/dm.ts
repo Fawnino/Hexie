@@ -24,6 +24,36 @@ export default new CelestineCommand({
 		const user = interaction.options.getUser("user", true);
 		const message = interaction.options!.getString("message");
 
+		const susShit = [
+			"ISuckSoManyDaddysOff",
+			"ILoveFeet",
+			"StepBroWhatAreYouDoing",
+			"ISuckDick",
+			"ILoveBigFatDaddies",
+			"ImGonnaFuckYouToSleep",
+			"ImHidingUnderYourBed",
+			"LetsFuckBro",
+			"1234ILoveCock",
+			"IShitMyPantsInSchool",
+			"IPissedMyself",
+			"ILikeFuckingMyself",
+			"MasturbatingIsLife",
+			"ILovePenis",
+			"Pussy",
+			"Cock",
+			"Dick",
+			"ILoveFappingToMyself",
+			"ImSoHot",
+			"ILoveCheckingMyselfOut",
+			"ILoveLittleKids",
+			"IWannaFuckLopunny",
+			"IWannaFuckGardevoir",
+			"QueenElizabeth",
+			"KingPhilipp",
+			"GayTransexual",
+			"YourAverageHomosexualFurry",
+		];
+
 		if (user.id === interaction.client.user.id) {
 			return await interaction
 				.reply({
@@ -37,17 +67,23 @@ export default new CelestineCommand({
 				});
 		}
 
-		user.send(`${message}`).catch(async (err) => {
-			interaction.client.logger.error(`DM Error: ${err}`);
+		user
+			.send(
+				`Anonymous Message from ${Math.floor(Math.random() * susShit.length)}#${
+					interaction.user.discriminator
+				}: ${message}`,
+			)
+			.catch(async (err) => {
+				interaction.client.logger.error(`DM Error: ${err}`);
 
-			return await interaction
-				.reply({
-					content: `❌ | Failed to send that message, please try again`,
-				})
-				.catch((err) => {
-					interaction.client.logger.error(`DM Command Error: ${err}`);
-				});
-		});
+				return await interaction
+					.reply({
+						content: `❌ | Failed to send that message, please try again`,
+					})
+					.catch((err) => {
+						interaction.client.logger.error(`DM Command Error: ${err}`);
+					});
+			});
 
 		await interaction
 			.reply({
