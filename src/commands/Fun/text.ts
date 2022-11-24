@@ -97,13 +97,36 @@ export default new CelestineCommand({
 				return interaction.editReply({ content: `${fancyText.fancy}` });
 			}
 			case "emojify": {
-				const response = await fetch(
-					`https://luminabot.xyz/api/text/emojify?text=${encodeURIComponent(
-						text!,
-					)}`,
-				);
-				const Text = (await response.json()) as TextData;
-				return interaction.editReply({ content: `${Text.emojifyed}` });
+				const numbersObj = {
+					" ": "   ",
+					"0": ":zero:",
+					"1": ":one:",
+					"2": ":two:",
+					"3": ":three:",
+					"4": ":four:",
+					"5": ":five:",
+					"6": ":six:",
+					"7": ":seven:",
+					"8": ":eight:",
+					"9": ":nine:",
+					"!": ":grey_exclamation:",
+					"?": ":grey_question:",
+					"#": ":hash:",
+					"*": ":asterisk:",
+				};
+
+				"abcdefghijklmnopqrstuvwxyz".split("").forEach((letter) => {
+					numbersObj[letter as keyof typeof numbersObj] = numbersObj[
+						letter.toUpperCase() as keyof typeof numbersObj
+					] = ` :regional_indicator_${letter}:`;
+				});
+
+				return interaction.editReply({
+					content: `${text!
+						.split("")
+						.map((c) => numbersObj[c as keyof typeof numbersObj] || c)
+						.join("")}`,
+				});
 			}
 			case "upsidedown": {
 				const response = await fetch(
