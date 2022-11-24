@@ -17,22 +17,12 @@ export default new CelestineCommand({
 		{
 			name: "toggle",
 			description: "Turn on or turn off levels? (Default: Turn On)",
-			type: ApplicationCommandOptionType.String,
+			type: ApplicationCommandOptionType.Boolean,
 			required: true,
-			choices: [
-				{
-					name: "Turn On",
-					value: "on",
-				},
-				{
-					name: "Turn Off",
-					value: "off",
-				},
-			],
 		},
 	],
 	async commandRun(interaction) {
-		const Types = interaction.options.getString("toggle");
+		const Types = interaction.options.getBoolean("toggle");
 
 		if (
 			!(interaction.member as GuildMember).permissions.has([
@@ -46,16 +36,16 @@ export default new CelestineCommand({
 			});
 
 		switch (Types) {
-			case "on": {
-				db.set(`serverlevels_${interaction.guild?.id}`, "on");
+			case true: {
+				db.set(`serverlevels_${interaction.guild?.id}`, true);
 				return interaction.reply({
 					content:
 						"Successfully turned on levels! A user will now get a message everytime a user levels up!",
 					ephemeral: true,
 				});
 			}
-			case "off": {
-				db.set(`serverlevels_$${interaction.guild?.id}`, "off");
+			case false: {
+				db.set(`serverlevels_$${interaction.guild?.id}`, false);
 				return interaction.reply({
 					content:
 						"Successfully turned off levels! A user will no longer get a message or levels everytime a user sends a message!",

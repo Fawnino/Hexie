@@ -21,7 +21,10 @@ export default new CelestineCommand({
 	async messageRun(message, args) {
 		const question = args.join(" ");
 
-		message.delete();
+		if (!args.join(" "))
+			return message.reply({
+				content: "Ask something, you can't start a poll without a question!",
+			});
 
 		if (
 			!(message.member! as GuildMember).permissions.has([
@@ -32,6 +35,8 @@ export default new CelestineCommand({
 				content:
 					"You do not have the sufficient permission `EmbedLinks` to use this command!",
 			});
+
+		message.delete();
 
 		const questionEmbed = new EmbedBuilder()
 			.setColor(0xffff)

@@ -7,7 +7,7 @@ export default new Listener({
 	async run(message) {
 		const db = new QuickDB();
 		const toggle = await db.get(`serverlevels_${message.guild?.id}`);
-		if (toggle === "off") return;
+		if (toggle === false) return;
 		if (message.author.bot) return;
 		if ((message.channel.type as ChannelType) === ChannelType.DM) return;
 
@@ -38,7 +38,7 @@ export default new Listener({
 		else if (messagefetch === 4500) messages = 4500; // Level 19
 		else if (messagefetch === 5000) messages = 5000; // Level 20
 
-		if (toggle === "on") {
+		if (toggle === true) {
 			if (!isNaN(messages as number)) {
 				db.add(`level_${message.guild?.id}_${message.author.id}`, 1);
 				let levelfetch = (await db.get(
