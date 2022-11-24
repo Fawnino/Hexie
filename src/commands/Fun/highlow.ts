@@ -41,7 +41,7 @@ export default new CelestineCommand({
 					forceStatic: true,
 				})}`,
 			})
-			.setColor(0x5865f2)
+			.setColor(0xe91e63)
 			.setFooter({
 				text: "You have 30 seconds, Start Guessing!",
 				iconURL: `${message.author.displayAvatarURL({ forceStatic: true })}`,
@@ -95,7 +95,7 @@ export default new CelestineCommand({
 						forceStatic: true,
 					})}`,
 				})
-				.setColor(0x5865f2)
+				.setColor(0xe91e63)
 				.setFooter({
 					text: contentFooter(winConditions),
 					iconURL: `${message.author.displayAvatarURL({
@@ -166,7 +166,7 @@ export default new CelestineCommand({
 					forceStatic: true,
 				})}`,
 			})
-			.setColor(0x5865f2)
+			.setColor(0xe91e63)
 			.setFooter({
 				text: "You have 30 seconds, Start Guessing!",
 				iconURL: `${interaction.user.displayAvatarURL({ forceStatic: true })}`,
@@ -220,7 +220,7 @@ export default new CelestineCommand({
 						forceStatic: true,
 					})}`,
 				})
-				.setColor(0x5865f2)
+				.setColor(0xe91e63)
 				.setFooter({
 					text: contentFooter(winConditions),
 					iconURL: `${interaction.client.user.displayAvatarURL({

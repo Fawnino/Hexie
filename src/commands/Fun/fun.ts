@@ -279,7 +279,7 @@ export default new CelestineCommand({
 				const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
 
 				const Embed = new EmbedBuilder()
-					.setColor(0x5865f2)
+					.setColor(0xe91e63)
 					.setTitle(`${inquiry}`)
 					.setDescription(`🎱 ${fortune}`)
 					.setFooter({
@@ -296,7 +296,7 @@ export default new CelestineCommand({
 				const text = JSON.parse(data);
 				const embed = new EmbedBuilder()
 					.setTitle(`👴 | Random Dad Joke`)
-					.setColor(0x36393f)
+					.setColor(0xe91e63)
 					.setFooter({
 						text: `${interaction.user.tag}`,
 						iconURL: `${interaction.user.displayAvatarURL({
@@ -319,7 +319,7 @@ export default new CelestineCommand({
 							forceStatic: true,
 						})}`,
 					})
-					.setColor(0x36393f);
+					.setColor(0xe91e63);
 
 				return interaction.editReply({ embeds: [jokeembed] });
 			}
@@ -336,7 +336,7 @@ export default new CelestineCommand({
 				const memeEmbed = new EmbedBuilder()
 					.setAuthor({ name: `${meme.author}` })
 					.setTitle(meme.title)
-					.setColor(0x5865f2)
+					.setColor(0xe91e63)
 					.setImage(meme.url)
 					.setURL(meme.postLink)
 					.setFooter({
@@ -383,7 +383,7 @@ export default new CelestineCommand({
 				const img = (await res.json()) as Waifu;
 				const waifuEmbed = new EmbedBuilder()
 					.setImage(img.url)
-					.setColor(0x5865f2);
+					.setColor(0xe91e63);
 				return interaction.editReply({
 					embeds: [waifuEmbed],
 				});
@@ -414,7 +414,7 @@ export default new CelestineCommand({
 				})) as Image[];
 				const furryEmbed = new EmbedBuilder()
 					.setImage(`${data[0].image}`)
-					.setColor(0x5865f2);
+					.setColor(0xe91e63);
 				return interaction.editReply({
 					embeds: [furryEmbed],
 				});
@@ -425,7 +425,7 @@ export default new CelestineCommand({
 
 				const adviceEmbed = new EmbedBuilder()
 					.setDescription(`*${adviceTxt.slip.advice}*`)
-					.setColor(0x5865f2);
+					.setColor(0xe91e63);
 				return interaction.editReply({ embeds: [adviceEmbed] });
 			}
 			case "aniquote": {
