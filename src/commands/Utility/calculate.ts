@@ -54,7 +54,7 @@ export default new CelestineCommand({
 				const additionEmbed = new EmbedBuilder()
 					.setTitle(`${num1} + ${num2} = ${num1 + num2}`)
 					.setDescription(`Hey! Don't cheat in your homework!`)
-					.setColor(0x5865f2)
+					.setColor(0xe91e63)
 					.setAuthor({
 						name: `${interaction.user.tag}`,
 						iconURL: `${interaction.user.displayAvatarURL({
@@ -69,7 +69,7 @@ export default new CelestineCommand({
 				const subtractionEmbed = new EmbedBuilder()
 					.setTitle(`${num1} - ${num2} = ${num1 - num2}`)
 					.setDescription(`Hey! Don't cheat in your homework!`)
-					.setColor(0x5865f2)
+					.setColor(0xe91e63)
 					.setAuthor({
 						name: `${interaction.user.tag}`,
 						iconURL: `${interaction.user.displayAvatarURL({
@@ -90,7 +90,7 @@ export default new CelestineCommand({
 						})}`,
 					})
 					.setDescription(`Hey! Don't cheat in your homework!`)
-					.setColor(0x5865f2)
+					.setColor(0xe91e63)
 					.setTimestamp();
 
 				return interaction.reply({ embeds: [multiplicationEmbed] });
@@ -105,7 +105,7 @@ export default new CelestineCommand({
 						})}`,
 					})
 					.setDescription(`Hey! Don't cheat in your homework!`)
-					.setColor(0x5865f2)
+					.setColor(0xe91e63)
 					.setTimestamp()
 					.setFooter({
 						text: `Requested by ${interaction.user.tag}`,

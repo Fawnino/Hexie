@@ -203,7 +203,7 @@ export default new CelestineCommand({
 						new EmbedBuilder()
 							.setTitle(x)
 							.setDescription(strings[i])
-							.setColor(0x134fe6)
+							.setColor(0xe91e63)
 							.setAuthor({
 								name: `${data.list[0].author}`,
 								iconURL:

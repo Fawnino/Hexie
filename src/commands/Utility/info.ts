@@ -500,7 +500,7 @@ export default new CelestineCommand({
 						inline: true,
 					},
 				)
-				.setColor(0x5865f2);
+				.setColor(0xe91e63);
 
 			const buttons = new ActionRowBuilder<ButtonBuilder>().addComponents(
 				new ButtonBuilder()
@@ -789,7 +789,7 @@ export default new CelestineCommand({
 						forceStatic: true,
 					})}`,
 				})
-				.setColor(0x5865f2)
+				.setColor(0xe91e63)
 				.setDescription(
 					'By using Celestine Bot Services, you agree to our terms and conditions. Your agreement with us includes these terms and our Privacy Policy ("Agreements"). You acknowledge that you have read and understood the agreements and agree to be bound by them.',
 				)
@@ -837,7 +837,7 @@ export default new CelestineCommand({
 				.setDescription(
 					`Level: \`${levelfetch}\`\nMessages Sent: \`${messagefetch}\` Messages`,
 				)
-				.setColor(targetMember.hexAccentColor ?? 0x5865f2)
+				.setColor(targetMember.hexAccentColor ?? 0xe91e63)
 				.setFooter({
 					text: `Requested by ${message.author.tag}`,
 					iconURL: `${message.author.displayAvatarURL({
@@ -857,7 +857,7 @@ export default new CelestineCommand({
 			const seconds = Math.floor(message.client.uptime / 1000) % 60;
 
 			const Embed = new EmbedBuilder()
-				.setColor(0xff0000)
+				.setColor(0xe91e63)
 				.setAuthor({
 					name: `🏓 Pong!`,
 					iconURL: `${message.client.user.displayAvatarURL({
@@ -908,7 +908,7 @@ export default new CelestineCommand({
 		if (args[0] === "links") {
 			const linksEmbed = new EmbedBuilder()
 				.setTitle("🔗 Celestine Links")
-				.setColor(0x5865f2)
+				.setColor(0xe91e63)
 				.addFields(
 					{
 						name: "Invite me to your server!",
@@ -1307,7 +1307,7 @@ export default new CelestineCommand({
 							inline: true,
 						},
 					)
-					.setColor(0x5865f2);
+					.setColor(0xe91e63);
 
 				const buttons = new ActionRowBuilder<ButtonBuilder>().addComponents(
 					new ButtonBuilder()
@@ -1507,7 +1507,7 @@ export default new CelestineCommand({
 			case "links": {
 				const linksEmbed = new EmbedBuilder()
 					.setTitle("🔗 Celestine Links")
-					.setColor(0x5865f2)
+					.setColor(0xe91e63)
 					.addFields(
 						{
 							name: "Invite me to your server!",
@@ -1569,7 +1569,7 @@ export default new CelestineCommand({
 				const seconds = Math.floor(interaction.client.uptime / 1000) % 60;
 
 				const Embed = new EmbedBuilder()
-					.setColor(0xff0000)
+					.setColor(0xe91e63)
 					.setAuthor({
 						name: `🏓 Pong!`,
 						iconURL: `${interaction.client.user.displayAvatarURL({
@@ -1705,7 +1705,7 @@ export default new CelestineCommand({
 							forceStatic: true,
 						})}`,
 					})
-					.setColor(0x5865f2)
+					.setColor(0xe91e63)
 					.setDescription(
 						'By using Celestine Bot Services, you agree to our terms and conditions. Your agreement with us includes these terms and our Privacy Policy ("Agreements"). You acknowledge that you have read and understood the agreements and agree to be bound by them.',
 					)
@@ -1752,7 +1752,7 @@ export default new CelestineCommand({
 					.setDescription(
 						`Level: \`${levelfetch}\`\nMessages Sent: \`${messagefetch}\` Messages`,
 					)
-					.setColor(user.hexAccentColor ?? 0x5865f2)
+					.setColor(user.hexAccentColor ?? 0xe91e63)
 					.setFooter({
 						text: `Requested by ${interaction.user.tag}`,
 						iconURL: `${interaction.user.displayAvatarURL({
