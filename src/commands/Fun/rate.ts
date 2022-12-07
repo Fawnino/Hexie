@@ -144,11 +144,13 @@ export default new CelestineCommand({
 				return interaction.reply({ embeds: [uwuembed] });
 			}
 			case "pp": {
-				var amount = Math.floor(Math.random() * 20);
-				const char = "=".repeat(amount);
 				const ppEmbed = new EmbedBuilder()
 					.setTitle("🍆 | Random PP Generator")
-					.setDescription(`${target} has a 8${char}D pp`)
+					.setDescription(
+						`${target} has a 8${"=".repeat(
+							Math.floor(Math.random() * 20),
+						)}D pp`,
+					)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
 						iconURL: `${interaction.user.displayAvatarURL({

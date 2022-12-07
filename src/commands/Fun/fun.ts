@@ -391,18 +391,37 @@ export default new CelestineCommand({
 			case "yomama": {
 				const member = interaction.options.getUser("user") || interaction.user;
 
+				const ran = Math.floor(Math.random() * 5);
+
 				const res = await fetch("https://api.yomomma.info");
 				let joke = (await res.json()) as Joke;
+				joke.joke = joke.joke.charAt(0).toLowerCase() + joke.joke.slice(1);
+				if (
+					!joke.joke.endsWith("!") &&
+					!joke.joke.endsWith(".") &&
+					!joke.joke.endsWith('"')
+				)
+					joke.joke += "!";
 
 				if (member.id === interaction.client.user.id) {
-					return interaction.editReply({
-						content: `<@${interaction.user.id}>, ${joke.joke} 😈`,
-						allowedMentions: { repliedUser: false },
+					if ((ran >= 3 && ran <= 5) || ran === 0) {
+						return interaction.reply({
+							content: `${interaction.user.username}, ${joke} 😈`,
+						});
+					} else {
+						return interaction.reply({
+							content: `${interaction.user.username}, ${joke}`,
+						});
+					}
+				}
+
+				if ((ran >= 3 && ran <= 5) || ran === 0) {
+					return interaction.reply({
+						content: `<@${member.id}>, ${joke} 😈`,
 					});
 				} else {
-					return interaction.editReply({
-						content: `<@${member.id}>, ${joke.joke}`,
-						allowedMentions: { repliedUser: false },
+					return interaction.reply({
+						content: `<@${member.id}>, ${joke}`,
 					});
 				}
 			}
