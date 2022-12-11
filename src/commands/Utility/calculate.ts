@@ -1,6 +1,12 @@
 import { CelestineCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
-import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
+import {
+	EmbedBuilder,
+	ApplicationCommandOptionType,
+	ActionRowBuilder,
+	ButtonBuilder,
+	ButtonStyle,
+} from "discord.js";
 
 export default new CelestineCommand({
 	category: "Utility",
@@ -14,30 +20,6 @@ export default new CelestineCommand({
 			required: true,
 		},
 		{
-			name: "sign",
-			type: ApplicationCommandOptionType.String,
-			description: "Sign to use for calculation.",
-			required: true,
-			choices: [
-				{
-					name: "Addition",
-					value: "addition",
-				},
-				{
-					name: "Subtraction",
-					value: "subtraction",
-				},
-				{
-					name: "Multiplication",
-					value: "mutiplication",
-				},
-				{
-					name: "Division",
-					value: "division",
-				},
-			],
-		},
-		{
 			name: "num-two",
 			type: ApplicationCommandOptionType.Number,
 			description: "2nd number to calculate",
@@ -45,77 +27,44 @@ export default new CelestineCommand({
 		},
 	],
 	async commandRun(interaction) {
-		const Signs = interaction.options.getString("sign", true);
 		const num1 = interaction.options.getNumber("num", true);
 		const num2 = interaction.options.getNumber("num-two", true);
 
-		switch (Signs) {
-			case "addition": {
-				const additionEmbed = new EmbedBuilder()
-					.setTitle(`${num1} + ${num2} = ${num1 + num2}`)
-					.setDescription(`Hey! Don't cheat in your homework!`)
-					.setColor(0xe91e63)
-					.setAuthor({
-						name: `${interaction.user.tag}`,
-						iconURL: `${interaction.user.displayAvatarURL({
-							forceStatic: true,
-						})}`,
-					})
-					.setTimestamp();
+		const mathEmbed = new EmbedBuilder()
+			.setTitle(`${num1} and ${num2}`)
+			.setDescription(`Hey! Don't cheat in your homework!`)
+			.setColor(0xe91e63)
+			.setAuthor({
+				name: `${interaction.user.tag}`,
+				iconURL: `${interaction.user.displayAvatarURL({
+					forceStatic: true,
+				})}`,
+			})
+			.setTimestamp();
 
-				return interaction.reply({ embeds: [additionEmbed] });
-			}
-			case "subtraction": {
-				const subtractionEmbed = new EmbedBuilder()
-					.setTitle(`${num1} - ${num2} = ${num1 - num2}`)
-					.setDescription(`Hey! Don't cheat in your homework!`)
-					.setColor(0xe91e63)
-					.setAuthor({
-						name: `${interaction.user.tag}`,
-						iconURL: `${interaction.user.displayAvatarURL({
-							forceStatic: true,
-						})}`,
-					})
-					.setTimestamp();
+		const row = new ActionRowBuilder<ButtonBuilder>().addComponents(
+			new ButtonBuilder()
+				.setLabel(`Addition: ${num1 + num2}`)
+				.setStyle(ButtonStyle.Secondary)
+				.setCustomId("add")
+				.setDisabled(true),
+			new ButtonBuilder()
+				.setLabel(`Subtraction: ${num1 - num2}`)
+				.setStyle(ButtonStyle.Secondary)
+				.setCustomId("subtract")
+				.setDisabled(true),
+			new ButtonBuilder()
+				.setLabel(`Multiplication: ${num1 * num2}`)
+				.setStyle(ButtonStyle.Secondary)
+				.setCustomId("multiply")
+				.setDisabled(true),
+			new ButtonBuilder()
+				.setLabel(`Division: ${num1 / num2}`)
+				.setStyle(ButtonStyle.Secondary)
+				.setCustomId("divide")
+				.setDisabled(true),
+		);
 
-				return interaction.reply({ embeds: [subtractionEmbed] });
-			}
-			case "multiplication": {
-				const multiplicationEmbed = new EmbedBuilder()
-					.setTitle(`${num1} * ${num2} = ${num1 * num2}`)
-					.setAuthor({
-						name: `${interaction.user.tag}`,
-						iconURL: `${interaction.user.displayAvatarURL({
-							forceStatic: true,
-						})}`,
-					})
-					.setDescription(`Hey! Don't cheat in your homework!`)
-					.setColor(0xe91e63)
-					.setTimestamp();
-
-				return interaction.reply({ embeds: [multiplicationEmbed] });
-			}
-			case "division": {
-				const divisionEmbed = new EmbedBuilder()
-					.setTitle(`${num1} / ${num2} = ${num1 / num2}`)
-					.setAuthor({
-						name: `${interaction.user.tag}`,
-						iconURL: `${interaction.user.displayAvatarURL({
-							forceStatic: true,
-						})}`,
-					})
-					.setDescription(`Hey! Don't cheat in your homework!`)
-					.setColor(0xe91e63)
-					.setTimestamp()
-					.setFooter({
-						text: `Requested by ${interaction.user.tag}`,
-						iconURL: `${interaction.user.displayAvatarURL({
-							forceStatic: true,
-						})}`,
-					});
-
-				return interaction.reply({ embeds: [divisionEmbed] });
-			}
-		}
+		await interaction.reply({ embeds: [mathEmbed], components: [row] });
 	},
 });
