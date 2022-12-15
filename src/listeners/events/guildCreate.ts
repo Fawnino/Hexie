@@ -8,7 +8,7 @@ const logger = new Logger();
 export default new Listener({
 	event: "guildCreate",
 	async run(guild) {
-		await db.set(`serverlevels_${guild?.id}`, "on");
+		await db.set(`serverlevels_${guild?.id}`, false);
 		logger.info(green(`Invited to a new Guild ${guild.name} // ${guild.id}`));
 		// Logs a green text when the bot is Invited to a new Guild.
 	},
