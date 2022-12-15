@@ -13,7 +13,7 @@ export default new CelestineCommand({
 			description: "Message you want to echo.",
 			type: ApplicationCommandOptionType.String,
 			required: true,
-			minLength: 1,
+			min_length: 1,
 			max_length: 1024,
 		},
 	],

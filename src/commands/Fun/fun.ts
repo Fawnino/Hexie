@@ -30,18 +30,6 @@ interface Waifu {
 	url: string;
 }
 
-interface AdviceData {
-	slip: AdviceScript;
-}
-interface AdviceScript {
-	advice: string;
-}
-interface AnimeQuotesData {
-	character: string;
-	sentence: string;
-	anime: string;
-}
-
 interface InsultData {
 	insult: string;
 }
@@ -126,16 +114,6 @@ export default new CelestineCommand({
 			name: "tsukki",
 			description: "Get a random furry picture.",
 			type: ApplicationCommandOptionType.Subcommand,
-		},
-		{
-			name: "advice",
-			description: "Get random advice that can hopefully help you.",
-			type: ApplicationCommandOptionType.Subcommand,
-		},
-		{
-			name: "aniquote",
-			type: ApplicationCommandOptionType.Subcommand,
-			description: "Get a random anime quote!",
 		},
 		{
 			name: "roast",
@@ -324,7 +302,7 @@ export default new CelestineCommand({
 				return interaction.editReply({ embeds: [jokeembed] });
 			}
 			case "meme": {
-				const res = await fetch("https://meme-api.herokuapp.com/gimme");
+				const res = await fetch("https://meme-api.com/gimme");
 				const meme = (await res.json()) as MemeData;
 
 				const buttonUps = new ButtonBuilder()
@@ -437,36 +415,6 @@ export default new CelestineCommand({
 				return interaction.editReply({
 					embeds: [furryEmbed],
 				});
-			}
-			case "advice": {
-				const response = await fetch("https://api.adviceslip.com/advice");
-				const adviceTxt = (await response.json()) as AdviceData;
-
-				const adviceEmbed = new EmbedBuilder()
-					.setDescription(`*${adviceTxt.slip.advice}*`)
-					.setColor(0xe91e63);
-				return interaction.editReply({ embeds: [adviceEmbed] });
-			}
-			case "aniquote": {
-				const response = await fetch(`https://some-random-api.ml/animu/quote`);
-				const animeQuoteTxt = (await response.json()) as AnimeQuotesData;
-
-				const animeQuotes = new EmbedBuilder()
-					.setColor("Random")
-					.setDescription(`"${animeQuoteTxt.sentence}"`)
-					.addFields(
-						{
-							name: "Anime",
-							value: `${animeQuoteTxt.anime}`,
-							inline: true,
-						},
-						{
-							name: "Character",
-							value: `${animeQuoteTxt.character}`,
-							inline: true,
-						},
-					);
-				return interaction.editReply({ embeds: [animeQuotes] });
 			}
 			case "roast": {
 				const roastUser = interaction.options.getUser("user");
