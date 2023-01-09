@@ -18,15 +18,13 @@ export class Client<Ready extends boolean = boolean> extends DJSClient<Ready> {
 				GatewayIntentBits.GuildMessages,
 				GatewayIntentBits.DirectMessages,
 				GatewayIntentBits.MessageContent,
-				GatewayIntentBits.GuildMembers,
-				GatewayIntentBits.GuildPresences,
 			],
-			partials: [Partials.Channel, Partials.GuildMember],
+			partials: [Partials.Channel],
 		});
 
 		this.logger.setLevel(LogLevel.Debug);
 		this.prefixes = [":", "c:", "C:"];
-		this.ownerIds = ["800976598043459604", "851270917732171817"]; // Insert your Discord ID Here
+		this.ownerIds = ["851270917732171817"]; // Insert your Discord ID Here
 	}
 
 	public prefixes: string[] = [];
@@ -40,10 +38,8 @@ export class Client<Ready extends boolean = boolean> extends DJSClient<Ready> {
 	public logger: Logger = new Logger();
 
 	public override async login(token?: string | undefined): Promise<string> {
-		handleRegistry(this);
-		handleListener(this);
+		await Promise.all([handleRegistry(this), handleListener(this)]);
 		const promiseString = await super.login(token);
-		console.clear();
 		this.logger.info(
 			`Logged in as ${cyanBright(underline(`${this.user?.tag}`))}`,
 		);

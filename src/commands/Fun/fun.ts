@@ -111,11 +111,6 @@ export default new CelestineCommand({
 			],
 		},
 		{
-			name: "tsukki",
-			description: "Get a random furry picture.",
-			type: ApplicationCommandOptionType.Subcommand,
-		},
-		{
 			name: "roast",
 			description: "Insult and roast someone to their grave.",
 			type: ApplicationCommandOptionType.Subcommand,
@@ -402,19 +397,6 @@ export default new CelestineCommand({
 						content: `<@${member.id}>, ${joke}`,
 					});
 				}
-			}
-			case "tsukki": {
-				let data = (await redditImageFetcher.fetch({
-					type: "custom",
-					total: 1,
-					subreddit: ["furry"],
-				})) as Image[];
-				const furryEmbed = new EmbedBuilder()
-					.setImage(`${data[0].image}`)
-					.setColor(0xe91e63);
-				return interaction.editReply({
-					embeds: [furryEmbed],
-				});
 			}
 			case "roast": {
 				const roastUser = interaction.options.getUser("user");

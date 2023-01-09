@@ -14,19 +14,23 @@ export default new Listener({
 			if (command && command.commandRun) {
 				if (command.ownerOnly && !client.ownerIds.includes(interaction.user.id))
 					return;
-				await command
-					.commandRun(interaction)
-					.catch((e) => client.logger.error(e.stack));
+				try {
+					await command.commandRun(interaction);
 
-				client.logger.info(
-					underline(cyan(`${interaction.user.tag} // ${interaction.user.id}`)) +
-						` used ` +
-						underline(greenBright(`${command.name}`)) +
-						` in ` +
+					client.logger.info(
 						underline(
-							cyan(`${interaction.guild!.name} // ${interaction.guild!.id}`),
-						),
-				);
+							cyan(`${interaction.user.tag} // ${interaction.user.id}`),
+						) +
+							` used ` +
+							underline(greenBright(`${command.name}`)) +
+							` in ` +
+							underline(
+								cyan(`${interaction.guild!.name} // ${interaction.guild!.id}`),
+							),
+					);
+				} catch (error) {
+					client.logger.error((error as Error).name);
+				}
 			}
 		}
 
@@ -39,9 +43,11 @@ export default new Listener({
 
 				if (command.name !== interaction.commandName) return;
 
-				await command
-					.autoCompleteRun(interaction)
-					.catch((e) => client.logger.error(e.stack));
+				try {
+					await command.autoCompleteRun(interaction);
+				} catch (error) {
+					client.logger.error((error as Error).name);
+				}
 			}
 		}
 	},
