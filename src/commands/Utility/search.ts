@@ -203,7 +203,7 @@ export default new CelestineCommand({
 						new EmbedBuilder()
 							.setTitle(x)
 							.setDescription(strings[i])
-							.setColor(0xe91e63)
+							.setColor(0xfde4f2)
 							.setAuthor({
 								name: `${data.list[0].author}`,
 								iconURL:
@@ -244,7 +244,7 @@ export default new CelestineCommand({
 							} #${res.id}`,
 						)
 						.setDescription(`${res.description}`)
-						.setColor("Random")
+						.setColor(0xfde4f2)
 						.setThumbnail(`${res.sprites.animated}`)
 						.addFields(
 							{
@@ -316,7 +316,7 @@ export default new CelestineCommand({
 					const malEmbed = new EmbedBuilder()
 						.setTitle(`My Anime List search result for ${data.title}`)
 						.setThumbnail(`${data.picture}`)
-						.setColor("Random")
+						.setColor(0xfde4f2)
 						.addFields(
 							{
 								name: "Premiered",

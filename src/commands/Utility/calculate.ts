@@ -33,7 +33,7 @@ export default new CelestineCommand({
 		const mathEmbed = new EmbedBuilder()
 			.setTitle(`${num1} and ${num2}`)
 			.setDescription(`Hey! Don't cheat in your homework!`)
-			.setColor(0xe91e63)
+			.setColor(0xfde4f2)
 			.setAuthor({
 				name: `${interaction.user.tag}`,
 				iconURL: `${interaction.user.displayAvatarURL({

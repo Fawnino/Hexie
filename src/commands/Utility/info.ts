@@ -13,9 +13,6 @@ import {
 import moment from "moment";
 import os from "node:os";
 import canvas from "canvas";
-import { QuickDB } from "quick.db";
-
-const db = new QuickDB();
 
 export default new CelestineCommand({
 	category: "Utility",
@@ -197,7 +194,7 @@ export default new CelestineCommand({
 						new Date(message.guild!.createdTimestamp).valueOf() / 1000,
 					)}:F>`}`,
 				)
-				.setColor("Random")
+				.setColor(0xfde4f2)
 				.addFields(
 					{
 						name: "Total Members",
@@ -500,7 +497,7 @@ export default new CelestineCommand({
 						inline: true,
 					},
 				)
-				.setColor(0xe91e63);
+				.setColor(0xfde4f2);
 
 			const buttons = new ActionRowBuilder<ButtonBuilder>().addComponents(
 				new ButtonBuilder()
@@ -789,7 +786,7 @@ export default new CelestineCommand({
 						forceStatic: true,
 					})}`,
 				})
-				.setColor(0xe91e63)
+				.setColor(0xfde4f2)
 				.setDescription(
 					'By using Celestine Bot Services, you agree to our terms and conditions. Your agreement with us includes these terms and our Privacy Policy ("Agreements"). You acknowledge that you have read and understood the agreements and agree to be bound by them.',
 				)
@@ -821,33 +818,6 @@ export default new CelestineCommand({
 			return message.reply({ embeds: [tos], components: [buttons] });
 		}
 
-		if (args[0] === "levels") {
-			let messagefetch = await db.get(
-				`messages_${message.guild?.id}_${message.author.id}`,
-			);
-			let levelfetch = await db.get(
-				`level_${message.guild?.id}_${message.author.id}`,
-			);
-
-			if (messagefetch == null) messagefetch = "0";
-			if (levelfetch == null) levelfetch = "0";
-
-			const embed = new EmbedBuilder()
-				.setTitle(`${targetMember.tag}'s Rank!`)
-				.setDescription(
-					`Level: \`${levelfetch}\`\nMessages Sent: \`${messagefetch}\` Messages`,
-				)
-				.setColor(targetMember.hexAccentColor ?? 0xe91e63)
-				.setFooter({
-					text: `Requested by ${message.author.tag}`,
-					iconURL: `${message.author.displayAvatarURL({
-						forceStatic: true,
-					})}`,
-				});
-
-			return message.reply({ embeds: [embed] });
-		}
-
 		if (args[0] === "ping") {
 			const ping = message.createdTimestamp;
 
@@ -857,7 +827,7 @@ export default new CelestineCommand({
 			const seconds = Math.floor(message.client.uptime / 1000) % 60;
 
 			const Embed = new EmbedBuilder()
-				.setColor(0xe91e63)
+				.setColor(0xfde4f2)
 				.setAuthor({
 					name: `🏓 Pong!`,
 					iconURL: `${message.client.user.displayAvatarURL({
@@ -908,7 +878,7 @@ export default new CelestineCommand({
 		if (args[0] === "links") {
 			const linksEmbed = new EmbedBuilder()
 				.setTitle("🔗 Celestine Links")
-				.setColor(0xe91e63)
+				.setColor(0xfde4f2)
 				.addFields(
 					{
 						name: "Invite me to your server!",
@@ -1136,7 +1106,7 @@ export default new CelestineCommand({
 							new Date(interaction.guild!.createdTimestamp).valueOf() / 1000,
 						)}:F>`}`,
 					)
-					.setColor("Random")
+					.setColor(0xfde4f2)
 					.addFields(
 						{
 							name: "Total Members",
@@ -1307,7 +1277,7 @@ export default new CelestineCommand({
 							inline: true,
 						},
 					)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 
 				const buttons = new ActionRowBuilder<ButtonBuilder>().addComponents(
 					new ButtonBuilder()
@@ -1507,7 +1477,7 @@ export default new CelestineCommand({
 			case "links": {
 				const linksEmbed = new EmbedBuilder()
 					.setTitle("🔗 Celestine Links")
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.addFields(
 						{
 							name: "Invite me to your server!",
@@ -1569,7 +1539,7 @@ export default new CelestineCommand({
 				const seconds = Math.floor(interaction.client.uptime / 1000) % 60;
 
 				const Embed = new EmbedBuilder()
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setAuthor({
 						name: `🏓 Pong!`,
 						iconURL: `${interaction.client.user.displayAvatarURL({
@@ -1705,7 +1675,7 @@ export default new CelestineCommand({
 							forceStatic: true,
 						})}`,
 					})
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setDescription(
 						'By using Celestine Bot Services, you agree to our terms and conditions. Your agreement with us includes these terms and our Privacy Policy ("Agreements"). You acknowledge that you have read and understood the agreements and agree to be bound by them.',
 					)
@@ -1735,32 +1705,6 @@ export default new CelestineCommand({
 				);
 
 				return interaction.editReply({ embeds: [tos], components: [buttons] });
-			}
-			case "levels": {
-				let messagefetch = await db.get(
-					`messages_${interaction.guild?.id}_${interaction.user.id}`,
-				);
-				let levelfetch = await db.get(
-					`level_${interaction.guild?.id}_${interaction.user.id}`,
-				);
-
-				if (messagefetch == null) messagefetch = "0";
-				if (levelfetch == null) levelfetch = "0";
-
-				const embed = new EmbedBuilder()
-					.setTitle(`${user.tag}'s Rank!`)
-					.setDescription(
-						`Level: \`${levelfetch}\`\nMessages Sent: \`${messagefetch}\` Messages`,
-					)
-					.setColor(user.hexAccentColor ?? 0xe91e63)
-					.setFooter({
-						text: `Requested by ${interaction.user.tag}`,
-						iconURL: `${interaction.user.displayAvatarURL({
-							forceStatic: true,
-						})}`,
-					});
-
-				return interaction.editReply({ embeds: [embed] });
 			}
 		}
 	},

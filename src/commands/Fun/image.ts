@@ -69,7 +69,7 @@ export default new CelestineCommand({
 				const dogEmbed = new EmbedBuilder()
 					.setImage(img.image)
 					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 				return interaction.editReply({ embeds: [dogEmbed] });
 			}
 			case "cat": {
@@ -79,7 +79,7 @@ export default new CelestineCommand({
 				const catEmbed = new EmbedBuilder()
 					.setImage(img.image)
 					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 				return interaction.editReply({ embeds: [catEmbed] });
 			}
 			case "panda": {
@@ -89,7 +89,7 @@ export default new CelestineCommand({
 				const pandaEmbed = new EmbedBuilder()
 					.setImage(img.image)
 					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 				return interaction.editReply({ embeds: [pandaEmbed] });
 			}
 			case "fox": {
@@ -99,7 +99,7 @@ export default new CelestineCommand({
 				const foxEmbed = new EmbedBuilder()
 					.setImage(img.image)
 					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 				return interaction.editReply({ embeds: [foxEmbed] });
 			}
 			case "koala": {
@@ -109,7 +109,7 @@ export default new CelestineCommand({
 				const koalaEmbed = new EmbedBuilder()
 					.setImage(img.image)
 					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 				return interaction.editReply({ embeds: [koalaEmbed] });
 			}
 			case "bird": {
@@ -119,7 +119,7 @@ export default new CelestineCommand({
 				const birdEmbed = new EmbedBuilder()
 					.setImage(img.image)
 					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 				return interaction.editReply({ embeds: [birdEmbed] });
 			}
 			case "racoon": {
@@ -129,7 +129,7 @@ export default new CelestineCommand({
 				const raccoonEmbed = new EmbedBuilder()
 					.setImage(img.image)
 					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 				return interaction.editReply({ embeds: [raccoonEmbed] });
 			}
 			case "kangaroo": {
@@ -139,7 +139,7 @@ export default new CelestineCommand({
 				const kangarooEmbed = new EmbedBuilder()
 					.setImage(img.image)
 					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 				return interaction.editReply({ embeds: [kangarooEmbed] });
 			}
 			case "duck": {
@@ -149,7 +149,7 @@ export default new CelestineCommand({
 				const duckEmbed = new EmbedBuilder()
 					.setImage(img.url)
 					.setDescription(`[Add Me!](https://bit.ly/3elK1fY)`)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 				return interaction.editReply({ embeds: [duckEmbed] });
 			}
 		}

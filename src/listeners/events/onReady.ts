@@ -38,7 +38,7 @@ export default new Listener({
 				},
 			)
 			.setTimestamp()
-			.setColor(0xe91e63)
+			.setColor(0xfde4f2)
 			.setImage(
 				"https://secure.static.tumblr.com/b201197f740539e2fc03fed7dbf87f3a/bkjzmrk/VVBnz6bja/tumblr_static_tumblr_static_eilga746g9sk88scs040cosws_640.gif",
 			)

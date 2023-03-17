@@ -115,7 +115,7 @@ export default new CelestineCommand({
 				},
 			)
 			.setTimestamp()
-			.setColor(0xe91e63);
+			.setColor(0xfde4f2);
 
 		const row = new ActionRowBuilder<ButtonBuilder>().setComponents(
 			new ButtonBuilder()
@@ -251,7 +251,7 @@ export default new CelestineCommand({
 						forceStatic: true,
 					}),
 				},
-				color: 0xe91e63,
+				color: 0xfde4f2,
 				author: {
 					name: `${interaction.user}`,
 					iconURL: interaction.user.displayAvatarURL({ forceStatic: true }),

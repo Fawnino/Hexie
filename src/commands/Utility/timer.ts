@@ -28,7 +28,7 @@ export default new CelestineCommand({
 		const milliseconds = time! * 1000;
 
 		const createdEmbed = new EmbedBuilder()
-			.setColor(0xe91e63)
+			.setColor(0xfde4f2)
 			.setTitle("⏱️ | Timer Set")
 			.setAuthor({
 				name: `${interaction.user.tag}'s Timer ⏱️`,

@@ -54,7 +54,7 @@ export default new CelestineCommand({
 			case "simp": {
 				let simpembed = new EmbedBuilder()
 					.setTitle("Simp rate Machine")
-					.setColor("Random")
+					.setColor(0xfde4f2)
 					.setThumbnail(
 						`https://cdn.discordapp.com/attachments/1014815986773401631/1019513691751858186/b6e5c185f1d0461d22d7684768be70fb.jpg`,
 					)
@@ -73,7 +73,7 @@ export default new CelestineCommand({
 			case "gay": {
 				let gayembed = new EmbedBuilder()
 					.setTitle("🏳️‍🌈 | Gay rate Machine")
-					.setColor("Random")
+					.setColor(0xfde4f2)
 					.setDescription(
 						`${target} is **${Math.floor(Math.random() * 100)}%/100%** gay`,
 					)
@@ -89,7 +89,7 @@ export default new CelestineCommand({
 			case "waifu": {
 				let waifuembed = new EmbedBuilder()
 					.setTitle("Waifu rate Machine")
-					.setColor("Random")
+					.setColor(0xfde4f2)
 					.setThumbnail(
 						`https://cdn.discordapp.com/attachments/1014815986773401631/1019513435890921562/mai-sakurajima_1wva.jpg`,
 					)
@@ -108,7 +108,7 @@ export default new CelestineCommand({
 			case "chad": {
 				let chadembed = new EmbedBuilder()
 					.setTitle("Chad rate Machine")
-					.setColor("Random")
+					.setColor(0xfde4f2)
 					.setThumbnail(
 						`https://cdn.discordapp.com/attachments/1014815986773401631/1019515329199751178/IMG_4625.jpg`,
 					)
@@ -127,7 +127,7 @@ export default new CelestineCommand({
 			case "uwu": {
 				let uwuembed = new EmbedBuilder()
 					.setTitle("UwU Rate Machine")
-					.setColor("Random")
+					.setColor(0xfde4f2)
 					.setThumbnail(
 						"https://cdn.discordapp.com/attachments/1014815986773401631/1019514607620083722/1200x1200bf-60.jpg",
 					)
@@ -157,7 +157,7 @@ export default new CelestineCommand({
 							forceStatic: true,
 						})}`,
 					})
-					.setColor("Random");
+					.setColor(0xfde4f2);
 				return interaction.reply({ embeds: [ppEmbed] });
 			}
 		}

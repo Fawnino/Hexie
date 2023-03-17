@@ -8,7 +8,6 @@ import {
 	ButtonStyle,
 } from "discord.js";
 import fetch from "node-fetch";
-import redditImageFetcher from "reddit-image-fetcher";
 
 interface Joke {
 	joke: string;
@@ -32,6 +31,10 @@ interface Waifu {
 
 interface InsultData {
 	insult: string;
+}
+
+interface PickUp {
+	pickup: string;
 }
 
 export default new CelestineCommand({
@@ -118,6 +121,19 @@ export default new CelestineCommand({
 				{
 					name: "user",
 					description: "User to roast and insult.",
+					type: ApplicationCommandOptionType.User,
+					required: true,
+				},
+			],
+		},
+		{
+			name: "hit-up",
+			description: "Hit someone up with a pickup line.",
+			type: ApplicationCommandOptionType.Subcommand,
+			options: [
+				{
+					name: "user",
+					description: "User to hit up.",
 					type: ApplicationCommandOptionType.User,
 					required: true,
 				},
@@ -252,7 +268,7 @@ export default new CelestineCommand({
 				const fortune = fortunes[Math.floor(Math.random() * fortunes.length)];
 
 				const Embed = new EmbedBuilder()
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setTitle(`${inquiry}`)
 					.setDescription(`🎱 ${fortune}`)
 					.setFooter({
@@ -269,7 +285,7 @@ export default new CelestineCommand({
 				const text = JSON.parse(data);
 				const embed = new EmbedBuilder()
 					.setTitle(`👴 | Random Dad Joke`)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setFooter({
 						text: `${interaction.user.tag}`,
 						iconURL: `${interaction.user.displayAvatarURL({
@@ -292,7 +308,7 @@ export default new CelestineCommand({
 							forceStatic: true,
 						})}`,
 					})
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 
 				return interaction.editReply({ embeds: [jokeembed] });
 			}
@@ -309,7 +325,7 @@ export default new CelestineCommand({
 				const memeEmbed = new EmbedBuilder()
 					.setAuthor({ name: `${meme.author}` })
 					.setTitle(meme.title)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(meme.url)
 					.setURL(meme.postLink)
 					.setFooter({
@@ -356,7 +372,7 @@ export default new CelestineCommand({
 				const img = (await res.json()) as Waifu;
 				const waifuEmbed = new EmbedBuilder()
 					.setImage(img.url)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 				return interaction.editReply({
 					embeds: [waifuEmbed],
 				});
@@ -420,6 +436,33 @@ export default new CelestineCommand({
 
 				return interaction.editReply({
 					content: `${roastUser}, ${data.insult}`,
+					allowedMentions: { repliedUser: false },
+				});
+			}
+			case "hit-up": {
+				const hitUpPerson = interaction.options.getUser("user");
+
+				const response = await fetch("https://vinuxd.vercel.app/api/pickup");
+
+				const data = (await response.json()) as PickUp;
+
+				if (hitUpPerson?.id === interaction.user.id)
+					return interaction.editReply({
+						content: "You can't hit yourself up you lonely person!",
+					});
+
+				if (hitUpPerson?.id === interaction.client.user.id)
+					return interaction.editReply({
+						content: "Sorry I'm not interested in a commoner like you.",
+					});
+
+				if (hitUpPerson?.bot)
+					return interaction.editReply({
+						content: "Bro leave the bots alone why you tryna hit 'em up 😭",
+					});
+
+				return interaction.editReply({
+					content: `${hitUpPerson}, ${data.pickup}`,
 					allowedMentions: { repliedUser: false },
 				});
 			}

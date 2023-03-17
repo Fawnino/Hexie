@@ -32,7 +32,7 @@ export default new CelestineCommand({
 			.setDescription(
 				`Hello friend! I will guess a random side of a coin and you have to guess which side I'm thinking of!\n\nReady? Take your guess and click the buttons below!`,
 			)
-			.setColor(0xe91e63)
+			.setColor(0xfde4f2)
 			.setAuthor({
 				name: `${message.author.tag}`,
 				iconURL: `${message.author.displayAvatarURL({
@@ -82,7 +82,7 @@ export default new CelestineCommand({
 			const cfData = new EmbedBuilder()
 				.setTitle("Heads or Tails?")
 				.setDescription(`${content(winConditions)}`)
-				.setColor(0xe91e63)
+				.setColor(0xfde4f2)
 				.setAuthor({
 					name: `${message.author.tag}`,
 					iconURL: `${message.author.displayAvatarURL({
@@ -153,7 +153,7 @@ export default new CelestineCommand({
 			.setDescription(
 				`Hello friend! I will guess a random side of a coin and you have to guess which side I'm thinking of!\n\nReady? Take your guess and click the buttons below!`,
 			)
-			.setColor(0xe91e63)
+			.setColor(0xfde4f2)
 			.setAuthor({
 				name: `${interaction.user.tag}`,
 				iconURL: `${interaction.user.displayAvatarURL({
@@ -203,7 +203,7 @@ export default new CelestineCommand({
 			const cfData = new EmbedBuilder()
 				.setTitle("Heads or Tails?")
 				.setDescription(`${content(winConditions)}`)
-				.setColor(0xe91e63)
+				.setColor(0xfde4f2)
 				.setAuthor({
 					name: `${interaction.user.tag}`,
 					iconURL: `${interaction.user.displayAvatarURL({

@@ -164,7 +164,7 @@ export default new CelestineCommand({
 								})}`,
 							},
 							description: "No one has been kicked, Yay",
-							color: 0xe91e63,
+							color: 0xfde4f2,
 							footer: {
 								text: `${message.guild?.name}`,
 								iconURL: `${message.guild?.iconURL({ forceStatic: true })}`,
@@ -313,7 +313,7 @@ export default new CelestineCommand({
 								})}`,
 							},
 							description: "No one has been kicked, Yay",
-							color: 0xe91e63,
+							color: 0xfde4f2,
 							footer: {
 								text: `${interaction.guild?.name}`,
 								iconURL: `${interaction.guild?.iconURL({ forceStatic: true })}`,

@@ -168,7 +168,7 @@ export default new CelestineCommand({
 					.setDescription(
 						`**<@!${interaction.user.id}> TRIED TO BULLY WITH ME!!!**`,
 					)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(slaplink.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -181,7 +181,7 @@ export default new CelestineCommand({
 					.setDescription(
 						`**<@${interaction.user.id}> bullied ${mentionedUser}**`,
 					)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(img.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -213,7 +213,7 @@ export default new CelestineCommand({
 					.setDescription(
 						`**<@!${interaction.user.id}> TRIED TO CUDDLE WITH ME!!!**`,
 					)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(slaplink.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -226,7 +226,7 @@ export default new CelestineCommand({
 					.setDescription(
 						`**<@${interaction.user.id}> cuddled with ${mentionedUser}**`,
 					)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(link.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -256,7 +256,7 @@ export default new CelestineCommand({
 
 					.setTitle("Ewwwwww get away from me")
 					.setDescription(`**<@!${interaction.user.id}> TRIED TO HUG ME!!!**`)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(slaplink.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -269,7 +269,7 @@ export default new CelestineCommand({
 					.setDescription(
 						`**<@${interaction.user.id}> hugged ${mentionedUser}**`,
 					)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(link.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -550,7 +550,7 @@ export default new CelestineCommand({
 
 					.setTitle("Ewwwwww get away from me")
 					.setDescription(`**<@!${interaction.user.id}> TRIED TO KISS ME!!!**`)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(slaplink.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -563,7 +563,7 @@ export default new CelestineCommand({
 					.setDescription(
 						`**<@${interaction.user.id}> kissed ${mentionedUser}**`,
 					)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(link.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -593,7 +593,7 @@ export default new CelestineCommand({
 
 					.setTitle("Ewwwwww get away from me")
 					.setDescription(`**<@!${interaction.user.id}> TRIED TO PAT ME!!!**`)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(slaplink.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -604,7 +604,7 @@ export default new CelestineCommand({
 
 					.setTitle("So adorable!")
 					.setDescription(`**<@${interaction.user.id}> pat ${mentionedUser}**`)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(link.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -633,7 +633,7 @@ export default new CelestineCommand({
 
 					.setTitle("Imagine trying to slap metal.")
 					.setDescription(`**<@!${interaction.user.id}> TRIED TO SLAP ME!!!**`)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(link.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -646,7 +646,7 @@ export default new CelestineCommand({
 					.setDescription(
 						`**<@${interaction.user.id}> slapped ${mentionedUser}**`,
 					)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(link.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -678,7 +678,7 @@ export default new CelestineCommand({
 					.setDescription(
 						`**<@!${interaction.user.id}> TRIED TO TICKLE ME!!!**`,
 					)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(slaplink.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -691,7 +691,7 @@ export default new CelestineCommand({
 					.setDescription(
 						`**<@${interaction.user.id}> tickled ${mentionedUser}**`,
 					)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(link.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -748,7 +748,7 @@ export default new CelestineCommand({
 					.setDescription(
 						`**<@!${interaction.user.id}> TRIED TO FEED ME EVEN THO I CAN EAT BY MYSELF!!!**`,
 					)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(slapLink.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -759,7 +759,7 @@ export default new CelestineCommand({
 
 					.setTitle("Feeding!")
 					.setDescription(`**<@${interaction.user.id}> fed ${mentionedUser}**`)
-					.setColor(0xe91e63)
+					.setColor(0xfde4f2)
 					.setImage(datas.url)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,

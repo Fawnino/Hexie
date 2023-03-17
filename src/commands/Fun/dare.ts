@@ -50,7 +50,7 @@ export default new CelestineCommand({
 						})}`,
 					})
 					.setTitle(`${questions.question}`)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 
 				return interaction.editReply({
 					embeds: [darePGEmbed],
@@ -69,7 +69,7 @@ export default new CelestineCommand({
 						})}`,
 					})
 					.setTitle(`${questions.question}`)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 
 				return interaction.editReply({
 					embeds: [darePG13Embed],
@@ -88,7 +88,7 @@ export default new CelestineCommand({
 						})}`,
 					})
 					.setTitle(`${questions.question}`)
-					.setColor(0xe91e63);
+					.setColor(0xfde4f2);
 
 				return interaction.editReply({
 					embeds: [dareREmbed],
@@ -106,7 +106,7 @@ export default new CelestineCommand({
 				})}`,
 			})
 			.setTitle(`${questions.question}`)
-			.setColor(0xe91e63);
+			.setColor(0xfde4f2);
 
 		return interaction.editReply({
 			embeds: [dareEmbed],

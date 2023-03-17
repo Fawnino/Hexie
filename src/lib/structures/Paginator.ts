@@ -269,7 +269,7 @@ export class Paginator {
 			.map((_, i) => {
 				const embed = new EmbedBuilder(template.data);
 				embed.setDescription(this.descriptions![i]);
-				!embed.data.color && embed.setColor("Random");
+				!embed.data.color && embed.setColor(0xfde4f2);
 				embed.setFooter({
 					text: `Page ${i + 1}/${this.descriptions!.length}`,
 				});

@@ -39,7 +39,7 @@ export default new CelestineCommand({
 		message.delete();
 
 		const questionEmbed = new EmbedBuilder()
-			.setColor(0xe91e63)
+			.setColor(0xfde4f2)
 			.setTitle(`${message.author.tag} Asks:`)
 			.setThumbnail(
 				`https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/185/bar-chart_1f4ca.png`,
@@ -71,7 +71,7 @@ export default new CelestineCommand({
 			});
 
 		const questionEmbed = new EmbedBuilder()
-			.setColor(0xe91e63)
+			.setColor(0xfde4f2)
 			.setTitle(`${interaction.user.tag} Asks:`)
 			.setThumbnail(
 				`https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/twitter/185/bar-chart_1f4ca.png`,
