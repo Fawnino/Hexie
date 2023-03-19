@@ -891,6 +891,11 @@ export default new HexieCommand({
 						inline: true,
 					},
 					{
+						name: "Source Code",
+						value: "[Github Link](https://github.com/Fawnino/Hexie)",
+						inline: true,
+					},
+					{
 						name: "\u200b",
 						value: "\u200b",
 						inline: true,
@@ -1490,6 +1495,11 @@ export default new HexieCommand({
 						{
 							name: "Support server!",
 							value: `- [Support server link](${"https://discord.gg/DctSx3aTgT"})`,
+							inline: true,
+						},
+						{
+							name: "Source Code",
+							value: "[Github Link](https://github.com/Fawnino/Hexie)",
 							inline: true,
 						},
 						{

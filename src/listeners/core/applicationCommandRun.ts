@@ -1,6 +1,5 @@
 import { Listener } from "#lib/structures";
 import { InteractionType } from "discord.js";
-import { cyan, greenBright, underline } from "colorette";
 
 export default new Listener({
 	event: "interactionCreate",
@@ -16,18 +15,6 @@ export default new Listener({
 					return;
 				try {
 					await command.commandRun(interaction);
-
-					client.logger.info(
-						underline(
-							cyan(`${interaction.user.tag} // ${interaction.user.id}`),
-						) +
-							` used ` +
-							underline(greenBright(`${command.name}`)) +
-							` in ` +
-							underline(
-								cyan(`${interaction.guild!.name} // ${interaction.guild!.id}`),
-							),
-					);
 				} catch (error) {
 					client.logger.error((error as Error).name);
 				}

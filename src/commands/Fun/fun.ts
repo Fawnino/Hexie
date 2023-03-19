@@ -6,6 +6,7 @@ import {
 	ButtonBuilder,
 	ActionRowBuilder,
 	ButtonStyle,
+	AttachmentBuilder,
 } from "discord.js";
 import fetch from "node-fetch";
 
@@ -123,6 +124,19 @@ export default new HexieCommand({
 					description: "User to roast and insult.",
 					type: ApplicationCommandOptionType.User,
 					required: true,
+				},
+			],
+		},
+		{
+			name: "catsay",
+			description: "Make The Cat say thing of your choice",
+			type: ApplicationCommandOptionType.Subcommand,
+			options: [
+				{
+					name: "text",
+					description: "the text",
+					required: true,
+					type: ApplicationCommandOptionType.String,
 				},
 			],
 		},
@@ -278,6 +292,19 @@ export default new HexieCommand({
 						})}`,
 					});
 				return interaction.editReply({ embeds: [Embed] });
+			}
+			case "catsay": {
+				const inquiry = interaction.options.getString("text");
+
+				let image = "";
+
+				image = await fetch(
+					`https://cataas.com/cat/cute/says/${encodeURIComponent(inquiry!)}`,
+				).then((response) => (image = response.url));
+
+				const finalImage = new AttachmentBuilder(image, { name: "catsay.png" });
+
+				return interaction.editReply({ files: [finalImage] });
 			}
 			case "dadjokes": {
 				let response = await fetch(`https://icanhazdadjoke.com/slack`);
