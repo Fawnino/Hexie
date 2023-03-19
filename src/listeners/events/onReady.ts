@@ -10,7 +10,7 @@ export default new Listener({
 			0,
 		);
 
-		client.user!.setActivity(`:help | ${client.guilds.cache.size} server(s)`, {
+		client.user!.setActivity(`/help | ${client.guilds.cache.size} server(s)`, {
 			type: ActivityType.Listening,
 		});
 
