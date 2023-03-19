@@ -18,7 +18,7 @@
 - Simple and Fun Commands
 - Setup the Bot Without needing to Code Much
 
-> This handler was made with the template of [EvolutionX-10](https://github.com/EvolutionX-10) click **[me](https://github.com/EvolutionX-10/discordbot)** to get redirected to the template! </br>This project was supported by Fawnino#9428 and ♡ Lux╸#7131!
+> This handler was made with the template of [EvolutionX-10](https://github.com/EvolutionX-10) click **[me](https://github.com/EvolutionX-10/discordbot)** to get redirected to the template! </br>
 
 ## Setup
 
@@ -45,13 +45,7 @@ Note: You need to have node version `16.9` or higher!
 
 <details>
 
-<summary>Fix Some Issues</summary>
-
-#### Switching Guild IDS
-
-1. Go to `src/commands/core/eval.ts`
-2. Change `guildIds: ["Your-Guild-Id-Here"]`
-3. Boom Bug Fixed when you try to turn on your bot.
+<summary>Fix an Issue</summary>
 
 #### Change Owner ID
 

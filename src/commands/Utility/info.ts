@@ -1250,51 +1250,54 @@ export default new CelestineCommand({
 			case "bot": {
 				const days = Math.floor(interaction.client.uptime / 86400000);
 				const hours = Math.floor(interaction.client.uptime / 3600000) % 24;
-				const minutes = Math.floor(interaction.client.uptime / 60000) % 60;
-				const seconds = Math.floor(interaction.client.uptime / 1000) % 60;
+
+				const serverStats = `Platform: ${os.platform()}\nOS: ${os.release()}\nArch: ${os.arch()}\nHostname: ${os.hostname()}\nCPUs: ${[
+					...new Set(os.cpus().map((x) => x.model)),
+				].join(",")}\nCores: ${os.cpus().length.toString()}\nRAM Total: ${(
+					os.totalmem() /
+					1024 /
+					1024
+				).toFixed(2)} MB\nRAM Free: ${(os.freemem() / 1024 / 1024).toFixed(
+					2,
+				)} MB\nRAM Usage: ${((1 - os.freemem() / os.totalmem()) * 100).toFixed(
+					2,
+				)}%`;
 
 				const botInfoEmbed = new EmbedBuilder()
 					.setTitle(`Client Information`)
+					.setThumbnail(`${interaction.client.user.displayAvatarURL()}`)
 					.addFields(
 						{
-							name: "Uptime",
-							value: `**${days}** days, **${hours}** hours, **${minutes}** minutes, and **${seconds}** seconds`,
-							inline: false,
-						},
-						{
-							name: "Thread(s)",
-							value: `**${os.cpus().length.toString()}**`,
+							name: "Command Types",
+							value: `**4** command types`,
 							inline: true,
 						},
 						{
-							name: "CPU",
-							value: `**${os.cpus()[0].model}**`,
-							inline: true,
+							name: `Bot Stats`,
+							value: `Servers: **${
+								interaction.client.guilds.cache.size
+							}**\nUsers: **${interaction.client.guilds.cache.reduce(
+								(acc, guild) => acc + guild.memberCount,
+								0,
+							)}**\nChannels: **${
+								interaction.client.channels.cache.size
+							}**\nWS Ping: **${Math.round(
+								interaction.client.ws.ping,
+							)}**ms\nUptime: **${days}** days and **${hours}** hours `,
 						},
 						{
-							name: "Platform(s)",
-							value: `**${process.platform}**`,
-							inline: true,
+							name: "Host Stats",
+							value: `\`\`\`asciidoc\n${serverStats}\`\`\``,
 						},
 					)
+					.setFooter({
+						text: `Requested by: ${interaction.user.tag}`,
+						iconURL: interaction.user.displayAvatarURL(),
+					})
 					.setColor(0xfde4f2);
-
-				const buttons = new ActionRowBuilder<ButtonBuilder>().addComponents(
-					new ButtonBuilder()
-						.setCustomId("users")
-						.setStyle(ButtonStyle.Secondary)
-						.setLabel(`${totalUsers} User(s)`)
-						.setDisabled(true),
-					new ButtonBuilder()
-						.setCustomId("servers")
-						.setStyle(ButtonStyle.Secondary)
-						.setDisabled(true)
-						.setLabel(`${interaction.client.guilds.cache.size} Server(s)`),
-				);
 
 				return interaction.editReply({
 					embeds: [botInfoEmbed],
-					components: [buttons],
 				});
 			}
 			case "worldclock": {
