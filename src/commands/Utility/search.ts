@@ -1,5 +1,5 @@
 import { CommandType } from "#lib/enums";
-import { CelestineCommand, Paginator } from "#lib/structures";
+import { HexieCommand, Paginator } from "#lib/structures";
 import {
 	EmbedBuilder,
 	ApplicationCommandOptionType,
@@ -62,7 +62,7 @@ interface DefinitionData {
 	thumbs_down: number;
 }
 
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Look around the internet!",

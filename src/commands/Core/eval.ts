@@ -1,9 +1,9 @@
 import { CommandType } from "#lib/enums";
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import { ApplicationCommandOptionType } from "discord.js";
 import { inspect } from "node:util";
 
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Core",
 	type: CommandType.ChatInput,
 	description: "Eval Some Code",

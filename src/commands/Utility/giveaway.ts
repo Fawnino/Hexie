@@ -1,5 +1,5 @@
 import { CommandType } from "#lib/enums";
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import {
 	ActionRowBuilder,
 	ApplicationCommandOptionType,
@@ -16,7 +16,7 @@ import {
 } from "discord.js";
 import ms from "ms";
 
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Run a giveaway.",

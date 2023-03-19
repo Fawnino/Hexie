@@ -1,4 +1,4 @@
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import fetch from "node-fetch";
 import { ApplicationCommandOptionType } from "discord.js";
@@ -10,7 +10,7 @@ interface TextData {
 	reversed: string;
 	vaporwaved: string;
 }
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Make your text different~!",

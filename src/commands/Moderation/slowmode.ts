@@ -1,4 +1,4 @@
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
 	ApplicationCommandOptionType,
@@ -9,7 +9,7 @@ import {
 	TextChannel,
 } from "discord.js";
 
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Moderation",
 	type: CommandType.ChatInput,
 	description: "Set the chat delay for the channel!",

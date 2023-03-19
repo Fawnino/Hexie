@@ -1,4 +1,4 @@
-import { Confirmation, CelestineCommand } from "#lib/structures";
+import { Confirmation, HexieCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
 	ApplicationCommandOptionType,
@@ -7,7 +7,7 @@ import {
 	PermissionsBitField,
 } from "discord.js";
 
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Moderation",
 	type: CommandType.ChatInput,
 	description: "Ban a user.",

@@ -1,5 +1,5 @@
 import { CommandType } from "#lib/enums";
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
 import fetch from "node-fetch";
 import client from "nekos.life";
@@ -8,7 +8,7 @@ const sfw = new client();
 interface Actions {
 	url: string;
 }
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Do an action to a user!",
@@ -496,7 +496,7 @@ export default new CelestineCommand({
 					`${target} found the cure for cancer, the next day they magically disappeared`,
 					`${target} cancelled their subscription for living`,
 					`${target} died from AIDS...`,
-					`${target} died waiting for Celestine to have good Commands`,
+					`${target} died waiting for Hexie to have good commands`,
 					`${target} was eaten by the duolingo owl...`,
 					`${target} killed their snapstreak with ${perp} causing ${interaction.user.tag} to get really angry at them then they shot them twice`,
 					`${target} missed their duolingo spanish lessons...`,

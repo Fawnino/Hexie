@@ -1,4 +1,4 @@
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
 	ApplicationCommandOptionType,
@@ -6,7 +6,7 @@ import {
 	GuildMember,
 	PermissionsBitField,
 } from "discord.js";
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Create a new poll!",

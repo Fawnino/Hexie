@@ -1,4 +1,4 @@
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
 	EmbedBuilder,
@@ -8,7 +8,7 @@ import {
 	PermissionsBitField,
 } from "discord.js";
 
-export default new CelestineCommand({
+export default new HexieCommand({
 	type: CommandType.ChatInput,
 	description: "Disable a users communication.",
 	category: "Moderation",

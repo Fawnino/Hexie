@@ -1,4 +1,4 @@
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
 	EmbedBuilder,
@@ -14,7 +14,7 @@ import moment from "moment";
 import os from "node:os";
 import canvas from "canvas";
 
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Utility",
 	type: CommandType.ChatInput,
 	description: "Information commands!",
@@ -87,8 +87,8 @@ export default new CelestineCommand({
 			],
 		},
 		{
-			name: "cel-tos",
-			description: "Get the terms of service for Celestine!",
+			name: "hex-tos",
+			description: "Get the terms of service for Hexie!",
 			type: ApplicationCommandOptionType.Subcommand,
 		},
 	],
@@ -151,7 +151,7 @@ export default new CelestineCommand({
 					inline: true,
 				},
 				{
-					name: ":info cel-tos",
+					name: ":info hex-tos",
 					value: `Get the TOS for the client.`,
 					inline: true,
 				},
@@ -778,22 +778,22 @@ export default new CelestineCommand({
 			});
 		}
 
-		if (args[0] === "cel-tos") {
+		if (args[0] === "hex-tos") {
 			const tos = new EmbedBuilder()
 				.setAuthor({
-					name: "Celestine Terms of Service and Privacy Policy",
+					name: "Hexie Terms of Service and Privacy Policy",
 					iconURL: `${message.client.user.displayAvatarURL({
 						forceStatic: true,
 					})}`,
 				})
 				.setColor(0xfde4f2)
 				.setDescription(
-					'By using Celestine Bot Services, you agree to our terms and conditions. Your agreement with us includes these terms and our Privacy Policy ("Agreements"). You acknowledge that you have read and understood the agreements and agree to be bound by them.',
+					'By using Hexie Bot Services, you agree to our terms and conditions. Your agreement with us includes these terms and our Privacy Policy ("Agreements"). You acknowledge that you have read and understood the agreements and agree to be bound by them.',
 				)
 				.addFields(
 					{
 						name: "Data",
-						value: `By Using Celestine Bot you agree to give us access to the following information:`,
+						value: `By Using Hexie Bot you agree to give us access to the following information:`,
 						inline: false,
 					},
 					{
@@ -877,7 +877,7 @@ export default new CelestineCommand({
 
 		if (args[0] === "links") {
 			const linksEmbed = new EmbedBuilder()
-				.setTitle("🔗 Celestine Links")
+				.setTitle("🔗 Hexie Links")
 				.setColor(0xfde4f2)
 				.addFields(
 					{
@@ -1479,7 +1479,7 @@ export default new CelestineCommand({
 			}
 			case "links": {
 				const linksEmbed = new EmbedBuilder()
-					.setTitle("🔗 Celestine Links")
+					.setTitle("🔗 Hexie Links")
 					.setColor(0xfde4f2)
 					.addFields(
 						{
@@ -1670,22 +1670,22 @@ export default new CelestineCommand({
 					components: [buttonRows],
 				});
 			}
-			case "cel-tos": {
+			case "hex-tos": {
 				const tos = new EmbedBuilder()
 					.setAuthor({
-						name: "Celestine Terms of Service and Privacy Policy",
+						name: "Hexie Terms of Service and Privacy Policy",
 						iconURL: `${interaction.client.user.displayAvatarURL({
 							forceStatic: true,
 						})}`,
 					})
 					.setColor(0xfde4f2)
 					.setDescription(
-						'By using Celestine Bot Services, you agree to our terms and conditions. Your agreement with us includes these terms and our Privacy Policy ("Agreements"). You acknowledge that you have read and understood the agreements and agree to be bound by them.',
+						'By using Hexie Bot Services, you agree to our terms and conditions. Your agreement with us includes these terms and our Privacy Policy ("Agreements"). You acknowledge that you have read and understood the agreements and agree to be bound by them.',
 					)
 					.addFields(
 						{
 							name: "Data",
-							value: `By Using Celestine Bot you agree to give us access to the following information:`,
+							value: `By Using Hexie Bot you agree to give us access to the following information:`,
 							inline: false,
 						},
 						{

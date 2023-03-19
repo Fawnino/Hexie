@@ -1,5 +1,5 @@
 import { CommandType } from "#lib/enums";
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import {
 	EmbedBuilder,
 	ApplicationCommandOptionType,
@@ -37,7 +37,7 @@ interface PickUp {
 	pickup: string;
 }
 
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Fun Commands!",

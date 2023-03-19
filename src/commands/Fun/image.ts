@@ -1,4 +1,4 @@
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import fetch from "node-fetch";
 import { EmbedBuilder, ApplicationCommandOptionType } from "discord.js";
@@ -7,7 +7,7 @@ interface Images {
 	image: string;
 	url: string;
 }
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Get a random picture of an animal!",

@@ -1,6 +1,6 @@
 import { handleListener, handleRegistry, initiateCommands } from "#core";
 import { LogLevel } from "#lib/enums";
-import { CelestineCommand, Listener, Logger } from "#lib/structures";
+import { HexieCommand, Listener, Logger } from "#lib/structures";
 import {
 	Client as DJSClient,
 	Collection,
@@ -31,7 +31,7 @@ export class Client<Ready extends boolean = boolean> extends DJSClient<Ready> {
 
 	public ownerIds: string[] = [];
 
-	public commands = new Collection<string, CelestineCommand>();
+	public commands = new Collection<string, HexieCommand>();
 
 	public listener = new Collection<string, Listener>();
 
@@ -55,7 +55,7 @@ export class Client<Ready extends boolean = boolean> extends DJSClient<Ready> {
 declare module "discord.js" {
 	interface Client {
 		ownerIds: string[];
-		commands: Collection<string, CelestineCommand>;
+		commands: Collection<string, HexieCommand>;
 		listener: Collection<string, Listener>;
 		logger: Logger;
 		prefixes: string[];

@@ -1,8 +1,8 @@
 <div align="center">
 
-# Celestine
+# Hexie
 
-<a href="https://discord.com/api/oauth2/authorize?client_id=1021374807683637249&permissions=8&scope=applications.commands%20bot"><img src="https://img.shields.io/static/v1?label=Invite%20Me&message=Celestine%239848&plastic&color=5865F2&logo=discord"></a>
+<a href="https://discord.com/api/oauth2/authorize?client_id=1021374807683637249&permissions=8&scope=applications.commands%20bot"><img src="https://img.shields.io/static/v1?label=Invite%20Me&message=Hexie%239848&plastic&color=5865F2&logo=discord"></a>
 <img src="https://badgen.net/badge/icon/typescript?icon=typescript&label">
 
 <br />

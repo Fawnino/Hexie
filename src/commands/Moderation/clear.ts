@@ -1,4 +1,4 @@
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
 	ApplicationCommandOptionType,
@@ -8,7 +8,7 @@ import {
 	TextChannel,
 } from "discord.js";
 
-export default new CelestineCommand({
+export default new HexieCommand({
 	type: CommandType.ChatInput,
 	description: "Delete an amount of messages.",
 	category: "Moderation",

@@ -4,10 +4,10 @@ import {
 	GuildMember,
 	PermissionsBitField,
 } from "discord.js";
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Mimic a user.",

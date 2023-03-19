@@ -14,7 +14,7 @@ import {
 	Awaitable,
 } from "discord.js";
 
-export class CelestineCommand<T extends CommandType = CommandType> {
+export class HexieCommand<T extends CommandType = CommandType> {
 	private data: CommandOptions<T>;
 	public description?: string;
 	public category: string;

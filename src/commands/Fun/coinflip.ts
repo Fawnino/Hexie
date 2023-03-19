@@ -1,4 +1,4 @@
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import {
 	ActionRowBuilder,
@@ -12,7 +12,7 @@ import {
 
 const sides = ["Heads", "Tails"];
 
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	aliases: ["cf"],

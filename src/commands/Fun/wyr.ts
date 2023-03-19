@@ -1,4 +1,4 @@
-import { CelestineCommand } from "#lib/structures";
+import { HexieCommand } from "#lib/structures";
 import { CommandType } from "#lib/enums";
 import { ApplicationCommandOptionType, EmbedBuilder } from "discord.js";
 import fetch from "node-fetch";
@@ -6,7 +6,7 @@ import fetch from "node-fetch";
 interface Data {
 	question: string;
 }
-export default new CelestineCommand({
+export default new HexieCommand({
 	category: "Fun",
 	type: CommandType.ChatInput,
 	description: "Play a would you rather game!",
