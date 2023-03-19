@@ -317,7 +317,7 @@ export default new HexieCommand({
 				const meme = (await res.json()) as MemeData;
 
 				const buttonUps = new ButtonBuilder()
-					.setLabel(`${meme.ups} 👍`)
+					.setLabel(`👍 | ${meme.ups}`)
 					.setStyle(ButtonStyle.Secondary)
 					.setDisabled(true)
 					.setCustomId("meme");
