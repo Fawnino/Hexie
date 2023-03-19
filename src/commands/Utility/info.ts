@@ -649,11 +649,6 @@ export default new HexieCommand({
 			ctx.fillRect(5, 5, 390, 30);
 			ctx.fillStyle = "#43b581";
 			ctx.fillRect(5, 5, Math.floor((390 / 100) * getProgress(date)), 30);
-			message.client.logger.info(
-				`Command Yeardata used: ${cy} is ${round(getProgress(date), 13).toFixed(
-					2,
-				)}% complete.`,
-			);
 			return message.reply({
 				content: `**${cy}** is **${round(getProgress(date), 13).toFixed(
 					2,
@@ -1469,12 +1464,6 @@ export default new HexieCommand({
 				ctx.fillRect(5, 5, 390, 30);
 				ctx.fillStyle = "#43b581";
 				ctx.fillRect(5, 5, Math.floor((390 / 100) * getProgress(date)), 30);
-				interaction.client.logger.info(
-					`Command Yeardata used: ${cy} is ${round(
-						getProgress(date),
-						13,
-					).toFixed(2)}% complete.`,
-				);
 				return interaction.editReply({
 					content: `**${cy}** is **${round(getProgress(date), 13).toFixed(
 						2,
