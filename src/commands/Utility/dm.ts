@@ -60,7 +60,7 @@ export default new HexieCommand({
 					content: "I can't DM myself, DM an actual person!",
 					ephemeral: true,
 				})
-				.catch((err) => {
+				.catch(() => {
 					interaction.client.logger.error(
 						`Lmao a bozo tried to dm me using the dm command`,
 					);

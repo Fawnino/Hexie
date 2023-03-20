@@ -8,7 +8,6 @@ import {
 	ButtonStyle,
 } from "discord.js";
 import malScraper from "mal-scraper";
-import genshin from "genshin-db";
 import fetch from "node-fetch";
 
 // Interfaced Data
@@ -81,19 +80,6 @@ export default new HexieCommand({
 			],
 		},
 		{
-			name: "genshincharacter",
-			description: "Get advanced information about a Genshin character!",
-			type: ApplicationCommandOptionType.Subcommand,
-			options: [
-				{
-					name: "character",
-					description: "Character to get information about",
-					type: ApplicationCommandOptionType.String,
-					required: true,
-				},
-			],
-		},
-		{
 			name: "pokedex",
 			type: ApplicationCommandOptionType.Subcommand,
 			description: "Get information about a pokemon.",
@@ -119,19 +105,6 @@ export default new HexieCommand({
 				},
 			],
 		},
-		{
-			name: "google",
-			description: "Look around google!",
-			type: ApplicationCommandOptionType.Subcommand,
-			options: [
-				{
-					name: "query",
-					description: "Query to look up on google.",
-					required: true,
-					type: ApplicationCommandOptionType.String,
-				},
-			],
-		},
 	],
 	async commandRun(interaction) {
 		if (!interaction.deferred) await interaction.deferReply();
@@ -140,46 +113,6 @@ export default new HexieCommand({
 		const Types = interaction.options.getSubcommand();
 
 		switch (Types) {
-			case "genshincharacter": {
-				const char = genshin.characters(`${genshinCharacter}`);
-
-				try {
-					const embed = new EmbedBuilder()
-						.setTitle(`**${char!.name}**`)
-						.setDescription(`${char?.description}`)
-						.setThumbnail(char!.images.icon)
-						.setColor("LuminousVividPink")
-						.addFields(
-							{ name: "Titles:", value: char!.title, inline: true },
-							{ name: "Full Name:", value: char!.fullname, inline: true },
-							{
-								name: "Version Released:",
-								value: char!.version,
-								inline: true,
-							},
-							{ name: "Element:", value: char!.element, inline: true },
-							{ name: "Weapon Type:", value: char!.weapontype, inline: true },
-							{ name: "Gender:", value: char!.gender, inline: true },
-							{ name: "Region:", value: char!.region, inline: true },
-							{ name: "Rarity:", value: char!.rarity, inline: true },
-							{ name: "Birthday:", value: char!.birthday, inline: true },
-							{
-								name: "Constellation:",
-								value: char!.constellation,
-								inline: true,
-							},
-							{ name: "Substat:", value: char!.substat, inline: true },
-							{ name: "Affiliation:", value: char!.affiliation, inline: true },
-						)
-						.setTimestamp();
-					return interaction.editReply({ embeds: [embed] });
-				} catch (err) {
-					interaction.client.logger.error(`Genshin Character Error: ${err}`);
-					return interaction.editReply({
-						content: "Could not find that character!",
-					});
-				}
-			}
 			case "urban": {
 				const response = await fetch(
 					`https://api.urbandictionary.com/v0/define?term=${encodeURIComponent(
@@ -415,30 +348,6 @@ export default new HexieCommand({
 							});
 						});
 				});
-			}
-			case "google": {
-				const trollGoogleLink = new EmbedBuilder()
-					.setTitle(`Search Results For: ${query}`)
-					.setDescription(
-						"Here is what I found on google! **[Click Me!](https://www.youtube.com/watch?v=dQw4w9WgXcQ)**",
-					)
-					.setThumbnail(
-						"https://cdn.discordapp.com/attachments/1022466108818726912/1036248301181354054/unknown.png",
-					)
-					.setAuthor({
-						name: `${interaction.user.tag}`,
-						iconURL: `${interaction.user.displayAvatarURL({
-							forceStatic: true,
-						})}`,
-					})
-					.setFooter({
-						text: "Take a look on what I've found!",
-						iconURL: `${interaction.client.user.displayAvatarURL({
-							forceStatic: true,
-						})}`,
-					})
-					.setColor("White");
-				return interaction.editReply({ embeds: [trollGoogleLink] });
 			}
 		}
 	},
