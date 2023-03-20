@@ -715,26 +715,49 @@ export default new HexieCommand({
 			}
 			case "breed": {
 				const baby = interaction.guild!.members.cache.random();
+				let slapLink = await sfw.slap();
 
 				if (mentionedUser.id === interaction.user.id)
 					return interaction.editReply({
 						content: "You can't breed with yourself you dumb fuck.",
 					});
 
+				const breedBot = new EmbedBuilder()
+
+					.setTitle("EW!?")
+					.setDescription(
+						`**<@!${interaction.user.id}> TRIED TO BREED ME, PERVERT!!!**`,
+					)
+					.setColor(0xfde4f2)
+					.setImage(slapLink.url)
+					.setFooter({
+						text: `Requested by: ${interaction.user.tag}`,
+						iconURL: interaction.user.displayAvatarURL(),
+					});
+
 				const breedEmbed = new EmbedBuilder()
 					.setTitle("💞 | Breeding!")
 					.setDescription(
-						`🔻 | ${mentionedUser} \n🔺| and ${usertwo} bred with each other!`,
+						`🔻 | ${mentionedUser} \n🔺| ${usertwo} \n these two bred with each other!`,
 					)
 					.setColor("#ff007f")
 					.addFields({
 						name: "👶 | Breeding Result",
-						value: `They bred for a long time and made ${baby}.`,
+						value: `They bred for a long time and made ${baby} Jr.`,
 					})
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
 						iconURL: interaction.user.displayAvatarURL(),
 					});
+
+				if (mentionedUser.id === "1021374807683637249") {
+					return interaction.editReply({ embeds: [breedBot] });
+				}
+
+				if (usertwo.id === "1021374807683637249") {
+					return interaction.editReply({ embeds: [breedBot] });
+				}
+
 				return interaction.editReply({ embeds: [breedEmbed] });
 			}
 			case "feed": {
