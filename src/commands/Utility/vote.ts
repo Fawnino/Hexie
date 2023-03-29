@@ -9,12 +9,12 @@ import {
 export default new HexieCommand({
 	category: "Utility",
 	type: CommandType.ChatInput,
-	description: "Create a new poll!",
+	description: "Create a poll for users to vote on.",
 	options: [
 		{
 			type: ApplicationCommandOptionType.String,
-			description: "Question so people can vote on the poll.",
-			name: "question",
+			description: "The poll to vote for.",
+			name: "poll",
 			required: true,
 		},
 	],
@@ -57,7 +57,7 @@ export default new HexieCommand({
 		await sent.react("👎");
 	},
 	async commandRun(interaction) {
-		const question = interaction.options.getString("question");
+		const question = interaction.options.getString("poll");
 
 		if (
 			!(interaction.member! as GuildMember).permissions.has([

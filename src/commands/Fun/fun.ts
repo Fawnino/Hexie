@@ -14,8 +14,8 @@ interface Joke {
 	joke: string;
 }
 
-interface Image {
-	image: string;
+interface ComplimentData {
+	compliment: string;
 }
 
 interface MemeData {
@@ -109,7 +109,7 @@ export default new HexieCommand({
 				{
 					name: "user",
 					description: "User to do the ultimate troll on 😈.",
-					required: false,
+					required: true,
 					type: ApplicationCommandOptionType.User,
 				},
 			],
@@ -122,6 +122,19 @@ export default new HexieCommand({
 				{
 					name: "user",
 					description: "User to roast and insult.",
+					type: ApplicationCommandOptionType.User,
+					required: true,
+				},
+			],
+		},
+		{
+			name: "compliment",
+			description: "Compliments a specified user.",
+			type: ApplicationCommandOptionType.Subcommand,
+			options: [
+				{
+					name: "user",
+					description: "User to compliment.",
 					type: ApplicationCommandOptionType.User,
 					required: true,
 				},
@@ -463,6 +476,23 @@ export default new HexieCommand({
 
 				return interaction.editReply({
 					content: `${roastUser}, ${data.insult}`,
+					allowedMentions: { repliedUser: false },
+				});
+			}
+			case "compliment": {
+				const complimentUser = interaction.options.getUser("user");
+
+				const response = await fetch("https://complimentr.com/api");
+
+				const data = (await response.json()) as ComplimentData;
+
+				if (complimentUser!.id === interaction.client.user.id)
+					return interaction.editReply({
+						content: `${interaction.user}, ${data.compliment}. Thanks for trying to compliment me! 🫶 `,
+					});
+
+				return interaction.editReply({
+					content: `${complimentUser}, ${data.compliment}`,
 					allowedMentions: { repliedUser: false },
 				});
 			}
