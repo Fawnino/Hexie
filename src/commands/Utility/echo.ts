@@ -17,24 +17,10 @@ export default new HexieCommand({
 			max_length: 1024,
 		},
 	],
-	async messageRun(message, args) {
-		if (!args.join(" "))
-			return message.reply({ content: "Input something for me to say!" });
-
-		if (args.length > 1024)
-			return message.reply({
-				content: `Your message is too long, I can only send up to 1024 characters\n\nYour message: ${args.length} characters`,
-			});
-
-		await message.reply({
-			content: `${message.author} said: ${args.join(" ")}`,
-			allowedMentions: { repliedUser: false },
-		});
-	},
 	async commandRun(interaction) {
 		const text = interaction.options.getString("message");
 		await interaction.reply({
-			content: `${interaction.user.tag} said: ${text}`,
+			content: `${text}`,
 			allowedMentions: { repliedUser: false },
 		});
 	},

@@ -1,5 +1,6 @@
 import { Listener, Logger } from "#lib/structures";
 import { green } from "colorette";
+
 const logger = new Logger();
 
 export default new Listener({

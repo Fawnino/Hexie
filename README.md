@@ -45,7 +45,7 @@ Note: You need to have node version `16.9` or higher!
 
 <details>
 
-<summary>Fix an Issue</summary>
+<summary>Fix a small Issue</summary>
 
 #### Change Owner ID
 
@@ -69,9 +69,6 @@ export default new Command({
 	description: "Ping Pong!!",
 	async commandRun(interaction) {
 		return interaction.reply({ content: "Pong!", ephemeral: true });
-	},
-	async messageRun(message) {
-		return message.channel.send("Pong!");
 	},
 });
 ```
@@ -100,7 +97,7 @@ export default new Listener({
 
 <details>
 
-<summary> Token Setup</summary>
+<summary> Token Setup </summary>
 
 #### Tutorial
 
