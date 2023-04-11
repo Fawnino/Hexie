@@ -59,7 +59,7 @@ export default new HexieCommand({
 						`https://cdn.discordapp.com/attachments/1014815986773401631/1019513691751858186/b6e5c185f1d0461d22d7684768be70fb.jpg`,
 					)
 					.setDescription(
-						`${target} is **${Math.floor(Math.random() * 100)}%/100%** simp`,
+						`${target} is **${Math.floor(Math.random() * 101)}%/100%** simp`,
 					)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -75,7 +75,7 @@ export default new HexieCommand({
 					.setTitle("🏳️‍🌈 | Gay rate Machine")
 					.setColor(0xfde4f2)
 					.setDescription(
-						`${target} is **${Math.floor(Math.random() * 100)}%/100%** gay`,
+						`${target} is **${Math.floor(Math.random() * 101)}%/100%** gay`,
 					)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -94,7 +94,7 @@ export default new HexieCommand({
 						`https://cdn.discordapp.com/attachments/1014815986773401631/1019513435890921562/mai-sakurajima_1wva.jpg`,
 					)
 					.setDescription(
-						`${target} is **${Math.floor(Math.random() * 100)}%/100%** waifu`,
+						`${target} is **${Math.floor(Math.random() * 101)}%/100%** waifu`,
 					)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -113,7 +113,7 @@ export default new HexieCommand({
 						`https://cdn.discordapp.com/attachments/1014815986773401631/1019515329199751178/IMG_4625.jpg`,
 					)
 					.setDescription(
-						`${target} is **${Math.floor(Math.random() * 100)}%/100%** chad`,
+						`${target} is **${Math.floor(Math.random() * 101)}%/100%** chad`,
 					)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -132,7 +132,7 @@ export default new HexieCommand({
 						"https://cdn.discordapp.com/attachments/1014815986773401631/1019514607620083722/1200x1200bf-60.jpg",
 					)
 					.setDescription(
-						`${target} is **${Math.floor(Math.random() * 100)}%/100%** uwu`,
+						`${target} is **${Math.floor(Math.random() * 101)}%/100%** uwu`,
 					)
 					.setFooter({
 						text: `Requested by: ${interaction.user.tag}`,
@@ -148,7 +148,7 @@ export default new HexieCommand({
 					.setTitle("🍆 | Random PP Generator")
 					.setDescription(
 						`${target} has a 8${"=".repeat(
-							Math.floor(Math.random() * 20),
+							Math.floor(Math.random() * 25),
 						)}D pp`,
 					)
 					.setFooter({

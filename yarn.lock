@@ -6,11 +6,11 @@ __metadata:
   cacheKey: 8
 
 "@babel/runtime@npm:^7.10.5":
-  version: 7.20.6
-  resolution: "@babel/runtime@npm:7.20.6"
+  version: 7.21.0
+  resolution: "@babel/runtime@npm:7.21.0"
   dependencies:
     regenerator-runtime: ^0.13.11
-  checksum: 42a8504db21031b1859fbc0f52d698a3d2f5ada9519eb76c6f96a7e657d8d555732a18fe71ef428a67cc9fc81ca0d3562fb7afdc70549c5fec343190cbaa9b03
+  checksum: 7b33e25bfa9e0e1b9e8828bb61b2d32bdd46b41b07ba7cb43319ad08efc6fda8eb89445193e67d6541814627df0ca59122c0ea795e412b99c5183a0540d338ab
   languageName: node
   linkType: hard
 
@@ -333,13 +333,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/humanize-duration@npm:^3.27.1":
-  version: 3.27.1
-  resolution: "@types/humanize-duration@npm:3.27.1"
-  checksum: d3d69b64918d0cee4aa69580dd04d1b96e3385645d398e27b1535f8c6d0252b0235defb16619379a6196c6bbdfc7b6032f010b25cac44903a32b09db8aa06f30
-  languageName: node
-  linkType: hard
-
 "@types/ms@npm:^0.7.31":
   version: 0.7.31
   resolution: "@types/ms@npm:0.7.31"
@@ -501,9 +494,9 @@ __metadata:
   linkType: hard
 
 "aws4@npm:^1.8.0":
-  version: 1.11.0
-  resolution: "aws4@npm:1.11.0"
-  checksum: 5a00d045fd0385926d20ebebcfba5ec79d4482fe706f63c27b324d489a04c68edb0db99ed991e19eda09cb8c97dc2452059a34d97545cebf591d7a2b5a10999f
+  version: 1.12.0
+  resolution: "aws4@npm:1.12.0"
+  checksum: 68f79708ac7c335992730bf638286a3ee0a645cf12575d557860100767c500c08b30e24726b9f03265d74116417f628af78509e1333575e9f8d52a80edfe8cbc
   languageName: node
   linkType: hard
 
@@ -965,7 +958,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"entities@npm:^4.2.0, entities@npm:^4.3.0, entities@npm:^4.4.0":
+"entities@npm:^4.2.0, entities@npm:^4.4.0":
   version: 4.4.0
   resolution: "entities@npm:4.4.0"
   checksum: 84d250329f4b56b40fa93ed067b194db21e8815e4eb9b59f43a086f0ecd342814f6bc483de8a77da5d64e0f626033192b1b4f1792232a7ea6b970ebe0f3187c2
@@ -1397,7 +1390,6 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "hexie@workspace:."
   dependencies:
-    "@types/humanize-duration": ^3.27.1
     "@types/ms": ^0.7.31
     "@types/node": ^18.15.3
     canvas: ^2.10.1
@@ -1406,29 +1398,26 @@ __metadata:
     discord.js: ^14.8.0
     dotenv: ^16.0.3
     genshin-db: ^4.3.2
-    humanize-duration: ^3.27.3
-    mal-scraper: ^2.11.4
+    mal-scraper: ^2.12.0
     moment: ^2.29.4
     ms: ^2.1.3
     nekos.life: ^3.0.0
     node-fetch: ^3.2.10
     prettier: ^2.8.4
-    reddit-image-fetcher: ^2.0.11
-    request: ^2.88.2
     tsup: ^6.6.3
     typescript: ^4.9.5
   languageName: unknown
   linkType: soft
 
 "htmlparser2@npm:^8.0.1":
-  version: 8.0.1
-  resolution: "htmlparser2@npm:8.0.1"
+  version: 8.0.2
+  resolution: "htmlparser2@npm:8.0.2"
   dependencies:
     domelementtype: ^2.3.0
-    domhandler: ^5.0.2
+    domhandler: ^5.0.3
     domutils: ^3.0.1
-    entities: ^4.3.0
-  checksum: 06d5c71e8313597722bc429ae2a7a8333d77bd3ab07ccb916628384b37332027b047f8619448d8f4a3312b6609c6ea3302a4e77435d859e9e686999e6699ca39
+    entities: ^4.4.0
+  checksum: 29167a0f9282f181da8a6d0311b76820c8a59bc9e3c87009e21968264c2987d2723d6fde5a964d4b7b6cba663fca96ffb373c06d8223a85f52a6089ced942700
   languageName: node
   linkType: hard
 
@@ -1475,13 +1464,6 @@ __metadata:
   version: 2.1.0
   resolution: "human-signals@npm:2.1.0"
   checksum: b87fd89fce72391625271454e70f67fe405277415b48bcc0117ca73d31fa23a4241787afdc8d67f5a116cf37258c052f59ea82daffa72364d61351423848e3b8
-  languageName: node
-  linkType: hard
-
-"humanize-duration@npm:^3.27.3":
-  version: 3.27.3
-  resolution: "humanize-duration@npm:3.27.3"
-  checksum: 17193537334676cbff156a5f60ea6349e4e981f33062fdae901ac10ed096d4f05e7b8839d362cbda7a06ade2a499f0a655e3c1bf9da6d4a234d99ed0498ba516
   languageName: node
   linkType: hard
 
@@ -1783,9 +1765,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"mal-scraper@npm:^2.11.4":
-  version: 2.11.4
-  resolution: "mal-scraper@npm:2.11.4"
+"mal-scraper@npm:^2.12.0":
+  version: 2.12.0
+  resolution: "mal-scraper@npm:2.12.0"
   dependencies:
     axios: ^0.21.1
     cheerio: ^1.0.0-rc.3
@@ -1793,7 +1775,7 @@ __metadata:
     match-sorter: ^4.0.2
     request: ^2.88.0
     xml2js: ^0.4.22
-  checksum: 24ad785ef1f4abbfc18e5c4fb129ad92977ca917c01b90abce31d7ba21d4125c92552ef182438de531d1a33b0dd44f39641a5c2b830c40d2b0dbe82b1c7f0e5d
+  checksum: 0d9a16012bd45fbb4bcf46a3678fbae43c78d588b1a9da8c71a454692d9853db07431c4395a4b1919ff3aeab14f83efd81229e709aceff312ec786de12df2368
   languageName: node
   linkType: hard
 
@@ -2042,13 +2024,13 @@ __metadata:
   linkType: hard
 
 "node-fetch@npm:^3.2.10":
-  version: 3.3.0
-  resolution: "node-fetch@npm:3.3.0"
+  version: 3.3.1
+  resolution: "node-fetch@npm:3.3.1"
   dependencies:
     data-uri-to-buffer: ^4.0.0
     fetch-blob: ^3.1.4
     formdata-polyfill: ^4.0.10
-  checksum: e9936908d2783d3c48a038e187f8062de294d75ef43ec8ab812d7cbd682be2b67605868758d2e9cad6103706dcfe4a9d21d78f6df984e8edf10e7a5ce2e665f8
+  checksum: 62145fd3ba4770a76110bc31fdc0054ab2f5442b5ce96e9c4b39fc9e94a3d305560eec76e1165d9259eab866e02a8eecf9301062bb5dfc9f08a4d08b69d223dd
   languageName: node
   linkType: hard
 
@@ -2202,11 +2184,11 @@ __metadata:
   linkType: hard
 
 "parse5@npm:^7.0.0":
-  version: 7.1.1
-  resolution: "parse5@npm:7.1.1"
+  version: 7.1.2
+  resolution: "parse5@npm:7.1.2"
   dependencies:
     entities: ^4.4.0
-  checksum: 8f72fbfa6df83a3f29f58e1818f7bd46b47ff3e26d79c74e10b8fc7ef7ee76163f205113f1b2f6a5b8dc4e31e726f490444f04890cead6e974dbcbe8172b1321
+  checksum: 59465dd05eb4c5ec87b76173d1c596e152a10e290b7abcda1aecf0f33be49646ea74840c69af975d7887543ea45564801736356c568d6b5e71792fd0f4055713
   languageName: node
   linkType: hard
 
@@ -2332,13 +2314,13 @@ __metadata:
   linkType: hard
 
 "readable-stream@npm:^3.6.0":
-  version: 3.6.0
-  resolution: "readable-stream@npm:3.6.0"
+  version: 3.6.2
+  resolution: "readable-stream@npm:3.6.2"
   dependencies:
     inherits: ^2.0.3
     string_decoder: ^1.1.1
     util-deprecate: ^1.0.1
-  checksum: d4ea81502d3799439bb955a3a5d1d808592cf3133350ed352aeaa499647858b27b1c4013984900238b0873ec8d0d8defce72469fb7a83e61d53f5ad61cb80dc8
+  checksum: bdcbe6c22e846b6af075e32cf8f4751c2576238c5043169a1c221c92ee2878458a816a4ea33f4c67623c0b6827c8a400409bfb3cf0bf3381392d0b1dfb52ac8d
   languageName: node
   linkType: hard
 
@@ -2360,16 +2342,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"reddit-image-fetcher@npm:^2.0.11":
-  version: 2.0.11
-  resolution: "reddit-image-fetcher@npm:2.0.11"
-  dependencies:
-    axios: ^0.21.1
-    shuffle-array: ^1.0.1
-  checksum: 7808552ae1a3b5d27cf8daf9d5b109089e88bf0333b221b4907afdc584eb64a5b8ca9967391f0be3c6902d6586975cdf2af977e890ff1dcd30ebd38dec765d09
-  languageName: node
-  linkType: hard
-
 "regenerator-runtime@npm:^0.13.11":
   version: 0.13.11
   resolution: "regenerator-runtime@npm:0.13.11"
@@ -2384,7 +2356,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"request@npm:^2.88.0, request@npm:^2.88.2":
+"request@npm:^2.88.0":
   version: 2.88.2
   resolution: "request@npm:2.88.2"
   dependencies:
@@ -2528,13 +2500,6 @@ __metadata:
   version: 3.0.0
   resolution: "shebang-regex@npm:3.0.0"
   checksum: 1a2bcae50de99034fcd92ad4212d8e01eedf52c7ec7830eedcf886622804fe36884278f2be8be0ea5fde3fd1c23911643a4e0f726c8685b61871c8908af01222
-  languageName: node
-  linkType: hard
-
-"shuffle-array@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "shuffle-array@npm:1.0.1"
-  checksum: 9f299ad69622f0f8049bb02d287287f46d4d96299b20010ce072b1b00adbe0dbb5fb488dd136bcc2f1858f6bbbe9b939bdf35fc379c96a3e1000da77fd29e2eb
   languageName: node
   linkType: hard
 

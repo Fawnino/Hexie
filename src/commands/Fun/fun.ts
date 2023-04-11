@@ -398,7 +398,7 @@ export default new HexieCommand({
 					.addFields({
 						name: "MatchMaking Result",
 						value: `Their love-score is ${Math.floor(
-							Math.random() * 100,
+							Math.random() * 101,
 						)}%! 💘`,
 					})
 					.setFooter({
