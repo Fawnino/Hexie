@@ -5,7 +5,7 @@ import {
 	APIStringSelectComponent,
 	ButtonBuilder,
 	ButtonStyle,
-	CommandInteraction,
+	ChatInputCommandInteraction,
 	EmbedBuilder,
 	Message,
 	MessageActionRowComponent,
@@ -67,7 +67,7 @@ export class Paginator {
 	}
 
 	public async run(
-		messageOrInteraction: Message | CommandInteraction,
+		messageOrInteraction: Message | ChatInputCommandInteraction,
 		user?: User,
 	) {
 		this.sanityChecks();
@@ -118,7 +118,7 @@ export class Paginator {
 	}
 
 	private async handleInteraction(
-		interaction: CommandInteraction,
+		interaction: ChatInputCommandInteraction,
 		embeds: EmbedBuilder[],
 		rows: (
 			| ActionRowBuilder<StringSelectMenuBuilder>
@@ -269,7 +269,7 @@ export class Paginator {
 			.map((_, i) => {
 				const embed = new EmbedBuilder(template.data);
 				embed.setDescription(this.descriptions![i]);
-				!embed.data.color && embed.setColor(0xfde4f2);
+				!embed.data.color && embed.setColor("Random");
 				embed.setFooter({
 					text: `Page ${i + 1}/${this.descriptions!.length}`,
 				});

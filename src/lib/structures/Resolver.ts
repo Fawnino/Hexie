@@ -1,7 +1,7 @@
 import type { Snowflake } from "discord-api-types/v10";
 import {
 	Collection,
-	CommandInteraction,
+	ChatInputCommandInteraction,
 	GuildBasedChannel,
 	GuildMember,
 	Role,
@@ -19,7 +19,7 @@ import {
 export class Resolver {
 	public constructor(
 		private readonly content: string,
-		private readonly interaction: CommandInteraction,
+		private readonly interaction: ChatInputCommandInteraction,
 	) {}
 
 	readonly #regex = {

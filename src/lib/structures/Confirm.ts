@@ -1,6 +1,6 @@
 import {
 	ButtonInteraction,
-	CommandInteraction,
+	ChatInputCommandInteraction,
 	InteractionReplyOptions,
 	Message,
 	ActionRowBuilder,
@@ -12,14 +12,14 @@ import {
 interface ConfirmOptions {
 	redBtnText: string;
 	greenBtnText: string;
-	context: Message | CommandInteraction;
+	context: Message | ChatInputCommandInteraction;
 	onConfirm: (interaction: ButtonInteraction) => void;
 	onDecline: (Interaction: ButtonInteraction) => void;
 }
 
 export class Confirmation {
 	private row: ActionRowBuilder;
-	private context: Message | CommandInteraction;
+	private context: Message | ChatInputCommandInteraction;
 	private onConfirm: (interaction: ButtonInteraction) => void;
 	private onDecline: (interaction: ButtonInteraction) => void;
 	private greenBtnText: string;
@@ -102,7 +102,7 @@ export class Confirmation {
 			]);
 			//@ts-ignore d.js make ur fucking typings work
 			msg.components[0] = row;
-			if (this.context instanceof CommandInteraction) {
+			if (this.context instanceof ChatInputCommandInteraction) {
 				this.context.editReply({ components: msg.components });
 				return;
 			}

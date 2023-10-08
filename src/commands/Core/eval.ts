@@ -17,7 +17,7 @@ export default new HexieCommand({
 		},
 	],
 	async commandRun(interaction) {
-		const code = interaction.options.getString("code", true);
+		const code = interaction.options.get("code", true);
 		const { client, channel, user, member, guild } = interaction;
 		await interaction.deferReply();
 
